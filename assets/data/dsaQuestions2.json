@@ -1,0 +1,569 @@
+[
+  {
+    "id": "dsa_str1",
+    "title": "Check Palindrome String",
+    "difficulty": "Easy",
+    "category": "Strings",
+    "description": "Given a string, check if it is a palindrome (reads same forwards and backwards).\nIgnore case while checking. Print YES or NO.\n\nInput: A single string",
+    "constraints": "1 <= s.length <= 10^5",
+    "hints": [
+      "Convert to lowercase first.",
+      "Compare s with its reverse."
+    ],
+    "testCases": [
+      {
+        "input": "Racecar",
+        "output": "YES",
+        "explanation": "'racecar' reads same forward and backward."
+      },
+      {
+        "input": "hello",
+        "output": "NO"
+      }
+    ],
+    "solutions": {
+      "python": "s = input().strip().lower()\nprint('YES' if s == s[::-1] else 'NO')",
+      "cpp": "#include <iostream>\n#include <string>\n#include <algorithm>\n#include <cctype>\nusing namespace std;\nint main(){\n    string s; cin>>s;\n    transform(s.begin(),s.end(),s.begin(),::tolower);\n    string r=s; reverse(r.begin(),r.end());\n    cout<<(s==r?\"YES\":\"NO\")<<endl;\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        String s=new Scanner(System.in).next().toLowerCase();\n        String r=new StringBuilder(s).reverse().toString();\n        System.out.println(s.equals(r)?\"YES\":\"NO\");\n    }\n}",
+      "javascript": "const s=require('fs').readFileSync(0,'utf-8').trim().toLowerCase();\nconst r=s.split('').reverse().join('');\nconsole.log(s===r?'YES':'NO');",
+      "c": "#include <stdio.h>\n#include <string.h>\n#include <ctype.h>\nint main(){\n    char s[100005]; scanf(\"%s\",s);\n    int n=strlen(s);\n    for(int i=0;i<n;i++) s[i]=tolower(s[i]);\n    int ok=1;\n    for(int i=0;i<n/2;i++) if(s[i]!=s[n-1-i]){ok=0;break;}\n    printf(\"%s\\n\",ok?\"YES\":\"NO\");\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "s = input().strip().lower()\n# Compare s with its reverse\n",
+      "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\nint main(){ string s; cin>>s; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ String s=new Scanner(System.in).next(); } }",
+      "javascript": "const s=require('fs').readFileSync(0,'utf-8').trim().toLowerCase();\n",
+      "c": "#include <stdio.h>\nint main(){ char s[100005]; scanf(\"%s\",s); return 0; }"
+    },
+    "explanation": "Convert to lowercase, then compare string with its reverse. Two-pointer approach also works: compare s[i] with s[n-1-i].",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "Racecar"
+  },
+  {
+    "id": "dsa_str2",
+    "title": "Count Vowels in a String",
+    "difficulty": "Easy",
+    "category": "Strings",
+    "description": "Count the number of vowels (a, e, i, o, u — both upper and lower case) in the input string.\n\nInput: A single string",
+    "constraints": "1 <= s.length <= 10^5",
+    "hints": [
+      "Check each character against the set {a,e,i,o,u,A,E,I,O,U}."
+    ],
+    "testCases": [
+      {
+        "input": "Hello World",
+        "output": "3"
+      },
+      {
+        "input": "rhythm",
+        "output": "0"
+      }
+    ],
+    "solutions": {
+      "python": "s = input()\nprint(sum(1 for c in s if c in 'aeiouAEIOU'))",
+      "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\nint main(){\n    string s; getline(cin,s);\n    int cnt=0;\n    string vowels=\"aeiouAEIOU\";\n    for(char c:s) if(vowels.find(c)!=string::npos) cnt++;\n    cout<<cnt<<endl;\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        String s=new Scanner(System.in).nextLine();\n        int cnt=0;\n        for(char c:s.toCharArray()) if(\"aeiouAEIOU\".indexOf(c)>=0) cnt++;\n        System.out.println(cnt);\n    }\n}",
+      "javascript": "const s=require('fs').readFileSync(0,'utf-8').trim();\nconst cnt=[...s].filter(c=>'aeiouAEIOU'.includes(c)).length;\nconsole.log(cnt);",
+      "c": "#include <stdio.h>\n#include <string.h>\nint isVowel(char c){\n    return c=='a'||c=='e'||c=='i'||c=='o'||c=='u'||\n           c=='A'||c=='E'||c=='I'||c=='O'||c=='U';\n}\nint main(){\n    char s[100005]; fgets(s,sizeof(s),stdin);\n    int cnt=0;\n    for(int i=0;s[i];i++) if(isVowel(s[i])) cnt++;\n    printf(\"%d\\n\",cnt);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "s = input()\n# Count vowels\n",
+      "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\nint main(){ string s; getline(cin,s); return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ String s=new Scanner(System.in).nextLine(); } }",
+      "javascript": "const s=require('fs').readFileSync(0,'utf-8').trim();\n",
+      "c": "#include <stdio.h>\nint main(){ char s[100005]; fgets(s,sizeof(s),stdin); return 0; }"
+    },
+    "explanation": "Iterate over each character and check if it belongs to {a,e,i,o,u,A,E,I,O,U}. Maintain a counter.",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "Hello World"
+  },
+  {
+    "id": "dsa_str3",
+    "title": "String Compression",
+    "difficulty": "Medium",
+    "category": "Strings",
+    "description": "Implement basic string compression: consecutive repeated characters are replaced by character + count.\nIf compressed string is not smaller, return original string.\n\nInput: A string (only lowercase letters)\nExample: \"aabcccdddd\" → \"a2b1c3d4\"",
+    "constraints": "1 <= s.length <= 10^4",
+    "hints": [
+      "Traverse string, count consecutive characters.",
+      "Append char+count. Check if result is shorter."
+    ],
+    "testCases": [
+      {
+        "input": "aabcccdddd",
+        "output": "a2b1c3d4"
+      },
+      {
+        "input": "abc",
+        "output": "abc",
+        "explanation": "Compressed 'a1b1c1' is longer, so return original."
+      }
+    ],
+    "solutions": {
+      "python": "s = input().strip()\nif not s:\n    print(s)\nelse:\n    res, cnt = [], 1\n    for i in range(1, len(s)):\n        if s[i] == s[i-1]: cnt += 1\n        else: res.append(s[i-1]+str(cnt)); cnt=1\n    res.append(s[-1]+str(cnt))\n    compressed = ''.join(res)\n    print(compressed if len(compressed) < len(s) else s)",
+      "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\nint main(){\n    string s; cin>>s;\n    if(s.empty()){cout<<s;return 0;}\n    string res=\"\";\n    int cnt=1;\n    for(int i=1;i<(int)s.size();i++){\n        if(s[i]==s[i-1]) cnt++;\n        else{res+=s[i-1]+to_string(cnt);cnt=1;}\n    }\n    res+=s.back()+to_string(cnt);\n    cout<<(res.size()<s.size()?res:s)<<endl;\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        String s=new Scanner(System.in).next();\n        StringBuilder res=new StringBuilder();\n        int cnt=1;\n        for(int i=1;i<s.length();i++){\n            if(s.charAt(i)==s.charAt(i-1)) cnt++;\n            else{res.append(s.charAt(i-1)).append(cnt);cnt=1;}\n        }\n        res.append(s.charAt(s.length()-1)).append(cnt);\n        System.out.println(res.length()<s.length()?res.toString():s);\n    }\n}",
+      "javascript": "const s=require('fs').readFileSync(0,'utf-8').trim();\nif(!s){console.log(s);process.exit();}\nlet res='',cnt=1;\nfor(let i=1;i<s.length;i++){\n    if(s[i]===s[i-1]) cnt++;\n    else{res+=s[i-1]+cnt;cnt=1;}\n}\nres+=s[s.length-1]+cnt;\nconsole.log(res.length<s.length?res:s);",
+      "c": "#include <stdio.h>\n#include <string.h>\nint main(){\n    char s[10005]; scanf(\"%s\",s);\n    int n=strlen(s);\n    char res[30005]; int ri=0,cnt=1;\n    for(int i=1;i<n;i++){\n        if(s[i]==s[i-1]) cnt++;\n        else{ri+=sprintf(res+ri,\"%c%d\",s[i-1],cnt);cnt=1;}\n    }\n    ri+=sprintf(res+ri,\"%c%d\",s[n-1],cnt);\n    printf(\"%s\\n\",ri<n?res:s);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "s = input().strip()\n# Traverse and compress\n",
+      "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\nint main(){ string s; cin>>s; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ String s=new Scanner(System.in).next(); } }",
+      "javascript": "const s=require('fs').readFileSync(0,'utf-8').trim();\n",
+      "c": "#include <stdio.h>\nint main(){ char s[10005]; scanf(\"%s\",s); return 0; }"
+    },
+    "explanation": "Scan through characters, counting consecutive runs. Build compressed string. If compressed is shorter, return it; otherwise return original.",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(N)",
+    "stdinTemplate": "aabcccdddd"
+  },
+  {
+    "id": "dsa_str4",
+    "title": "Longest Common Prefix",
+    "difficulty": "Easy",
+    "category": "Strings",
+    "description": "Find the longest common prefix among N strings.\nIf none exists, print an empty line.\n\nInput:\nLine 1: N\nLines 2..N+1: One string per line",
+    "constraints": "1 <= N <= 200\n0 <= s.length <= 200",
+    "hints": [
+      "Start with first string as prefix.",
+      "Shrink prefix until all strings start with it."
+    ],
+    "testCases": [
+      {
+        "input": "3\nflower\nflow\nflight",
+        "output": "fl"
+      },
+      {
+        "input": "2\ndog\nracecar",
+        "output": ""
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\nwords = [input() for _ in range(n)]\npre = words[0]\nfor w in words[1:]:\n    while not w.startswith(pre):\n        pre = pre[:-1]\nprint(pre)",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\nint main(){\n    int n; cin>>n; cin.ignore();\n    vector<string> v(n);\n    for(int i=0;i<n;i++) getline(cin,v[i]);\n    string pre=v[0];\n    for(int i=1;i<n;i++){\n        while(v[i].find(pre)!=0) pre=pre.substr(0,pre.size()-1);\n    }\n    cout<<pre<<endl;\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt(); sc.nextLine();\n        String[] w=new String[n];\n        for(int i=0;i<n;i++) w[i]=sc.nextLine();\n        String pre=w[0];\n        for(int i=1;i<n;i++) while(!w[i].startsWith(pre)) pre=pre.substring(0,pre.length()-1);\n        System.out.println(pre);\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst n=parseInt(lines[0]);\nconst words=lines.slice(1,n+1);\nlet pre=words[0];\nfor(let w of words.slice(1)) while(!w.startsWith(pre)) pre=pre.slice(0,-1);\nconsole.log(pre);",
+      "c": "#include <stdio.h>\n#include <string.h>\nint main(){\n    int n; scanf(\"%d \",&n);\n    char pre[205],tmp[205];\n    fgets(pre,sizeof(pre),stdin);\n    int pl=strlen(pre); if(pre[pl-1]=='\\n') pre[--pl]=0;\n    for(int i=1;i<n;i++){\n        fgets(tmp,sizeof(tmp),stdin);\n        int tl=strlen(tmp); if(tmp[tl-1]=='\\n') tmp[--tl]=0;\n        while(pl>0 && strncmp(pre,tmp,pl)!=0) pl--;\n        pre[pl]=0;\n    }\n    printf(\"%s\\n\",pre);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\nwords = [input() for _ in range(n)]\npre = words[0]\n# Shrink prefix until all words start with it\n",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\nint main(){ int n; cin>>n; cin.ignore(); vector<string> v(n); for(int i=0;i<n;i++) getline(cin,v[i]); return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int n=sc.nextInt(); sc.nextLine(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst n=parseInt(lines[0]);\nconst words=lines.slice(1,n+1);\n",
+      "c": "#include <stdio.h>\nint main(){ int n; scanf(\"%d \",&n); return 0; }"
+    },
+    "explanation": "Take the first word as the initial prefix. Compare with each subsequent word and trim the prefix from the right until the word starts with it.",
+    "timeComplexity": "O(S) where S = sum of all string lengths",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "3\nflower\nflow\nflight"
+  },
+  {
+    "id": "dsa_str5",
+    "title": "First Unique Character",
+    "difficulty": "Easy",
+    "category": "Strings",
+    "description": "Given a string, find the index (0-based) of the first non-repeating character.\nIf none exists, print -1.\n\nInput: A single string of lowercase English letters",
+    "constraints": "1 <= s.length <= 10^5",
+    "hints": [
+      "Count frequency of each character.",
+      "Scan string again; first char with frequency 1 is the answer."
+    ],
+    "testCases": [
+      {
+        "input": "leetcode",
+        "output": "0",
+        "explanation": "'l' at index 0 is unique."
+      },
+      {
+        "input": "aabb",
+        "output": "-1"
+      }
+    ],
+    "solutions": {
+      "python": "from collections import Counter\ns = input().strip()\nfreq = Counter(s)\nfor i, c in enumerate(s):\n    if freq[c] == 1:\n        print(i)\n        break\nelse:\n    print(-1)",
+      "cpp": "#include <iostream>\n#include <string>\n#include <unordered_map>\nusing namespace std;\nint main(){\n    string s; cin>>s;\n    unordered_map<char,int> freq;\n    for(char c:s) freq[c]++;\n    for(int i=0;i<(int)s.size();i++) if(freq[s[i]]==1){cout<<i<<endl;return 0;}\n    cout<<-1<<endl;\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        String s=new Scanner(System.in).next();\n        int[] freq=new int[26];\n        for(char c:s.toCharArray()) freq[c-'a']++;\n        for(int i=0;i<s.length();i++) if(freq[s.charAt(i)-'a']==1){System.out.println(i);return;}\n        System.out.println(-1);\n    }\n}",
+      "javascript": "const s=require('fs').readFileSync(0,'utf-8').trim();\nconst freq={};\nfor(const c of s) freq[c]=(freq[c]||0)+1;\nfor(let i=0;i<s.length;i++) if(freq[s[i]]===1){console.log(i);process.exit();}\nconsole.log(-1);",
+      "c": "#include <stdio.h>\n#include <string.h>\nint main(){\n    char s[100005]; scanf(\"%s\",s);\n    int freq[26]={0},n=strlen(s);\n    for(int i=0;i<n;i++) freq[s[i]-'a']++;\n    for(int i=0;i<n;i++) if(freq[s[i]-'a']==1){printf(\"%d\\n\",i);return 0;}\n    printf(\"-1\\n\");\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "from collections import Counter\ns = input().strip()\nfreq = Counter(s)\n# Find first char with freq == 1\n",
+      "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\nint main(){ string s; cin>>s; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ String s=new Scanner(System.in).next(); } }",
+      "javascript": "const s=require('fs').readFileSync(0,'utf-8').trim();\n",
+      "c": "#include <stdio.h>\nint main(){ char s[100005]; scanf(\"%s\",s); return 0; }"
+    },
+    "explanation": "Two-pass: first count frequencies, then find the first character whose count is exactly 1.",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(1) — only 26 chars",
+    "stdinTemplate": "leetcode"
+  },
+  {
+    "id": "dsa_ll1",
+    "title": "Reverse a Linked List",
+    "difficulty": "Easy",
+    "category": "Linked List",
+    "description": "Simulate a linked list using an array. Reverse the list and print elements space-separated.\n\nInput:\nLine 1: N (number of nodes)\nLine 2: N space-separated values",
+    "constraints": "1 <= N <= 10^4",
+    "hints": [
+      "Three-pointer reversal: prev, curr, next.",
+      "Or simply reverse the array in-place."
+    ],
+    "testCases": [
+      {
+        "input": "5\n1 2 3 4 5",
+        "output": "5 4 3 2 1"
+      },
+      {
+        "input": "1\n42",
+        "output": "42"
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\nprint(*arr[::-1])",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    vector<int> a(n);\n    for(int i=0;i<n;i++) cin>>a[i];\n    reverse(a.begin(),a.end());\n    for(int i=0;i<n;i++) cout<<a[i]<<(i<n-1?' ':'\\n');\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        int[] a=new int[n];\n        for(int i=0;i<n;i++) a[i]=sc.nextInt();\n        for(int i=n-1;i>=0;i--) System.out.print(a[i]+(i>0?\" \":\"\\n\"));\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconsole.log(lines[1].split(' ').reverse().join(' '));",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    int *a=malloc(n*sizeof(int));\n    for(int i=0;i<n;i++) scanf(\"%d\",&a[i]);\n    for(int i=n-1;i>=0;i--) printf(i>0?\"%d \" :\"%d\\n\",a[i]);\n    free(a);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\n# Reverse linked list (array-simulated)\n",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){ int n; cin>>n; vector<int> a(n); for(int i=0;i<n;i++) cin>>a[i]; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int n=sc.nextInt(); int[] a=new int[n]; for(int i=0;i<n;i++) a[i]=sc.nextInt(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst arr=lines[1].split(' ').map(Number);\n",
+      "c": "#include <stdio.h>\nint main(){ int n; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "Three-pointer technique: prev=null, curr=head, next=curr.next. In each step: save next, point curr.next to prev, advance prev and curr.",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "5\n1 2 3 4 5"
+  },
+  {
+    "id": "dsa_ll2",
+    "title": "Find Middle of Linked List",
+    "difficulty": "Easy",
+    "category": "Linked List",
+    "description": "Find the middle node value of a linked list (array-simulated).\nIf the list has even length, return the second middle element.\n\nInput:\nLine 1: N\nLine 2: N space-separated values",
+    "constraints": "1 <= N <= 10^4",
+    "hints": [
+      "Fast & slow pointer: fast moves 2 steps, slow moves 1.",
+      "When fast reaches end, slow is at middle.",
+      "Or simply return arr[N/2]."
+    ],
+    "testCases": [
+      {
+        "input": "5\n1 2 3 4 5",
+        "output": "3"
+      },
+      {
+        "input": "6\n1 2 3 4 5 6",
+        "output": "4"
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\nprint(arr[n // 2])",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    vector<int> a(n);\n    for(int i=0;i<n;i++) cin>>a[i];\n    cout<<a[n/2]<<endl;\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        int[] a=new int[n];\n        for(int i=0;i<n;i++) a[i]=sc.nextInt();\n        System.out.println(a[n/2]);\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number);\nconsole.log(a[Math.floor(a.length/2)]);",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    int *a=malloc(n*sizeof(int));\n    for(int i=0;i<n;i++) scanf(\"%d\",&a[i]);\n    printf(\"%d\\n\",a[n/2]);\n    free(a);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\n# Return arr[n//2] (second middle for even length)\n",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){ int n; cin>>n; vector<int> a(n); for(int i=0;i<n;i++) cin>>a[i]; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int n=sc.nextInt(); int[] a=new int[n]; for(int i=0;i<n;i++) a[i]=sc.nextInt(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number);\n",
+      "c": "#include <stdio.h>\nint main(){ int n; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "Use the slow/fast pointer technique. Slow advances 1 step, fast advances 2. When fast hits the end, slow is at the middle. For array: middle = arr[N/2].",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "5\n1 2 3 4 5"
+  },
+  {
+    "id": "dsa_ll3",
+    "title": "Detect Cycle in Linked List",
+    "difficulty": "Medium",
+    "category": "Linked List",
+    "description": "Given an array of next-pointers (0-indexed, -1 means null), determine if the linked list has a cycle.\nPrint YES if cycle exists, NO otherwise.\n\nInput:\nLine 1: N and head index\nLine 2: N next-pointers (the i-th value is the next index for node i; -1 means null)",
+    "constraints": "1 <= N <= 10^4\nhead is always a valid index",
+    "hints": [
+      "Floyd's cycle detection: slow moves 1, fast moves 2.",
+      "If fast or fast.next is null, no cycle.",
+      "If slow == fast at any point, cycle exists."
+    ],
+    "testCases": [
+      {
+        "input": "4 0\n1 2 3 1",
+        "output": "YES",
+        "explanation": "0→1→2→3→1 (loop)."
+      },
+      {
+        "input": "3 0\n1 2 -1",
+        "output": "NO"
+      }
+    ],
+    "solutions": {
+      "python": "line1 = input().split()\nn, head = int(line1[0]), int(line1[1])\nnxt = list(map(int, input().split()))\nslow, fast = head, head\nwhile True:\n    if fast == -1 or (fast < n and nxt[fast] == -1): print('NO'); break\n    slow = nxt[slow]\n    fast = nxt[nxt[fast]]\n    if slow == fast: print('YES'); break",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){\n    int n,head; cin>>n>>head;\n    vector<int> nxt(n);\n    for(int i=0;i<n;i++) cin>>nxt[i];\n    int slow=head,fast=head;\n    while(true){\n        if(fast==-1||nxt[fast]==-1){cout<<\"NO\\n\";return 0;}\n        slow=nxt[slow]; fast=nxt[nxt[fast]];\n        if(slow==fast){cout<<\"YES\\n\";return 0;}\n    }\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt(),head=sc.nextInt();\n        int[] nxt=new int[n];\n        for(int i=0;i<n;i++) nxt[i]=sc.nextInt();\n        int slow=head,fast=head;\n        while(true){\n            if(fast==-1||nxt[fast]==-1){System.out.println(\"NO\");return;}\n            slow=nxt[slow]; fast=nxt[nxt[fast]];\n            if(slow==fast){System.out.println(\"YES\");return;}\n        }\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst [n,head]=lines[0].split(' ').map(Number);\nconst nxt=lines[1].split(' ').map(Number);\nlet slow=head,fast=head;\nwhile(true){\n    if(fast===-1||nxt[fast]===-1){console.log('NO');break;}\n    slow=nxt[slow]; fast=nxt[nxt[fast]];\n    if(slow===fast){console.log('YES');break;}\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){\n    int n,head; scanf(\"%d %d\",&n,&head);\n    int *nxt=malloc(n*sizeof(int));\n    for(int i=0;i<n;i++) scanf(\"%d\",&nxt[i]);\n    int slow=head,fast=head;\n    while(1){\n        if(fast==-1||nxt[fast]==-1){printf(\"NO\\n\");free(nxt);return 0;}\n        slow=nxt[slow]; fast=nxt[nxt[fast]];\n        if(slow==fast){printf(\"YES\\n\");free(nxt);return 0;}\n    }\n}"
+    },
+    "starterCode": {
+      "python": "line1 = input().split()\nn, head = int(line1[0]), int(line1[1])\nnxt = list(map(int, input().split()))\nslow = fast = head\n# Floyd's cycle detection\n",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){ int n,head; cin>>n>>head; vector<int> nxt(n); for(int i=0;i<n;i++) cin>>nxt[i]; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int n=sc.nextInt(),head=sc.nextInt(); int[] nxt=new int[n]; for(int i=0;i<n;i++) nxt[i]=sc.nextInt(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst [n,head]=lines[0].split(' ').map(Number);\nconst nxt=lines[1].split(' ').map(Number);\n",
+      "c": "#include <stdio.h>\nint main(){ int n,head; scanf(\"%d %d\",&n,&head); return 0; }"
+    },
+    "explanation": "Floyd's Cycle Detection (Tortoise & Hare): slow moves 1 step, fast moves 2. If they ever meet, there's a cycle. If fast reaches null, no cycle.",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "4 0\n1 2 3 1"
+  },
+  {
+    "id": "dsa_stk1",
+    "title": "Next Greater Element",
+    "difficulty": "Medium",
+    "category": "Stack",
+    "description": "For each element in the array, find the next greater element (the first element to the right that is greater).\nIf no such element exists, output -1.\n\nInput:\nLine 1: N\nLine 2: N integers",
+    "constraints": "1 <= N <= 10^5\n-10^9 <= arr[i] <= 10^9",
+    "hints": [
+      "Use a stack to keep track of elements waiting for their NGE.",
+      "Traverse left to right; when current element > stack top, pop and record."
+    ],
+    "testCases": [
+      {
+        "input": "5\n4 5 2 10 8",
+        "output": "5 10 10 -1 -1"
+      },
+      {
+        "input": "4\n3 2 1 4",
+        "output": "4 4 4 -1"
+      }
+    ],
+    "solutions": {
+      "python": "import sys\nn = int(input())\narr = list(map(int, input().split()))\nans = [-1]*n\nstack = []\nfor i in range(n):\n    while stack and arr[stack[-1]] < arr[i]:\n        ans[stack.pop()] = arr[i]\n    stack.append(i)\nprint(*ans)",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <stack>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    vector<int> a(n),ans(n,-1);\n    for(int i=0;i<n;i++) cin>>a[i];\n    stack<int> st;\n    for(int i=0;i<n;i++){\n        while(!st.empty()&&a[st.top()]<a[i]){ans[st.top()]=a[i];st.pop();}\n        st.push(i);\n    }\n    for(int i=0;i<n;i++) cout<<ans[i]<<(i<n-1?' ':'\\n');\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        int[] a=new int[n],ans=new int[n];\n        Arrays.fill(ans,-1);\n        for(int i=0;i<n;i++) a[i]=sc.nextInt();\n        Deque<Integer> st=new ArrayDeque<>();\n        for(int i=0;i<n;i++){\n            while(!st.isEmpty()&&a[st.peek()]<a[i]) ans[st.pop()]=a[i];\n            st.push(i);\n        }\n        StringBuilder sb=new StringBuilder();\n        for(int i=0;i<n;i++) sb.append(ans[i]).append(i<n-1?' ':' ');\n        System.out.println(sb.toString().trim());\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number);\nconst ans=new Array(a.length).fill(-1);\nconst st=[];\nfor(let i=0;i<a.length;i++){\n    while(st.length&&a[st[st.length-1]]<a[i]) ans[st.pop()]=a[i];\n    st.push(i);\n}\nconsole.log(ans.join(' '));",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    int *a=malloc(n*sizeof(int)),*ans=malloc(n*sizeof(int)),*st=malloc(n*sizeof(int));\n    for(int i=0;i<n;i++){scanf(\"%d\",&a[i]);ans[i]=-1;}\n    int top=0;\n    for(int i=0;i<n;i++){\n        while(top>0&&a[st[top-1]]<a[i]) ans[st[--top]]=a[i];\n        st[top++]=i;\n    }\n    for(int i=0;i<n;i++) printf(i<n-1?\"%d \" :\"%d\\n\",ans[i]);\n    free(a);free(ans);free(st);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\nans = [-1]*n\nstack = []\n# Monotonic stack approach\n",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <stack>\nusing namespace std;\nint main(){ int n; cin>>n; vector<int> a(n); for(int i=0;i<n;i++) cin>>a[i]; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int n=sc.nextInt(); int[] a=new int[n]; for(int i=0;i<n;i++) a[i]=sc.nextInt(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number);\nconst ans=new Array(a.length).fill(-1);\n",
+      "c": "#include <stdio.h>\nint main(){ int n; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "Monotonic stack: push indices. When arr[i] > arr[stack.top()], pop and set ans[popped] = arr[i]. This gives O(N) solution where each element is pushed and popped at most once.",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(N)",
+    "stdinTemplate": "5\n4 5 2 10 8"
+  },
+  {
+    "id": "dsa_stk2",
+    "title": "Min Stack",
+    "difficulty": "Medium",
+    "category": "Stack",
+    "description": "Implement a stack that supports push, pop, top, and getMin in O(1).\n\nProcess Q operations:\n  PUSH x — push x onto stack\n  POP    — pop top element\n  TOP    — print top element (-1 if empty)\n  MIN    — print minimum element (-1 if empty)\n\nInput:\nLine 1: Q\nNext Q lines: operation (and optional value)",
+    "constraints": "1 <= Q <= 10^4\n-10^9 <= x <= 10^9",
+    "hints": [
+      "Maintain a separate 'minStack' that stores minimum at each level.",
+      "On push: push (val, currentMin) pair."
+    ],
+    "testCases": [
+      {
+        "input": "7\nPUSH 5\nPUSH 3\nPUSH 7\nMIN\nPOP\nMIN\nTOP",
+        "output": "3\n3\n5"
+      },
+      {
+        "input": "2\nTOP\nMIN",
+        "output": "-1\n-1"
+      }
+    ],
+    "solutions": {
+      "python": "import sys\nfrom math import inf\nq = int(input())\nstack = []  # (val, min_so_far)\nout = []\nfor _ in range(q):\n    op = input().split()\n    if op[0] == 'PUSH':\n        x = int(op[1])\n        cur_min = min(x, stack[-1][1]) if stack else x\n        stack.append((x, cur_min))\n    elif op[0] == 'POP':\n        if stack: stack.pop()\n    elif op[0] == 'TOP':\n        out.append(str(stack[-1][0]) if stack else '-1')\n    elif op[0] == 'MIN':\n        out.append(str(stack[-1][1]) if stack else '-1')\nprint('\\n'.join(out))",
+      "cpp": "#include <iostream>\n#include <stack>\n#include <algorithm>\n#include <climits>\nusing namespace std;\nint main(){\n    int q; cin>>q;\n    stack<pair<int,int>> st;  // (val, min)\n    while(q--){\n        string op; cin>>op;\n        if(op==\"PUSH\"){\n            int x; cin>>x;\n            int mn=st.empty()?x:min(x,st.top().second);\n            st.push({x,mn});\n        } else if(op==\"POP\"){\n            if(!st.empty()) st.pop();\n        } else if(op==\"TOP\"){\n            cout<<(st.empty()?-1:st.top().first)<<\"\\n\";\n        } else if(op==\"MIN\"){\n            cout<<(st.empty()?-1:st.top().second)<<\"\\n\";\n        }\n    }\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int q=sc.nextInt(); sc.nextLine();\n        Deque<int[]> st=new ArrayDeque<>();  // [val, min]\n        StringBuilder sb=new StringBuilder();\n        while(q-->0){\n            String line=sc.nextLine();\n            String[] parts=line.split(\" \");\n            switch(parts[0]){\n                case \"PUSH\":\n                    int x=Integer.parseInt(parts[1]);\n                    int mn=st.isEmpty()?x:Math.min(x,st.peek()[1]);\n                    st.push(new int[]{x,mn}); break;\n                case \"POP\":\n                    if(!st.isEmpty()) st.pop(); break;\n                case \"TOP\":\n                    sb.append(st.isEmpty()?-1:st.peek()[0]).append(\"\\n\"); break;\n                case \"MIN\":\n                    sb.append(st.isEmpty()?-1:st.peek()[1]).append(\"\\n\"); break;\n            }\n        }\n        System.out.print(sb);\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst q=parseInt(lines[0]);\nconst st=[];  // {val, min}\nconst out=[];\nfor(let i=1;i<=q;i++){\n    const parts=lines[i].split(' ');\n    if(parts[0]==='PUSH'){\n        const x=parseInt(parts[1]);\n        const mn=st.length?Math.min(x,st[st.length-1].min):x;\n        st.push({val:x,min:mn});\n    } else if(parts[0]==='POP'){\n        if(st.length) st.pop();\n    } else if(parts[0]==='TOP'){\n        out.push(st.length?st[st.length-1].val:-1);\n    } else if(parts[0]==='MIN'){\n        out.push(st.length?st[st.length-1].min:-1);\n    }\n}\nconsole.log(out.join('\\n'));",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <limits.h>\nint val[10005],mn[10005],top=0;\nvoid push(int x){mn[top]=top==0?x:(x<mn[top-1]?x:mn[top-1]);val[top++]=x;}\nvoid pop(){if(top>0)top--;}\nint main(){\n    int q; scanf(\"%d\\n\",&q);\n    while(q--){\n        char op[10]; scanf(\"%s\",op);\n        if(strcmp(op,\"PUSH\")==0){int x;scanf(\"%d\\n\",&x);push(x);}\n        else if(strcmp(op,\"POP\")==0){pop();scanf(\"\\n\");}\n        else if(strcmp(op,\"TOP\")==0){printf(\"%d\\n\",top==0?-1:val[top-1]);scanf(\"\\n\");}\n        else{printf(\"%d\\n\",top==0?-1:mn[top-1]);scanf(\"\\n\");}\n    }\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "q = int(input())\nstack = []  # (val, current_min)\n# Process each operation\n",
+      "cpp": "#include <iostream>\n#include <stack>\nusing namespace std;\nint main(){ int q; cin>>q; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int q=sc.nextInt(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst q=parseInt(lines[0]);\nconst st=[];\n",
+      "c": "#include <stdio.h>\nint main(){ int q; scanf(\"%d\",&q); return 0; }"
+    },
+    "explanation": "Use a stack of pairs (value, currentMin). When pushing, store the minimum of the new value and the previous minimum. MIN query is then O(1).",
+    "timeComplexity": "O(1) per operation",
+    "spaceComplexity": "O(N)",
+    "stdinTemplate": "7\nPUSH 5\nPUSH 3\nPUSH 7\nMIN\nPOP\nMIN\nTOP"
+  },
+  {
+    "id": "dsa_rec1",
+    "title": "Tower of Hanoi",
+    "difficulty": "Medium",
+    "category": "Recursion",
+    "description": "Print the sequence of moves to solve the Tower of Hanoi problem with N disks.\nMove disks from rod 'A' to rod 'C' using rod 'B' as auxiliary.\nEach move is printed as: \"Move disk X from rod Y to rod Z\"\n\nInput: N (number of disks)",
+    "constraints": "1 <= N <= 10",
+    "hints": [
+      "Base case: Move disk 1 directly from source to destination.",
+      "Recursive step: Move N-1 disks to auxiliary, move disk N, then move N-1 from auxiliary to destination."
+    ],
+    "testCases": [
+      {
+        "input": "2",
+        "output": "Move disk 1 from rod A to rod B\nMove disk 2 from rod A to rod C\nMove disk 1 from rod B to rod C"
+      },
+      {
+        "input": "1",
+        "output": "Move disk 1 from rod A to rod C"
+      }
+    ],
+    "solutions": {
+      "python": "def hanoi(n, src, aux, dst):\n    if n == 1:\n        print(f'Move disk 1 from rod {src} to rod {dst}')\n        return\n    hanoi(n-1, src, dst, aux)\n    print(f'Move disk {n} from rod {src} to rod {dst}')\n    hanoi(n-1, aux, src, dst)\nn = int(input())\nhanoi(n, 'A', 'B', 'C')",
+      "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\nvoid hanoi(int n,char src,char aux,char dst){\n    if(n==1){cout<<\"Move disk 1 from rod \"<<src<<\" to rod \"<<dst<<\"\\n\";return;}\n    hanoi(n-1,src,dst,aux);\n    cout<<\"Move disk \"<<n<<\" from rod \"<<src<<\" to rod \"<<dst<<\"\\n\";\n    hanoi(n-1,aux,src,dst);\n}\nint main(){\n    int n; cin>>n;\n    hanoi(n,'A','B','C');\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main{\n    static void hanoi(int n,char src,char aux,char dst){\n        if(n==1){System.out.println(\"Move disk 1 from rod \"+src+\" to rod \"+dst);return;}\n        hanoi(n-1,src,dst,aux);\n        System.out.println(\"Move disk \"+n+\" from rod \"+src+\" to rod \"+dst);\n        hanoi(n-1,aux,src,dst);\n    }\n    public static void main(String[] args){\n        int n=new Scanner(System.in).nextInt();\n        hanoi(n,'A','B','C');\n    }\n}",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\nfunction hanoi(n,src,aux,dst){\n    if(n===1){console.log(`Move disk 1 from rod ${src} to rod ${dst}`);return;}\n    hanoi(n-1,src,dst,aux);\n    console.log(`Move disk ${n} from rod ${src} to rod ${dst}`);\n    hanoi(n-1,aux,src,dst);\n}\nhanoi(n,'A','B','C');",
+      "c": "#include <stdio.h>\nvoid hanoi(int n,char src,char aux,char dst){\n    if(n==1){printf(\"Move disk 1 from rod %c to rod %c\\n\",src,dst);return;}\n    hanoi(n-1,src,dst,aux);\n    printf(\"Move disk %d from rod %c to rod %c\\n\",n,src,dst);\n    hanoi(n-1,aux,src,dst);\n}\nint main(){\n    int n; scanf(\"%d\",&n);\n    hanoi(n,'A','B','C');\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "def hanoi(n, src, aux, dst):\n    # Base case: n == 1\n    # Recursive case: move n-1, move n, move n-1\n    pass\nn = int(input())\nhanoi(n, 'A', 'B', 'C')",
+      "cpp": "#include <iostream>\nusing namespace std;\nvoid hanoi(int n, char src, char aux, char dst){\n    // Implement Tower of Hanoi\n}\nint main(){ int n; cin>>n; hanoi(n,'A','B','C'); return 0; }",
+      "java": "import java.util.Scanner;\npublic class Main{\n    static void hanoi(int n, char src, char aux, char dst){\n        // Implement Tower of Hanoi\n    }\n    public static void main(String[] args){ int n=new Scanner(System.in).nextInt(); hanoi(n,'A','B','C'); }\n}",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\nfunction hanoi(n,src,aux,dst){\n    // Implement recursively\n}\nhanoi(n,'A','B','C');",
+      "c": "#include <stdio.h>\nvoid hanoi(int n,char src,char aux,char dst){\n    // Implement\n}\nint main(){ int n; scanf(\"%d\",&n); hanoi(n,'A','B','C'); return 0; }"
+    },
+    "explanation": "Recursive solution: To move N disks from A to C — move N-1 from A to B (recursively), move disk N from A to C, move N-1 from B to C (recursively). Total moves = 2^N - 1.",
+    "timeComplexity": "O(2^N)",
+    "spaceComplexity": "O(N) — recursion depth",
+    "stdinTemplate": "2"
+  },
+  {
+    "id": "dsa_rec2",
+    "title": "Power Function (Fast Exponentiation)",
+    "difficulty": "Medium",
+    "category": "Recursion",
+    "description": "Compute base^exp (mod 10^9+7) efficiently using recursive fast exponentiation.\n\nInput:\nLine 1: base exp",
+    "constraints": "0 <= base <= 10^9\n0 <= exp <= 10^18",
+    "hints": [
+      "If exp is even: power(base, exp) = power(base*base, exp/2)",
+      "If exp is odd: base * power(base, exp-1)",
+      "This gives O(log exp) instead of O(exp)."
+    ],
+    "testCases": [
+      {
+        "input": "2 10",
+        "output": "1024"
+      },
+      {
+        "input": "3 5",
+        "output": "243"
+      }
+    ],
+    "solutions": {
+      "python": "MOD = 10**9 + 7\nbase, exp = map(int, input().split())\ndef power(b, e):\n    if e == 0: return 1\n    if e % 2 == 0: return power(b*b % MOD, e//2)\n    return b * power(b, e-1) % MOD\nprint(power(base, exp))",
+      "cpp": "#include <iostream>\nusing namespace std;\nconst long long MOD=1e9+7;\nlong long power(long long b,long long e){\n    if(e==0) return 1;\n    if(e%2==0) return power(b*b%MOD,e/2);\n    return b*power(b,e-1)%MOD;\n}\nint main(){\n    long long b,e; cin>>b>>e;\n    cout<<power(b,e)<<endl;\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    static final long MOD=1_000_000_007L;\n    static long power(long b,long e){\n        if(e==0) return 1;\n        if(e%2==0) return power(b*b%MOD,e/2);\n        return b*power(b,e-1)%MOD;\n    }\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        System.out.println(power(sc.nextLong(),sc.nextLong()));\n    }\n}",
+      "javascript": "const parts=require('fs').readFileSync(0,'utf-8').trim().split(' ');\nconst MOD=BigInt(1e9+7);\nconst base=BigInt(parts[0]),exp=BigInt(parts[1]);\nfunction power(b,e){\n    if(e===0n) return 1n;\n    if(e%2n===0n) return power(b*b%MOD,e/2n);\n    return b*power(b,e-1n)%MOD;\n}\nconsole.log(power(base,exp).toString());",
+      "c": "#include <stdio.h>\n#define MOD 1000000007LL\nlong long power(long long b,long long e){\n    if(e==0) return 1;\n    if(e%2==0) return power(b*b%MOD,e/2);\n    return b*power(b,e-1)%MOD;\n}\nint main(){\n    long long b,e; scanf(\"%lld %lld\",&b,&e);\n    printf(\"%lld\\n\",power(b,e));\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "MOD = 10**9 + 7\nbase, exp = map(int, input().split())\ndef power(b, e):\n    # Base case: e == 0\n    # Even: power(b*b, e//2)\n    # Odd: b * power(b, e-1)\n    pass\nprint(power(base, exp))",
+      "cpp": "#include <iostream>\nusing namespace std;\nconst long long MOD=1e9+7;\nlong long power(long long b, long long e){\n    // Implement fast exponentiation\n}\nint main(){ long long b,e; cin>>b>>e; cout<<power(b,e)<<endl; return 0; }",
+      "java": "import java.util.*;\npublic class Main{\n    static final long MOD=1_000_000_007L;\n    static long power(long b, long e){\n        // Fast exponentiation\n    }\n    public static void main(String[] args){ Scanner sc=new Scanner(System.in); System.out.println(power(sc.nextLong(),sc.nextLong())); }\n}",
+      "javascript": "const parts=require('fs').readFileSync(0,'utf-8').trim().split(' ');\nconst base=parseInt(parts[0]),exp=parseInt(parts[1]);\nfunction power(b,e){\n    // Fast exponentiation mod 10^9+7\n}\nconsole.log(power(base,exp));",
+      "c": "#include <stdio.h>\n#define MOD 1000000007LL\nlong long power(long long b, long long e){\n    // Implement\n}\nint main(){ long long b,e; scanf(\"%lld %lld\",&b,&e); printf(\"%lld\\n\",power(b,e)); return 0; }"
+    },
+    "explanation": "Binary exponentiation: split exponent in half at each step. power(b, e) = power(b², e/2) if e even, else b × power(b, e-1). Reduces O(exp) to O(log exp).",
+    "timeComplexity": "O(log exp)",
+    "spaceComplexity": "O(log exp) — recursion",
+    "stdinTemplate": "2 10"
+  },
+  {
+    "id": "dsa_srch1",
+    "title": "Binary Search",
+    "difficulty": "Easy",
+    "category": "Searching",
+    "description": "Given a sorted array of N integers and a target value, return the index of the target.\nIf not found, print -1.\n\nInput:\nLine 1: N and target\nLine 2: N sorted integers",
+    "constraints": "1 <= N <= 10^5\n-10^9 <= arr[i], target <= 10^9",
+    "hints": [
+      "mid = (left + right) / 2",
+      "If arr[mid] == target, return mid.",
+      "If arr[mid] < target, search right half; else search left half."
+    ],
+    "testCases": [
+      {
+        "input": "5 3\n1 2 3 4 5",
+        "output": "2"
+      },
+      {
+        "input": "4 10\n2 4 6 8",
+        "output": "-1"
+      }
+    ],
+    "solutions": {
+      "python": "line = input().split()\nn, target = int(line[0]), int(line[1])\narr = list(map(int, input().split()))\nlo, hi = 0, n - 1\nans = -1\nwhile lo <= hi:\n    mid = (lo + hi) // 2\n    if arr[mid] == target: ans = mid; break\n    elif arr[mid] < target: lo = mid + 1\n    else: hi = mid - 1\nprint(ans)",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){\n    int n,target; cin>>n>>target;\n    vector<int> a(n);\n    for(int i=0;i<n;i++) cin>>a[i];\n    int lo=0,hi=n-1,ans=-1;\n    while(lo<=hi){\n        int mid=(lo+hi)/2;\n        if(a[mid]==target){ans=mid;break;}\n        else if(a[mid]<target) lo=mid+1;\n        else hi=mid-1;\n    }\n    cout<<ans<<endl;\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt(),target=sc.nextInt();\n        int[] a=new int[n];\n        for(int i=0;i<n;i++) a[i]=sc.nextInt();\n        int lo=0,hi=n-1,ans=-1;\n        while(lo<=hi){\n            int mid=(lo+hi)/2;\n            if(a[mid]==target){ans=mid;break;}\n            else if(a[mid]<target) lo=mid+1;\n            else hi=mid-1;\n        }\n        System.out.println(ans);\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst [n,target]=lines[0].split(' ').map(Number);\nconst a=lines[1].split(' ').map(Number);\nlet lo=0,hi=a.length-1,ans=-1;\nwhile(lo<=hi){\n    const mid=(lo+hi)>>1;\n    if(a[mid]===target){ans=mid;break;}\n    else if(a[mid]<target) lo=mid+1;\n    else hi=mid-1;\n}\nconsole.log(ans);",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){\n    int n,target; scanf(\"%d %d\",&n,&target);\n    int *a=malloc(n*sizeof(int));\n    for(int i=0;i<n;i++) scanf(\"%d\",&a[i]);\n    int lo=0,hi=n-1,ans=-1;\n    while(lo<=hi){\n        int mid=(lo+hi)/2;\n        if(a[mid]==target){ans=mid;break;}\n        else if(a[mid]<target) lo=mid+1;\n        else hi=mid-1;\n    }\n    printf(\"%d\\n\",ans);\n    free(a);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "line = input().split()\nn, target = int(line[0]), int(line[1])\narr = list(map(int, input().split()))\nlo, hi = 0, n - 1\n# Binary search loop\n",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){ int n,target; cin>>n>>target; vector<int> a(n); for(int i=0;i<n;i++) cin>>a[i]; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int n=sc.nextInt(),target=sc.nextInt(); int[] a=new int[n]; for(int i=0;i<n;i++) a[i]=sc.nextInt(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst [n,target]=lines[0].split(' ').map(Number);\nconst a=lines[1].split(' ').map(Number);\n",
+      "c": "#include <stdio.h>\nint main(){ int n,target; scanf(\"%d %d\",&n,&target); return 0; }"
+    },
+    "explanation": "Binary search halves the search space each iteration. Compare middle element with target; adjust left or right boundary accordingly. Runs in O(log N).",
+    "timeComplexity": "O(log N)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "5 3\n1 2 3 4 5"
+  },
+  {
+    "id": "dsa_srch2",
+    "title": "Search in Rotated Sorted Array",
+    "difficulty": "Medium",
+    "category": "Searching",
+    "description": "A sorted array was rotated at an unknown pivot. Find the index of target.\nReturn -1 if not found.\n\nInput:\nLine 1: N and target\nLine 2: N integers",
+    "constraints": "1 <= N <= 5000\n-10^4 <= arr[i] <= 10^4\nAll values distinct.",
+    "hints": [
+      "One half is always sorted after a rotation.",
+      "Determine which half is sorted, check if target lies in it, then narrow search."
+    ],
+    "testCases": [
+      {
+        "input": "7 0\n4 5 6 7 0 1 2",
+        "output": "4"
+      },
+      {
+        "input": "6 3\n4 5 6 7 0 1",
+        "output": "-1"
+      }
+    ],
+    "solutions": {
+      "python": "line = input().split()\nn, target = int(line[0]), int(line[1])\narr = list(map(int, input().split()))\nlo, hi = 0, n-1\nwhile lo <= hi:\n    mid = (lo+hi)//2\n    if arr[mid] == target: print(mid); break\n    if arr[lo] <= arr[mid]:  # left half sorted\n        if arr[lo] <= target < arr[mid]: hi = mid - 1\n        else: lo = mid + 1\n    else:  # right half sorted\n        if arr[mid] < target <= arr[hi]: lo = mid + 1\n        else: hi = mid - 1\nelse:\n    print(-1)",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){\n    int n,target; cin>>n>>target;\n    vector<int> a(n);\n    for(int i=0;i<n;i++) cin>>a[i];\n    int lo=0,hi=n-1,ans=-1;\n    while(lo<=hi){\n        int mid=(lo+hi)/2;\n        if(a[mid]==target){ans=mid;break;}\n        if(a[lo]<=a[mid]){\n            if(a[lo]<=target&&target<a[mid]) hi=mid-1;\n            else lo=mid+1;\n        } else {\n            if(a[mid]<target&&target<=a[hi]) lo=mid+1;\n            else hi=mid-1;\n        }\n    }\n    cout<<ans<<endl;\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt(),target=sc.nextInt();\n        int[] a=new int[n];\n        for(int i=0;i<n;i++) a[i]=sc.nextInt();\n        int lo=0,hi=n-1,ans=-1;\n        while(lo<=hi){\n            int mid=(lo+hi)/2;\n            if(a[mid]==target){ans=mid;break;}\n            if(a[lo]<=a[mid]){\n                if(a[lo]<=target&&target<a[mid]) hi=mid-1;\n                else lo=mid+1;\n            } else {\n                if(a[mid]<target&&target<=a[hi]) lo=mid+1;\n                else hi=mid-1;\n            }\n        }\n        System.out.println(ans);\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst [n,target]=lines[0].split(' ').map(Number);\nconst a=lines[1].split(' ').map(Number);\nlet lo=0,hi=a.length-1,ans=-1;\nwhile(lo<=hi){\n    const mid=(lo+hi)>>1;\n    if(a[mid]===target){ans=mid;break;}\n    if(a[lo]<=a[mid]){\n        if(a[lo]<=target&&target<a[mid]) hi=mid-1;\n        else lo=mid+1;\n    } else {\n        if(a[mid]<target&&target<=a[hi]) lo=mid+1;\n        else hi=mid-1;\n    }\n}\nconsole.log(ans);",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){\n    int n,target; scanf(\"%d %d\",&n,&target);\n    int *a=malloc(n*sizeof(int));\n    for(int i=0;i<n;i++) scanf(\"%d\",&a[i]);\n    int lo=0,hi=n-1,ans=-1;\n    while(lo<=hi){\n        int mid=(lo+hi)/2;\n        if(a[mid]==target){ans=mid;break;}\n        if(a[lo]<=a[mid]){\n            if(a[lo]<=target&&target<a[mid]) hi=mid-1;\n            else lo=mid+1;\n        } else {\n            if(a[mid]<target&&target<=a[hi]) lo=mid+1;\n            else hi=mid-1;\n        }\n    }\n    printf(\"%d\\n\",ans);\n    free(a);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "line = input().split()\nn, target = int(line[0]), int(line[1])\narr = list(map(int, input().split()))\nlo, hi = 0, n-1\n# Modified binary search\n",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){ int n,target; cin>>n>>target; vector<int> a(n); for(int i=0;i<n;i++) cin>>a[i]; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int n=sc.nextInt(),target=sc.nextInt(); int[] a=new int[n]; for(int i=0;i<n;i++) a[i]=sc.nextInt(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst [n,target]=lines[0].split(' ').map(Number);\nconst a=lines[1].split(' ').map(Number);\n",
+      "c": "#include <stdio.h>\nint main(){ int n,target; scanf(\"%d %d\",&n,&target); return 0; }"
+    },
+    "explanation": "Modified binary search: at each step, at least one half is sorted. Identify which half is sorted, check if target is in that range, and binary search accordingly.",
+    "timeComplexity": "O(log N)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "7 0\n4 5 6 7 0 1 2"
+  }
+]

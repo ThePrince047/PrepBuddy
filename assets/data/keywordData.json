@@ -1,0 +1,941 @@
+{
+  "swap": {
+    "testCases": [
+      {
+        "input": "3 7",
+        "output": "7 3"
+      },
+      {
+        "input": "100 -5",
+        "output": "-5 100"
+      }
+    ],
+    "solutions": {
+      "python": "a, b = map(int, input().split())\nprint(b, a)",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int a, b; cin >> a >> b;\n    cout << b << \" \" << a << endl;\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int a = sc.nextInt(), b = sc.nextInt();\n        System.out.println(b + \" \" + a);\n    }\n}",
+      "javascript": "const fs = require('fs');\nconst [a, b] = fs.readFileSync(0,'utf-8').trim().split(' ').map(Number);\nconsole.log(b + ' ' + a);",
+      "c": "#include <stdio.h>\nint main() {\n    int a, b;\n    scanf(\"%d %d\", &a, &b);\n    printf(\"%d %d\\n\", b, a);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "a, b = map(int, input().split())\n# Swap and print b a",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int a, b; cin >> a >> b;\n    // Swap and print\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int a = sc.nextInt(), b = sc.nextInt();\n        // Swap and print\n    }\n}",
+      "javascript": "const fs = require('fs');\nconst [a, b] = fs.readFileSync(0,'utf-8').trim().split(' ').map(Number);\n// Print b then a",
+      "c": "#include <stdio.h>\nint main() {\n    int a, b; scanf(\"%d %d\", &a, &b);\n    // Swap and print\n    return 0;\n}"
+    },
+    "stdinTemplate": "3 7"
+  },
+  "palindrome": {
+    "testCases": [
+      {
+        "input": "racecar",
+        "output": "YES"
+      },
+      {
+        "input": "hello",
+        "output": "NO"
+      },
+      {
+        "input": "madam",
+        "output": "YES"
+      }
+    ],
+    "solutions": {
+      "python": "s = input().strip()\nprint('YES' if s == s[::-1] else 'NO')",
+      "cpp": "#include <iostream>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() {\n    string s; cin >> s;\n    string r = s; reverse(r.begin(), r.end());\n    cout << (s == r ? \"YES\" : \"NO\") << endl;\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String s = sc.next();\n        System.out.println(s.equals(new StringBuilder(s).reverse().toString()) ? \"YES\" : \"NO\");\n    }\n}",
+      "javascript": "const fs = require('fs');\nconst s = fs.readFileSync(0,'utf-8').trim();\nconsole.log(s === s.split('').reverse().join('') ? 'YES' : 'NO');",
+      "c": "#include <stdio.h>\n#include <string.h>\nint main() {\n    char s[100001]; scanf(\"%s\", s);\n    int n = strlen(s), ok = 1;\n    for (int i = 0; i < n/2; i++) if (s[i] != s[n-1-i]) { ok = 0; break; }\n    printf(\"%s\\n\", ok ? \"YES\" : \"NO\");\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "s = input().strip()\n# Print YES if palindrome, NO otherwise",
+      "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n    string s; cin >> s;\n    // Check palindrome\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String s = sc.next();\n        // Check palindrome\n    }\n}",
+      "javascript": "const fs = require('fs');\nconst s = fs.readFileSync(0,'utf-8').trim();\n// Check palindrome",
+      "c": "#include <stdio.h>\nint main() {\n    char s[100001]; scanf(\"%s\", s);\n    // Check palindrome\n    return 0;\n}"
+    },
+    "stdinTemplate": "racecar"
+  },
+  "base conversion": {
+    "testCases": [
+      {
+        "input": "10",
+        "output": "1010"
+      },
+      {
+        "input": "255",
+        "output": "11111111"
+      },
+      {
+        "input": "0",
+        "output": "0"
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\nif n == 0:\n    print(0)\nelse:\n    bits = []\n    while n > 0:\n        bits.append(str(n % 2))\n        n //= 2\n    print(''.join(reversed(bits)))",
+      "cpp": "#include <iostream>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() {\n    long long n; cin >> n;\n    if (n == 0) { cout << 0 << endl; return 0; }\n    string bits = \"\";\n    while (n > 0) { bits += (char)('0' + n % 2); n /= 2; }\n    reverse(bits.begin(), bits.end());\n    cout << bits << endl;\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        long n = sc.nextLong();\n        System.out.println(Long.toBinaryString(n));\n    }\n}",
+      "javascript": "const fs = require('fs');\nconst n = parseInt(fs.readFileSync(0,'utf-8').trim());\nconsole.log(n.toString(2));",
+      "c": "#include <stdio.h>\nvoid toBinary(long long n) { if(n>1)toBinary(n/2); printf(\"%lld\",n%2); }\nint main() {\n    long long n; scanf(\"%lld\",&n);\n    if(n==0){printf(\"0\\n\");return 0;}\n    toBinary(n); printf(\"\\n\"); return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\n# Convert decimal to binary",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    long long n; cin >> n;\n    // Convert to binary\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        long n = sc.nextLong();\n        // Convert to binary\n    }\n}",
+      "javascript": "const fs = require('fs');\nconst n = parseInt(fs.readFileSync(0,'utf-8').trim());\n// Convert to binary",
+      "c": "#include <stdio.h>\nint main() {\n    long long n; scanf(\"%lld\",&n);\n    // Convert to binary\n    return 0;\n}"
+    },
+    "stdinTemplate": "10"
+  },
+  "square root": {
+    "testCases": [
+      {
+        "input": "16",
+        "output": "4"
+      },
+      {
+        "input": "17",
+        "output": "4"
+      },
+      {
+        "input": "0",
+        "output": "0"
+      }
+    ],
+    "solutions": {
+      "python": "import math\nprint(math.isqrt(int(input())))",
+      "cpp": "#include <iostream>\n#include <cmath>\nusing namespace std;\nint main() {\n    long long n; cin >> n;\n    cout << (long long)sqrt((double)n) << endl;\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        long n = new Scanner(System.in).nextLong();\n        System.out.println((long)Math.sqrt(n));\n    }\n}",
+      "javascript": "const n = parseInt(require('fs').readFileSync(0,'utf-8').trim());\nconsole.log(Math.floor(Math.sqrt(n)));",
+      "c": "#include <stdio.h>\n#include <math.h>\nint main() {\n    long long n; scanf(\"%lld\",&n);\n    printf(\"%lld\\n\",(long long)sqrt((double)n));\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\n# Print floor of square root",
+      "cpp": "#include <iostream>\n#include <cmath>\nusing namespace std;\nint main() {\n    long long n; cin >> n;\n    // Print floor sqrt\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        long n = new Scanner(System.in).nextLong();\n        // Print floor sqrt\n    }\n}",
+      "javascript": "const n = parseInt(require('fs').readFileSync(0,'utf-8').trim());\n// Print floor sqrt",
+      "c": "#include <stdio.h>\nint main() {\n    long long n; scanf(\"%lld\",&n);\n    // Print floor sqrt\n    return 0;\n}"
+    },
+    "stdinTemplate": "16"
+  },
+  "power calculation": {
+    "testCases": [
+      {
+        "input": "2 10",
+        "output": "1024"
+      },
+      {
+        "input": "3 3",
+        "output": "27"
+      },
+      {
+        "input": "5 0",
+        "output": "1"
+      }
+    ],
+    "solutions": {
+      "python": "MOD = 10**9+7\nb, e = map(int, input().split())\nprint(pow(b, e, MOD))",
+      "cpp": "#include <iostream>\nusing namespace std;\nlong long pw(long long b,long long e,long long m){long long r=1;b%=m;while(e>0){if(e&1)r=r*b%m;b=b*b%m;e>>=1;}return r;}\nint main(){\n    long long b,e;cin>>b>>e;\n    cout<<pw(b,e,1000000007)<<endl;\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    static long pw(long b,long e,long m){long r=1;b%=m;while(e>0){if((e&1)==1)r=r*b%m;b=b*b%m;e>>=1;}return r;}\n    public static void main(String[] args) {\n        Scanner sc=new Scanner(System.in);\n        System.out.println(pw(sc.nextLong(),sc.nextLong(),1000000007));\n    }\n}",
+      "javascript": "const [b,e]=require('fs').readFileSync(0,'utf-8').trim().split(' ').map(BigInt);\nconst M=1000000007n;\nlet r=1n,base=b%M,exp=e;\nwhile(exp>0n){if(exp&1n)r=r*base%M;base=base*base%M;exp>>=1n;}\nconsole.log(r.toString());",
+      "c": "#include <stdio.h>\nlong long pw(long long b,long long e,long long m){long long r=1;b%=m;while(e>0){if(e&1)r=r*b%m;b=b*b%m;e>>=1;}return r;}\nint main(){long long b,e;scanf(\"%lld %lld\",&b,&e);printf(\"%lld\\n\",pw(b,e,1000000007));return 0;}"
+    },
+    "starterCode": {
+      "python": "b, e = map(int, input().split())\nMOD = 10**9 + 7\n# Compute b^e mod MOD using fast exponentiation",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    long long b, e; cin >> b >> e;\n    // Compute b^e mod 10^9+7\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        long b = sc.nextLong(), e = sc.nextLong();\n        // Compute b^e mod 10^9+7\n    }\n}",
+      "javascript": "const [b,e] = require('fs').readFileSync(0,'utf-8').trim().split(' ').map(Number);\n// Compute b^e mod 10^9+7",
+      "c": "#include <stdio.h>\nint main() {\n    long long b, e; scanf(\"%lld %lld\",&b,&e);\n    // Compute b^e mod 10^9+7\n    return 0;\n}"
+    },
+    "stdinTemplate": "2 10"
+  },
+  "ASCII value finder": {
+    "testCases": [
+      {
+        "input": "A",
+        "output": "65"
+      },
+      {
+        "input": "hello",
+        "output": "104 101 108 108 111"
+      }
+    ],
+    "solutions": {
+      "python": "s = input()\nprint(' '.join(str(ord(c)) for c in s))",
+      "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\nint main(){\n    string s; getline(cin,s);\n    for(int i=0;i<(int)s.size();i++) cout<<(i?\" \":\"\")<< (int)s[i];\n    cout<<endl; return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        String s=new Scanner(System.in).nextLine();\n        StringBuilder sb=new StringBuilder();\n        for(int i=0;i<s.length();i++){if(i>0)sb.append(' ');sb.append((int)s.charAt(i));}\n        System.out.println(sb);\n    }\n}",
+      "javascript": "const s=require('fs').readFileSync(0,'utf-8').trim();\nconsole.log(s.split('').map(c=>c.charCodeAt(0)).join(' '));",
+      "c": "#include <stdio.h>\nint main(){\n    char s[100001]; fgets(s,sizeof(s),stdin);\n    int first=1;\n    for(int i=0;s[i]&&s[i]!='\\n';i++){printf(\"%s%d\",first?\"\":\" \",(int)s[i]);first=0;}\n    printf(\"\\n\"); return 0;\n}"
+    },
+    "starterCode": {
+      "python": "s = input()\n# Print ASCII values space-separated",
+      "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n    string s; getline(cin,s);\n    // Print ASCII values\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        String s = new Scanner(System.in).nextLine();\n        // Print ASCII values\n    }\n}",
+      "javascript": "const s = require('fs').readFileSync(0,'utf-8').trim();\n// Print ASCII values",
+      "c": "#include <stdio.h>\nint main() {\n    char s[100001]; fgets(s,sizeof(s),stdin);\n    // Print ASCII values\n    return 0;\n}"
+    },
+    "stdinTemplate": "hello"
+  },
+  "leap year count": {
+    "testCases": [
+      {
+        "input": "2000 2020",
+        "output": "6"
+      },
+      {
+        "input": "1900 1900",
+        "output": "0"
+      },
+      {
+        "input": "1 400",
+        "output": "97"
+      }
+    ],
+    "solutions": {
+      "python": "s, e = map(int, input().split())\nprint(sum(1 for y in range(s,e+1) if (y%4==0 and y%100!=0) or y%400==0))",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main(){int s,e;cin>>s>>e;int c=0;for(int y=s;y<=e;y++)if((y%4==0&&y%100!=0)||y%400==0)c++;cout<<c<<endl;return 0;}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int s=sc.nextInt(),e=sc.nextInt(),c=0;\n        for(int y=s;y<=e;y++) if((y%4==0&&y%100!=0)||y%400==0) c++;\n        System.out.println(c);\n    }\n}",
+      "javascript": "const [s,e]=require('fs').readFileSync(0,'utf-8').trim().split(' ').map(Number);\nlet c=0;for(let y=s;y<=e;y++) if((y%4===0&&y%100!==0)||y%400===0) c++;\nconsole.log(c);",
+      "c": "#include <stdio.h>\nint main(){int s,e;scanf(\"%d %d\",&s,&e);int c=0;for(int y=s;y<=e;y++)if((y%4==0&&y%100!=0)||y%400==0)c++;printf(\"%d\\n\",c);return 0;}"
+    },
+    "starterCode": {
+      "python": "s, e = map(int, input().split())\n# Count leap years from s to e inclusive",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int s, e; cin >> s >> e;\n    // Count leap years\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int s = sc.nextInt(), e = sc.nextInt();\n        // Count leap years\n    }\n}",
+      "javascript": "const [s,e] = require('fs').readFileSync(0,'utf-8').trim().split(' ').map(Number);\n// Count leap years",
+      "c": "#include <stdio.h>\nint main() {\n    int s, e; scanf(\"%d %d\",&s,&e);\n    // Count leap years\n    return 0;\n}"
+    },
+    "stdinTemplate": "2000 2020"
+  },
+  "perfect number": {
+    "testCases": [
+      {
+        "input": "28",
+        "output": "YES"
+      },
+      {
+        "input": "12",
+        "output": "NO"
+      },
+      {
+        "input": "6",
+        "output": "YES"
+      }
+    ],
+    "solutions": {
+      "python": "n=int(input())\nprint('YES' if n>1 and sum(i for i in range(1,n) if n%i==0)==n else 'NO')",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main(){long long n;cin>>n;if(n<=1){cout<<\"NO\\n\";return 0;}long long s=0;for(long long i=1;i<n;i++)if(n%i==0)s+=i;cout<<(s==n?\"YES\":\"NO\")<<endl;return 0;}",
+      "java": "import java.util.Scanner;\npublic class Main{\n    public static void main(String[] args){\n        long n=new Scanner(System.in).nextLong();\n        if(n<=1){System.out.println(\"NO\");return;}\n        long s=0;for(long i=1;i<n;i++)if(n%i==0)s+=i;\n        System.out.println(s==n?\"YES\":\"NO\");\n    }\n}",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\nif(n<=1){console.log('NO');process.exit();}\nlet s=0;for(let i=1;i<n;i++) if(n%i===0) s+=i;\nconsole.log(s===n?'YES':'NO');",
+      "c": "#include <stdio.h>\nint main(){long long n;scanf(\"%lld\",&n);if(n<=1){printf(\"NO\\n\");return 0;}long long s=0;for(long long i=1;i<n;i++)if(n%i==0)s+=i;printf(\"%s\\n\",s==n?\"YES\":\"NO\");return 0;}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\n# Check if sum of proper divisors equals n",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    long long n; cin >> n;\n    // Check perfect number\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        long n = new Scanner(System.in).nextLong();\n        // Check perfect number\n    }\n}",
+      "javascript": "const n = parseInt(require('fs').readFileSync(0,'utf-8').trim());\n// Check perfect number",
+      "c": "#include <stdio.h>\nint main() {\n    long long n; scanf(\"%lld\",&n);\n    // Check perfect number\n    return 0;\n}"
+    },
+    "stdinTemplate": "28"
+  },
+  "strong number": {
+    "testCases": [
+      {
+        "input": "145",
+        "output": "YES"
+      },
+      {
+        "input": "123",
+        "output": "NO"
+      },
+      {
+        "input": "1",
+        "output": "YES"
+      }
+    ],
+    "solutions": {
+      "python": "n=int(input())\nf=[1,1,2,6,24,120,720,5040,40320,362880]\nprint('YES' if sum(f[int(d)] for d in str(n))==n else 'NO')",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main(){int n;cin>>n;int f[]={1,1,2,6,24,120,720,5040,40320,362880};int orig=n,s=0;while(n>0){s+=f[n%10];n/=10;}cout<<(s==orig?\"YES\":\"NO\")<<endl;return 0;}",
+      "java": "import java.util.Scanner;\npublic class Main{\n    public static void main(String[] args){\n        int n=new Scanner(System.in).nextInt();\n        int[]f={1,1,2,6,24,120,720,5040,40320,362880};\n        int orig=n,s=0;while(n>0){s+=f[n%10];n/=10;}\n        System.out.println(s==orig?\"YES\":\"NO\");\n    }\n}",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\nconst f=[1,1,2,6,24,120,720,5040,40320,362880];\nconst s=String(n).split('').reduce((a,d)=>a+f[+d],0);\nconsole.log(s===n?'YES':'NO');",
+      "c": "#include <stdio.h>\nint main(){int n;scanf(\"%d\",&n);int f[]={1,1,2,6,24,120,720,5040,40320,362880};int orig=n,s=0;while(n>0){s+=f[n%10];n/=10;}printf(\"%s\\n\",s==orig?\"YES\":\"NO\");return 0;}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\n# Check if sum of digit factorials equals n",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int n; cin >> n;\n    // Check strong number\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        int n = new Scanner(System.in).nextInt();\n        // Check strong number\n    }\n}",
+      "javascript": "const n = parseInt(require('fs').readFileSync(0,'utf-8').trim());\n// Check strong number",
+      "c": "#include <stdio.h>\nint main() {\n    int n; scanf(\"%d\",&n);\n    // Check strong number\n    return 0;\n}"
+    },
+    "stdinTemplate": "145"
+  },
+  "neon number": {
+    "testCases": [
+      {
+        "input": "9",
+        "output": "YES"
+      },
+      {
+        "input": "1",
+        "output": "YES"
+      },
+      {
+        "input": "25",
+        "output": "NO"
+      }
+    ],
+    "solutions": {
+      "python": "n=int(input())\nsq=n*n\nprint('YES' if sum(int(d) for d in str(sq))==n else 'NO')",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main(){int n;cin>>n;int sq=n*n,s=0;while(sq>0){s+=sq%10;sq/=10;}cout<<(s==n?\"YES\":\"NO\")<<endl;return 0;}",
+      "java": "import java.util.Scanner;\npublic class Main{\n    public static void main(String[] args){\n        int n=new Scanner(System.in).nextInt();\n        int sq=n*n,s=0;while(sq>0){s+=sq%10;sq/=10;}\n        System.out.println(s==n?\"YES\":\"NO\");\n    }\n}",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\nconst s=String(n*n).split('').reduce((a,d)=>a+ +d,0);\nconsole.log(s===n?'YES':'NO');",
+      "c": "#include <stdio.h>\nint main(){int n;scanf(\"%d\",&n);int sq=n*n,s=0;while(sq>0){s+=sq%10;sq/=10;}printf(\"%s\\n\",s==n?\"YES\":\"NO\");return 0;}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\n# Check if digit-sum of n^2 equals n",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int n; cin >> n;\n    // Check neon number\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        int n = new Scanner(System.in).nextInt();\n        // Check neon number\n    }\n}",
+      "javascript": "const n = parseInt(require('fs').readFileSync(0,'utf-8').trim());\n// Check neon number",
+      "c": "#include <stdio.h>\nint main() {\n    int n; scanf(\"%d\",&n);\n    // Check neon number\n    return 0;\n}"
+    },
+    "stdinTemplate": "9"
+  },
+  "ugly numbers": {
+    "testCases": [
+      {
+        "input": "10",
+        "output": "12"
+      },
+      {
+        "input": "1",
+        "output": "1"
+      },
+      {
+        "input": "7",
+        "output": "8"
+      }
+    ],
+    "solutions": {
+      "python": "n=int(input())\nu=[0,1];i2=i3=i5=1\nfor _ in range(2,n+1):\n    nx=min(u[i2]*2,u[i3]*3,u[i5]*5)\n    u.append(nx)\n    if nx==u[i2]*2:i2+=1\n    if nx==u[i3]*3:i3+=1\n    if nx==u[i5]*5:i5+=1\nprint(u[n])",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\nint main(){int n;cin>>n;vector<long long>u(n+1);u[1]=1;int i2=1,i3=1,i5=1;for(int i=2;i<=n;i++){long long nx=min({u[i2]*2,u[i3]*3,u[i5]*5});u[i]=nx;if(nx==u[i2]*2)i2++;if(nx==u[i3]*3)i3++;if(nx==u[i5]*5)i5++;}cout<<u[n]<<endl;return 0;}",
+      "java": "import java.util.Scanner;\npublic class Main{\n    public static void main(String[] args){\n        int n=new Scanner(System.in).nextInt();\n        long[]u=new long[n+1];u[1]=1;int i2=1,i3=1,i5=1;\n        for(int i=2;i<=n;i++){long nx=Math.min(u[i2]*2,Math.min(u[i3]*3,u[i5]*5));u[i]=nx;if(nx==u[i2]*2)i2++;if(nx==u[i3]*3)i3++;if(nx==u[i5]*5)i5++;}\n        System.out.println(u[n]);\n    }\n}",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\nconst u=[0n,1n];let i2=1,i3=1,i5=1;\nfor(let i=2;i<=n;i++){const nx=[u[i2]*2n,u[i3]*3n,u[i5]*5n].reduce((a,b)=>a<b?a:b);u.push(nx);if(nx===u[i2]*2n)i2++;if(nx===u[i3]*3n)i3++;if(nx===u[i5]*5n)i5++;}\nconsole.log(u[n].toString());",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){int n;scanf(\"%d\",&n);long long*u=calloc(n+1,sizeof(long long));u[1]=1;int i2=1,i3=1,i5=1;for(int i=2;i<=n;i++){long long a=u[i2]*2,b=u[i3]*3,c=u[i5]*5,nx=a<b?(a<c?a:c):(b<c?b:c);u[i]=nx;if(nx==u[i2]*2)i2++;if(nx==u[i3]*3)i3++;if(nx==u[i5]*5)i5++;}printf(\"%lld\\n\",u[n]);free(u);return 0;}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\n# Find Nth ugly number (prime factors 2,3,5 only)",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main() {\n    int n; cin >> n;\n    // Nth ugly number\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        int n = new Scanner(System.in).nextInt();\n        // Nth ugly number\n    }\n}",
+      "javascript": "const n = parseInt(require('fs').readFileSync(0,'utf-8').trim());\n// Nth ugly number",
+      "c": "#include <stdio.h>\nint main() {\n    int n; scanf(\"%d\",&n);\n    // Nth ugly number\n    return 0;\n}"
+    },
+    "stdinTemplate": "10"
+  },
+  "Two Sum II": {
+    "testCases": [
+      {
+        "input": "4 9\n2 7 11 15",
+        "output": "1 2"
+      },
+      {
+        "input": "3 6\n1 2 3",
+        "output": "2 3"
+      }
+    ],
+    "solutions": {
+      "python": "n,t=map(int,input().split())\na=list(map(int,input().split()))\nl,r=0,n-1\nwhile l<r:\n    s=a[l]+a[r]\n    if s==t:print(l+1,r+1);break\n    elif s<t:l+=1\n    else:r-=1",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){int n,t;cin>>n>>t;vector<int>a(n);for(int i=0;i<n;i++)cin>>a[i];int l=0,r=n-1;while(l<r){int s=a[l]+a[r];if(s==t){cout<<l+1<<\" \"<<r+1<<endl;break;}else if(s<t)l++;else r--;}return 0;}",
+      "java": "import java.util.Scanner;\npublic class Main{public static void main(String[]args){Scanner sc=new Scanner(System.in);int n=sc.nextInt(),t=sc.nextInt();int[]a=new int[n];for(int i=0;i<n;i++)a[i]=sc.nextInt();int l=0,r=n-1;while(l<r){int s=a[l]+a[r];if(s==t){System.out.println((l+1)+\" \"+(r+1));break;}else if(s<t)l++;else r--;}}}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst[n,t]=lines[0].split(' ').map(Number);\nconst a=lines[1].split(' ').map(Number);\nlet l=0,r=n-1;\nwhile(l<r){const s=a[l]+a[r];if(s===t){console.log((l+1)+' '+(r+1));break;}else if(s<t)l++;else r--;}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){int n,t;scanf(\"%d %d\",&n,&t);int*a=malloc(n*sizeof(int));for(int i=0;i<n;i++)scanf(\"%d\",&a[i]);int l=0,r=n-1;while(l<r){int s=a[l]+a[r];if(s==t){printf(\"%d %d\\n\",l+1,r+1);break;}else if(s<t)l++;else r--;}free(a);return 0;}"
+    },
+    "starterCode": {
+      "python": "n, target = map(int, input().split())\nnums = list(map(int, input().split()))\n# Two pointers on sorted array",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main() {\n    int n, t; cin >> n >> t;\n    // Two Sum II\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // Two Sum II\n    }\n}",
+      "javascript": "const lines = require('fs').readFileSync(0,'utf-8').trim().split('\\n');\n// Two Sum II",
+      "c": "#include <stdio.h>\nint main() {\n    // Two Sum II\n    return 0;\n}"
+    },
+    "stdinTemplate": "4 9\n2 7 11 15"
+  },
+  "Majority Element": {
+    "testCases": [
+      {
+        "input": "5\n2 2 1 1 2",
+        "output": "2"
+      },
+      {
+        "input": "3\n3 2 3",
+        "output": "3"
+      }
+    ],
+    "solutions": {
+      "python": "n=int(input())\na=list(map(int,input().split()))\ncand,cnt=0,0\nfor x in a:\n    if cnt==0:cand=x\n    cnt+=1 if x==cand else -1\nprint(cand)",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main(){int n;cin>>n;int cand=0,cnt=0;for(int i=0;i<n;i++){int x;cin>>x;if(cnt==0)cand=x;cnt+=x==cand?1:-1;}cout<<cand<<endl;return 0;}",
+      "java": "import java.util.Scanner;\npublic class Main{public static void main(String[]args){Scanner sc=new Scanner(System.in);int n=sc.nextInt();int cand=0,cnt=0;for(int i=0;i<n;i++){int x=sc.nextInt();if(cnt==0)cand=x;cnt+=x==cand?1:-1;}System.out.println(cand);}}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number);\nlet cand=0,cnt=0;\nfor(const x of a){if(cnt===0)cand=x;cnt+=x===cand?1:-1;}\nconsole.log(cand);",
+      "c": "#include <stdio.h>\nint main(){int n;scanf(\"%d\",&n);int cand=0,cnt=0;for(int i=0;i<n;i++){int x;scanf(\"%d\",&x);if(cnt==0)cand=x;cnt+=x==cand?1:-1;}printf(\"%d\\n\",cand);return 0;}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\nnums = list(map(int, input().split()))\n# Boyer-Moore Voting Algorithm",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int n; cin >> n;\n    // Majority Element\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // Majority Element\n    }\n}",
+      "javascript": "const lines = require('fs').readFileSync(0,'utf-8').trim().split('\\n');\n// Majority Element",
+      "c": "#include <stdio.h>\nint main() {\n    // Majority Element\n    return 0;\n}"
+    },
+    "stdinTemplate": "5\n2 2 1 1 2"
+  },
+  "Subarray Sum Equals K": {
+    "testCases": [
+      {
+        "input": "5 2\n1 1 1 1 1",
+        "output": "4"
+      },
+      {
+        "input": "4 3\n1 2 3 4",
+        "output": "2"
+      }
+    ],
+    "solutions": {
+      "python": "from collections import defaultdict\nn,k=map(int,input().split())\na=list(map(int,input().split()))\ncnt=defaultdict(int);cnt[0]=1\npre=res=0\nfor x in a:\n    pre+=x;res+=cnt[pre-k];cnt[pre]+=1\nprint(res)",
+      "cpp": "#include <iostream>\n#include <unordered_map>\nusing namespace std;\nint main(){int n,k;cin>>n>>k;unordered_map<int,int>cnt;cnt[0]=1;int pre=0,res=0;for(int i=0;i<n;i++){int x;cin>>x;pre+=x;if(cnt.count(pre-k))res+=cnt[pre-k];cnt[pre]++;}cout<<res<<endl;return 0;}",
+      "java": "import java.util.*;\npublic class Main{public static void main(String[]args){Scanner sc=new Scanner(System.in);int n=sc.nextInt(),k=sc.nextInt();Map<Integer,Integer>cnt=new HashMap<>();cnt.put(0,1);int pre=0,res=0;for(int i=0;i<n;i++){pre+=sc.nextInt();res+=cnt.getOrDefault(pre-k,0);cnt.put(pre,cnt.getOrDefault(pre,0)+1);}System.out.println(res);}}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst[n,k]=lines[0].split(' ').map(Number);\nconst a=lines[1].split(' ').map(Number);\nconst cnt=new Map([[0,1]]);let pre=0,res=0;\nfor(const x of a){pre+=x;res+=cnt.get(pre-k)||0;cnt.set(pre,(cnt.get(pre)||0)+1);}\nconsole.log(res);",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){int n,k;scanf(\"%d %d\",&n,&k);int*a=malloc(n*sizeof(int));for(int i=0;i<n;i++)scanf(\"%d\",&a[i]);int res=0;for(int i=0;i<n;i++){int s=0;for(int j=i;j<n;j++){s+=a[j];if(s==k)res++;}}printf(\"%d\\n\",res);free(a);return 0;}"
+    },
+    "starterCode": {
+      "python": "n, k = map(int, input().split())\nnums = list(map(int, input().split()))\n# Prefix sum + hashmap",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int n, k; cin >> n >> k;\n    // Subarray sum = k\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // Subarray sum = k\n    }\n}",
+      "javascript": "const lines = require('fs').readFileSync(0,'utf-8').trim().split('\\n');\n// Subarray sum = k",
+      "c": "#include <stdio.h>\nint main() {\n    // Subarray sum = k\n    return 0;\n}"
+    },
+    "stdinTemplate": "5 2\n1 1 1 1 1"
+  },
+  "Kadane's Subarray Max": {
+    "testCases": [
+      {
+        "input": "9\n-2 1 -3 4 -1 2 1 -5 4",
+        "output": "6"
+      },
+      {
+        "input": "5\n-1 -2 -3 -4 -5",
+        "output": "-1"
+      }
+    ],
+    "solutions": {
+      "python": "n=int(input())\na=list(map(int,input().split()))\nmx=cur=a[0]\nfor x in a[1:]:\n    cur=max(x,cur+x);mx=max(mx,cur)\nprint(mx)",
+      "cpp": "#include <iostream>\n#include <algorithm>\nusing namespace std;\nint main(){int n;cin>>n;int a;cin>>a;int mx=a,cur=a;for(int i=1;i<n;i++){cin>>a;cur=max(a,cur+a);mx=max(mx,cur);}cout<<mx<<endl;return 0;}",
+      "java": "import java.util.Scanner;\npublic class Main{public static void main(String[]args){Scanner sc=new Scanner(System.in);int n=sc.nextInt();int a=sc.nextInt();int mx=a,cur=a;for(int i=1;i<n;i++){a=sc.nextInt();cur=Math.max(a,cur+a);mx=Math.max(mx,cur);}System.out.println(mx);}}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number);\nlet mx=a[0],cur=a[0];\nfor(let i=1;i<a.length;i++){cur=Math.max(a[i],cur+a[i]);mx=Math.max(mx,cur);}\nconsole.log(mx);",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){int n;scanf(\"%d\",&n);int*a=malloc(n*sizeof(int));for(int i=0;i<n;i++)scanf(\"%d\",&a[i]);int mx=a[0],cur=a[0];for(int i=1;i<n;i++){cur=cur+a[i]>a[i]?cur+a[i]:a[i];mx=mx>cur?mx:cur;}printf(\"%d\\n\",mx);free(a);return 0;}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\nnums = list(map(int, input().split()))\n# Kadane's Algorithm",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int n; cin >> n;\n    // Kadane's\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // Kadane's\n    }\n}",
+      "javascript": "const lines = require('fs').readFileSync(0,'utf-8').trim().split('\\n');\n// Kadane's",
+      "c": "#include <stdio.h>\nint main() {\n    // Kadane's\n    return 0;\n}"
+    },
+    "stdinTemplate": "9\n-2 1 -3 4 -1 2 1 -5 4"
+  },
+  "Rotate Array In-Place": {
+    "testCases": [
+      {
+        "input": "7 3\n1 2 3 4 5 6 7",
+        "output": "5 6 7 1 2 3 4"
+      },
+      {
+        "input": "3 1\n1 2 3",
+        "output": "3 1 2"
+      }
+    ],
+    "solutions": {
+      "python": "n,k=map(int,input().split())\na=list(map(int,input().split()))\nk%=n\na=a[-k:]+a[:-k]\nprint(*a)",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\nint main(){int n,k;cin>>n>>k;vector<int>a(n);for(int i=0;i<n;i++)cin>>a[i];k%=n;reverse(a.begin(),a.end());reverse(a.begin(),a.begin()+k);reverse(a.begin()+k,a.end());for(int i=0;i<n;i++)cout<<a[i]<<(i<n-1?\" \":\"\\n\");return 0;}",
+      "java": "import java.util.*;\npublic class Main{static void rev(int[]a,int l,int r){while(l<r){int t=a[l];a[l]=a[r];a[r]=t;l++;r--;}}public static void main(String[]args){Scanner sc=new Scanner(System.in);int n=sc.nextInt(),k=sc.nextInt();k%=n;int[]a=new int[n];for(int i=0;i<n;i++)a[i]=sc.nextInt();rev(a,0,n-1);rev(a,0,k-1);rev(a,k,n-1);for(int i=0;i<n;i++)System.out.print(a[i]+(i<n-1?\" \":\"\\n\"));}}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst[n,k]=lines[0].split(' ').map(Number);\nconst a=lines[1].split(' ').map(Number);\nconst r=k%n;\nconsole.log([...a.slice(n-r),...a.slice(0,n-r)].join(' '));",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nvoid rev(int*a,int l,int r){while(l<r){int t=a[l];a[l]=a[r];a[r]=t;l++;r--;}}\nint main(){int n,k;scanf(\"%d %d\",&n,&k);k%=n;int*a=malloc(n*sizeof(int));for(int i=0;i<n;i++)scanf(\"%d\",&a[i]);rev(a,0,n-1);rev(a,0,k-1);rev(a,k,n-1);for(int i=0;i<n;i++)printf(\"%d%s\",a[i],i<n-1?\" \":\"\\n\");free(a);return 0;}"
+    },
+    "starterCode": {
+      "python": "n, k = map(int, input().split())\nnums = list(map(int, input().split()))\n# Rotate right by k",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int n, k; cin >> n >> k;\n    // Rotate array\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // Rotate array\n    }\n}",
+      "javascript": "const lines = require('fs').readFileSync(0,'utf-8').trim().split('\\n');\n// Rotate array",
+      "c": "#include <stdio.h>\nint main() {\n    // Rotate array\n    return 0;\n}"
+    },
+    "stdinTemplate": "7 3\n1 2 3 4 5 6 7"
+  },
+  "Container With Most Water": {
+    "testCases": [
+      {
+        "input": "9\n1 8 6 2 5 4 8 3 7",
+        "output": "49"
+      },
+      {
+        "input": "2\n1 1",
+        "output": "1"
+      }
+    ],
+    "solutions": {
+      "python": "n=int(input())\na=list(map(int,input().split()))\nl,r=0,n-1;mx=0\nwhile l<r:\n    mx=max(mx,min(a[l],a[r])*(r-l))\n    if a[l]<a[r]:l+=1\n    else:r-=1\nprint(mx)",
+      "cpp": "#include <iostream>\n#include <algorithm>\nusing namespace std;\nint main(){int n;cin>>n;vector<int>a(n);for(auto&x:a)cin>>x;int l=0,r=n-1,mx=0;while(l<r){mx=max(mx,min(a[l],a[r])*(r-l));if(a[l]<a[r])l++;else r--;}cout<<mx<<endl;return 0;}",
+      "java": "import java.util.*;\npublic class Main{public static void main(String[]args){Scanner sc=new Scanner(System.in);int n=sc.nextInt();int[]a=new int[n];for(int i=0;i<n;i++)a[i]=sc.nextInt();int l=0,r=n-1,mx=0;while(l<r){mx=Math.max(mx,Math.min(a[l],a[r])*(r-l));if(a[l]<a[r])l++;else r--;}System.out.println(mx);}}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number);\nlet l=0,r=a.length-1,mx=0;\nwhile(l<r){mx=Math.max(mx,Math.min(a[l],a[r])*(r-l));if(a[l]<a[r])l++;else r--;}\nconsole.log(mx);",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){int n;scanf(\"%d\",&n);int*a=malloc(n*sizeof(int));for(int i=0;i<n;i++)scanf(\"%d\",&a[i]);int l=0,r=n-1,mx=0;while(l<r){int w=(a[l]<a[r]?a[l]:a[r])*(r-l);if(w>mx)mx=w;if(a[l]<a[r])l++;else r--;}printf(\"%d\\n\",mx);free(a);return 0;}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\nheights = list(map(int, input().split()))\n# Two pointers",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main() {\n    int n; cin >> n;\n    // Container with most water\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // Container with most water\n    }\n}",
+      "javascript": "const lines = require('fs').readFileSync(0,'utf-8').trim().split('\\n');\n// Container with most water",
+      "c": "#include <stdio.h>\nint main() {\n    // Container with most water\n    return 0;\n}"
+    },
+    "stdinTemplate": "9\n1 8 6 2 5 4 8 3 7"
+  },
+  "Product of Array Except Self": {
+    "testCases": [
+      {
+        "input": "4\n1 2 3 4",
+        "output": "24 12 8 6"
+      },
+      {
+        "input": "3\n2 3 4",
+        "output": "12 8 6"
+      }
+    ],
+    "solutions": {
+      "python": "n=int(input())\na=list(map(int,input().split()))\npre=[1]*n;suf=[1]*n\nfor i in range(1,n):pre[i]=pre[i-1]*a[i-1]\nfor i in range(n-2,-1,-1):suf[i]=suf[i+1]*a[i+1]\nprint(*[pre[i]*suf[i] for i in range(n)])",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){int n;cin>>n;vector<int>a(n);for(auto&x:a)cin>>x;vector<int>pre(n,1),suf(n,1);for(int i=1;i<n;i++)pre[i]=pre[i-1]*a[i-1];for(int i=n-2;i>=0;i--)suf[i]=suf[i+1]*a[i+1];for(int i=0;i<n;i++)cout<<pre[i]*suf[i]<<(i<n-1?\" \":\"\\n\");return 0;}",
+      "java": "import java.util.*;\npublic class Main{public static void main(String[]args){Scanner sc=new Scanner(System.in);int n=sc.nextInt();int[]a=new int[n];for(int i=0;i<n;i++)a[i]=sc.nextInt();int[]pre=new int[n],suf=new int[n];pre[0]=suf[n-1]=1;for(int i=1;i<n;i++)pre[i]=pre[i-1]*a[i-1];for(int i=n-2;i>=0;i--)suf[i]=suf[i+1]*a[i+1];for(int i=0;i<n;i++)System.out.print(pre[i]*suf[i]+(i<n-1?\" \":\"\\n\"));}}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number),n=a.length;\nconst pre=new Array(n).fill(1),suf=new Array(n).fill(1);\nfor(let i=1;i<n;i++)pre[i]=pre[i-1]*a[i-1];\nfor(let i=n-2;i>=0;i--)suf[i]=suf[i+1]*a[i+1];\nconsole.log(pre.map((p,i)=>p*suf[i]).join(' '));",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){int n;scanf(\"%d\",&n);int*a=malloc(n*4),*pre=calloc(n,4),*suf=calloc(n,4);for(int i=0;i<n;i++)scanf(\"%d\",&a[i]);pre[0]=suf[n-1]=1;for(int i=1;i<n;i++)pre[i]=pre[i-1]*a[i-1];for(int i=n-2;i>=0;i--)suf[i]=suf[i+1]*a[i+1];for(int i=0;i<n;i++)printf(\"%d%s\",pre[i]*suf[i],i<n-1?\" \":\"\\n\");free(a);free(pre);free(suf);return 0;}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\nnums = list(map(int, input().split()))\n# Product except self (no division)",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main() {\n    int n; cin >> n;\n    // Product except self\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // Product except self\n    }\n}",
+      "javascript": "const lines = require('fs').readFileSync(0,'utf-8').trim().split('\\n');\n// Product except self",
+      "c": "#include <stdio.h>\nint main() {\n    // Product except self\n    return 0;\n}"
+    },
+    "stdinTemplate": "4\n1 2 3 4"
+  },
+  "Trapping Rain Water": {
+    "testCases": [
+      {
+        "input": "12\n0 1 0 2 1 0 1 3 2 1 2 1",
+        "output": "6"
+      },
+      {
+        "input": "6\n4 2 0 3 2 5",
+        "output": "9"
+      }
+    ],
+    "solutions": {
+      "python": "n=int(input())\na=list(map(int,input().split()))\nL=[0]*n;R=[0]*n\nL[0]=a[0];R[n-1]=a[n-1]\nfor i in range(1,n):L[i]=max(L[i-1],a[i])\nfor i in range(n-2,-1,-1):R[i]=max(R[i+1],a[i])\nprint(sum(min(L[i],R[i])-a[i] for i in range(n)))",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\nint main(){int n;cin>>n;vector<int>a(n);for(auto&x:a)cin>>x;vector<int>L(n),R(n);L[0]=a[0];R[n-1]=a[n-1];for(int i=1;i<n;i++)L[i]=max(L[i-1],a[i]);for(int i=n-2;i>=0;i--)R[i]=max(R[i+1],a[i]);int s=0;for(int i=0;i<n;i++)s+=min(L[i],R[i])-a[i];cout<<s<<endl;return 0;}",
+      "java": "import java.util.*;\npublic class Main{public static void main(String[]args){Scanner sc=new Scanner(System.in);int n=sc.nextInt();int[]a=new int[n];for(int i=0;i<n;i++)a[i]=sc.nextInt();int[]L=new int[n],R=new int[n];L[0]=a[0];R[n-1]=a[n-1];for(int i=1;i<n;i++)L[i]=Math.max(L[i-1],a[i]);for(int i=n-2;i>=0;i--)R[i]=Math.max(R[i+1],a[i]);int s=0;for(int i=0;i<n;i++)s+=Math.min(L[i],R[i])-a[i];System.out.println(s);}}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number),n=a.length;\nconst L=new Array(n),R=new Array(n);\nL[0]=a[0];R[n-1]=a[n-1];\nfor(let i=1;i<n;i++)L[i]=Math.max(L[i-1],a[i]);\nfor(let i=n-2;i>=0;i--)R[i]=Math.max(R[i+1],a[i]);\nconsole.log(a.reduce((s,x,i)=>s+Math.min(L[i],R[i])-x,0));",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){int n;scanf(\"%d\",&n);int*a=malloc(n*4),*L=malloc(n*4),*R=malloc(n*4);for(int i=0;i<n;i++)scanf(\"%d\",&a[i]);L[0]=a[0];R[n-1]=a[n-1];for(int i=1;i<n;i++)L[i]=L[i-1]>a[i]?L[i-1]:a[i];for(int i=n-2;i>=0;i--)R[i]=R[i+1]>a[i]?R[i+1]:a[i];int s=0;for(int i=0;i<n;i++)s+=(L[i]<R[i]?L[i]:R[i])-a[i];printf(\"%d\\n\",s);free(a);free(L);free(R);return 0;}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\nheights = list(map(int, input().split()))\n# Trapping rain water",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main() {\n    int n; cin >> n;\n    // Trapping rain water\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // Trapping rain water\n    }\n}",
+      "javascript": "const lines = require('fs').readFileSync(0,'utf-8').trim().split('\\n');\n// Trapping rain water",
+      "c": "#include <stdio.h>\nint main() {\n    // Trapping rain water\n    return 0;\n}"
+    },
+    "stdinTemplate": "12\n0 1 0 2 1 0 1 3 2 1 2 1"
+  },
+  "Longest Consecutive Sequence": {
+    "testCases": [
+      {
+        "input": "6\n100 4 200 1 3 2",
+        "output": "4"
+      },
+      {
+        "input": "5\n0 3 7 2 5",
+        "output": "4"
+      }
+    ],
+    "solutions": {
+      "python": "n=int(input())\na=set(map(int,input().split()))\nbest=0\nfor x in a:\n    if x-1 not in a:\n        cur=1\n        while x+cur in a:cur+=1\n        best=max(best,cur)\nprint(best)",
+      "cpp": "#include <iostream>\n#include <unordered_set>\n#include <algorithm>\nusing namespace std;\nint main(){int n;cin>>n;unordered_set<int>s;for(int i=0;i<n;i++){int x;cin>>x;s.insert(x);}int best=0;for(int x:s){if(!s.count(x-1)){int cur=1;while(s.count(x+cur))cur++;best=max(best,cur);}}cout<<best<<endl;return 0;}",
+      "java": "import java.util.*;\npublic class Main{public static void main(String[]args){Scanner sc=new Scanner(System.in);int n=sc.nextInt();Set<Integer>s=new HashSet<>();for(int i=0;i<n;i++)s.add(sc.nextInt());int best=0;for(int x:s){if(!s.contains(x-1)){int cur=1;while(s.contains(x+cur))cur++;best=Math.max(best,cur);}}System.out.println(best);}}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst s=new Set(lines[1].split(' ').map(Number));\nlet best=0;\nfor(const x of s){if(!s.has(x-1)){let cur=1;while(s.has(x+cur))cur++;best=Math.max(best,cur);}}\nconsole.log(best);",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint cmp(const void*a,const void*b){return *(int*)a-*(int*)b;}\nint main(){int n;scanf(\"%d\",&n);int*a=malloc(n*4);for(int i=0;i<n;i++)scanf(\"%d\",&a[i]);qsort(a,n,4,cmp);int best=1,cur=1;for(int i=1;i<n;i++){if(a[i]==a[i-1]+1)cur++;else if(a[i]!=a[i-1])cur=1;if(cur>best)best=cur;}printf(\"%d\\n\",best);free(a);return 0;}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\nnums = list(map(int, input().split()))\n# Longest consecutive sequence",
+      "cpp": "#include <iostream>\n#include <unordered_set>\nusing namespace std;\nint main() {\n    int n; cin >> n;\n    // Longest consecutive\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // Longest consecutive\n    }\n}",
+      "javascript": "const lines = require('fs').readFileSync(0,'utf-8').trim().split('\\n');\n// Longest consecutive",
+      "c": "#include <stdio.h>\nint main() {\n    // Longest consecutive\n    return 0;\n}"
+    },
+    "stdinTemplate": "6\n100 4 200 1 3 2"
+  },
+  "Climbing stairs fibonacci ways": {
+    "testCases": [
+      {
+        "input": "2",
+        "output": "2"
+      },
+      {
+        "input": "5",
+        "output": "8"
+      },
+      {
+        "input": "1",
+        "output": "1"
+      }
+    ],
+    "solutions": {
+      "python": "n=int(input())\nif n<=2:print(n)\nelse:\n    a,b=1,2\n    for _ in range(3,n+1):a,b=b,a+b\n    print(b)",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main(){int n;cin>>n;if(n<=2){cout<<n<<endl;return 0;}int a=1,b=2;for(int i=3;i<=n;i++){int c=a+b;a=b;b=c;}cout<<b<<endl;return 0;}",
+      "java": "import java.util.Scanner;\npublic class Main{public static void main(String[]args){int n=new Scanner(System.in).nextInt();if(n<=2){System.out.println(n);return;}int a=1,b=2;for(int i=3;i<=n;i++){int c=a+b;a=b;b=c;}System.out.println(b);}}",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\nif(n<=2){console.log(n);}else{let a=1,b=2;for(let i=3;i<=n;i++){const c=a+b;a=b;b=c;}console.log(b);}",
+      "c": "#include <stdio.h>\nint main(){int n;scanf(\"%d\",&n);if(n<=2){printf(\"%d\\n\",n);return 0;}int a=1,b=2;for(int i=3;i<=n;i++){int c=a+b;a=b;b=c;}printf(\"%d\\n\",b);return 0;}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\n# Count ways to climb n stairs (1 or 2 steps)",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int n; cin >> n;\n    // Climbing stairs DP\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        int n = new Scanner(System.in).nextInt();\n        // Climbing stairs DP\n    }\n}",
+      "javascript": "const n = parseInt(require('fs').readFileSync(0,'utf-8').trim());\n// Climbing stairs DP",
+      "c": "#include <stdio.h>\nint main() {\n    int n; scanf(\"%d\",&n);\n    // Climbing stairs DP\n    return 0;\n}"
+    },
+    "stdinTemplate": "5"
+  },
+  "Robbing adjacent houses maximum": {
+    "testCases": [
+      {
+        "input": "4\n1 2 3 1",
+        "output": "4"
+      },
+      {
+        "input": "5\n2 7 9 3 1",
+        "output": "12"
+      }
+    ],
+    "solutions": {
+      "python": "n=int(input())\na=list(map(int,input().split()))\nif n==1:print(a[0])\nelse:\n    p2,p1=a[0],max(a[0],a[1])\n    for i in range(2,n):\n        p2,p1=p1,max(p1,p2+a[i])\n    print(p1)",
+      "cpp": "#include <iostream>\n#include <algorithm>\nusing namespace std;\nint main(){int n;cin>>n;int*a=new int[n];for(int i=0;i<n;i++)cin>>a[i];if(n==1){cout<<a[0]<<endl;return 0;}int p2=a[0],p1=max(a[0],a[1]);for(int i=2;i<n;i++){int c=max(p1,p2+a[i]);p2=p1;p1=c;}cout<<p1<<endl;delete[]a;return 0;}",
+      "java": "import java.util.*;\npublic class Main{public static void main(String[]args){Scanner sc=new Scanner(System.in);int n=sc.nextInt();int[]a=new int[n];for(int i=0;i<n;i++)a[i]=sc.nextInt();if(n==1){System.out.println(a[0]);return;}int p2=a[0],p1=Math.max(a[0],a[1]);for(int i=2;i<n;i++){int c=Math.max(p1,p2+a[i]);p2=p1;p1=c;}System.out.println(p1);}}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number),n=a.length;\nif(n===1){console.log(a[0]);}else{let p2=a[0],p1=Math.max(a[0],a[1]);for(let i=2;i<n;i++){const c=Math.max(p1,p2+a[i]);p2=p1;p1=c;}console.log(p1);}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){int n;scanf(\"%d\",&n);int*a=malloc(n*4);for(int i=0;i<n;i++)scanf(\"%d\",&a[i]);if(n==1){printf(\"%d\\n\",a[0]);free(a);return 0;}int p2=a[0],p1=a[0]>a[1]?a[0]:a[1];for(int i=2;i<n;i++){int c=p1>p2+a[i]?p1:p2+a[i];p2=p1;p1=c;}printf(\"%d\\n\",p1);free(a);return 0;}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\nnums = list(map(int, input().split()))\n# House Robber DP",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int n; cin >> n;\n    // House Robber\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // House Robber\n    }\n}",
+      "javascript": "const lines = require('fs').readFileSync(0,'utf-8').trim().split('\\n');\n// House Robber",
+      "c": "#include <stdio.h>\nint main() {\n    // House Robber\n    return 0;\n}"
+    },
+    "stdinTemplate": "4\n1 2 3 1"
+  },
+  "Coin Change minimal coins": {
+    "testCases": [
+      {
+        "input": "3 11\n1 2 5",
+        "output": "3"
+      },
+      {
+        "input": "2 3\n2 4",
+        "output": "-1"
+      }
+    ],
+    "solutions": {
+      "python": "n,t=map(int,input().split())\nc=list(map(int,input().split()))\ndp=[float('inf')]*(t+1);dp[0]=0\nfor x in c:\n    for i in range(x,t+1):dp[i]=min(dp[i],dp[i-x]+1)\nprint(dp[t] if dp[t]!=float('inf') else -1)",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\nint main(){int n,t;cin>>n>>t;vector<int>c(n);for(auto&x:c)cin>>x;vector<int>dp(t+1,1e9);dp[0]=0;for(int x:c)for(int i=x;i<=t;i++)dp[i]=min(dp[i],dp[i-x]+1);cout<<(dp[t]>=(int)1e9?-1:dp[t])<<endl;return 0;}",
+      "java": "import java.util.*;\npublic class Main{public static void main(String[]args){Scanner sc=new Scanner(System.in);int n=sc.nextInt(),t=sc.nextInt();int[]c=new int[n];for(int i=0;i<n;i++)c[i]=sc.nextInt();int[]dp=new int[t+1];Arrays.fill(dp,100000000);dp[0]=0;for(int x:c)for(int i=x;i<=t;i++)dp[i]=Math.min(dp[i],dp[i-x]+1);System.out.println(dp[t]>=100000000?-1:dp[t]);}}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst[n,t]=lines[0].split(' ').map(Number);\nconst coins=lines[1].split(' ').map(Number);\nconst dp=new Array(t+1).fill(Infinity);dp[0]=0;\nfor(const c of coins)for(let i=c;i<=t;i++)dp[i]=Math.min(dp[i],dp[i-c]+1);\nconsole.log(dp[t]===Infinity?-1:dp[t]);",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){int n,t;scanf(\"%d %d\",&n,&t);int*c=malloc(n*4);for(int i=0;i<n;i++)scanf(\"%d\",&c[i]);int*dp=malloc((t+1)*4);for(int i=0;i<=t;i++)dp[i]=1000000000;dp[0]=0;for(int j=0;j<n;j++)for(int i=c[j];i<=t;i++)if(dp[i-c[j]]+1<dp[i])dp[i]=dp[i-c[j]]+1;printf(\"%d\\n\",dp[t]>=1000000000?-1:dp[t]);free(c);free(dp);return 0;}"
+    },
+    "starterCode": {
+      "python": "n, target = map(int, input().split())\ncoins = list(map(int, input().split()))\n# Coin change DP",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int n, target; cin >> n >> target;\n    // Coin change DP\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // Coin change DP\n    }\n}",
+      "javascript": "const lines = require('fs').readFileSync(0,'utf-8').trim().split('\\n');\n// Coin change DP",
+      "c": "#include <stdio.h>\nint main() {\n    // Coin change DP\n    return 0;\n}"
+    },
+    "stdinTemplate": "3 11\n1 2 5"
+  },
+  "Longest Increasing Subsequence length": {
+    "testCases": [
+      {
+        "input": "8\n10 9 2 5 3 7 101 18",
+        "output": "4"
+      },
+      {
+        "input": "6\n0 1 0 3 2 3",
+        "output": "4"
+      }
+    ],
+    "solutions": {
+      "python": "n=int(input())\na=list(map(int,input().split()))\ndp=[1]*n\nfor i in range(1,n):\n    for j in range(i):\n        if a[j]<a[i]:dp[i]=max(dp[i],dp[j]+1)\nprint(max(dp))",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\nint main(){int n;cin>>n;vector<int>a(n);for(auto&x:a)cin>>x;vector<int>dp(n,1);for(int i=1;i<n;i++)for(int j=0;j<i;j++)if(a[j]<a[i])dp[i]=max(dp[i],dp[j]+1);cout<<*max_element(dp.begin(),dp.end())<<endl;return 0;}",
+      "java": "import java.util.*;\npublic class Main{public static void main(String[]args){Scanner sc=new Scanner(System.in);int n=sc.nextInt();int[]a=new int[n];for(int i=0;i<n;i++)a[i]=sc.nextInt();int[]dp=new int[n];Arrays.fill(dp,1);int max=1;for(int i=1;i<n;i++){for(int j=0;j<i;j++)if(a[j]<a[i])dp[i]=Math.max(dp[i],dp[j]+1);max=Math.max(max,dp[i]);}System.out.println(max);}}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number),n=a.length;\nconst dp=new Array(n).fill(1);\nfor(let i=1;i<n;i++)for(let j=0;j<i;j++)if(a[j]<a[i])dp[i]=Math.max(dp[i],dp[j]+1);\nconsole.log(Math.max(...dp));",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){int n;scanf(\"%d\",&n);int*a=malloc(n*4),*dp=malloc(n*4);for(int i=0;i<n;i++){scanf(\"%d\",&a[i]);dp[i]=1;}int max=1;for(int i=1;i<n;i++){for(int j=0;j<i;j++)if(a[j]<a[i]&&dp[j]+1>dp[i])dp[i]=dp[j]+1;if(dp[i]>max)max=dp[i];}printf(\"%d\\n\",max);free(a);free(dp);return 0;}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\nnums = list(map(int, input().split()))\n# LIS DP",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int n; cin >> n;\n    // LIS\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // LIS\n    }\n}",
+      "javascript": "const lines = require('fs').readFileSync(0,'utf-8').trim().split('\\n');\n// LIS",
+      "c": "#include <stdio.h>\nint main() {\n    // LIS\n    return 0;\n}"
+    },
+    "stdinTemplate": "8\n10 9 2 5 3 7 101 18"
+  },
+  "Unique paths grid paths": {
+    "testCases": [
+      {
+        "input": "3 7",
+        "output": "28"
+      },
+      {
+        "input": "3 3",
+        "output": "6"
+      }
+    ],
+    "solutions": {
+      "python": "m,n=map(int,input().split())\ndp=[[1]*n for _ in range(m)]\nfor i in range(1,m):\n    for j in range(1,n):dp[i][j]=dp[i-1][j]+dp[i][j-1]\nprint(dp[m-1][n-1])",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){int m,n;cin>>m>>n;vector<vector<int>>dp(m,vector<int>(n,1));for(int i=1;i<m;i++)for(int j=1;j<n;j++)dp[i][j]=dp[i-1][j]+dp[i][j-1];cout<<dp[m-1][n-1]<<endl;return 0;}",
+      "java": "import java.util.Scanner;\npublic class Main{public static void main(String[]args){Scanner sc=new Scanner(System.in);int m=sc.nextInt(),n=sc.nextInt();int[][]dp=new int[m][n];for(int i=0;i<m;i++)for(int j=0;j<n;j++)dp[i][j]=1;for(int i=1;i<m;i++)for(int j=1;j<n;j++)dp[i][j]=dp[i-1][j]+dp[i][j-1];System.out.println(dp[m-1][n-1]);}}",
+      "javascript": "const[m,n]=require('fs').readFileSync(0,'utf-8').trim().split(' ').map(Number);\nconst dp=Array.from({length:m},()=>new Array(n).fill(1));\nfor(let i=1;i<m;i++)for(let j=1;j<n;j++)dp[i][j]=dp[i-1][j]+dp[i][j-1];\nconsole.log(dp[m-1][n-1]);",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){int m,n;scanf(\"%d %d\",&m,&n);int**dp=malloc(m*sizeof(int*));for(int i=0;i<m;i++){dp[i]=malloc(n*4);for(int j=0;j<n;j++)dp[i][j]=1;}for(int i=1;i<m;i++)for(int j=1;j<n;j++)dp[i][j]=dp[i-1][j]+dp[i][j-1];printf(\"%d\\n\",dp[m-1][n-1]);for(int i=0;i<m;i++)free(dp[i]);free(dp);return 0;}"
+    },
+    "starterCode": {
+      "python": "m, n = map(int, input().split())\n# Unique paths DP",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int m, n; cin >> m >> n;\n    // Unique paths DP\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int m = sc.nextInt(), n = sc.nextInt();\n        // Unique paths DP\n    }\n}",
+      "javascript": "const [m,n] = require('fs').readFileSync(0,'utf-8').trim().split(' ').map(Number);\n// Unique paths DP",
+      "c": "#include <stdio.h>\nint main() {\n    int m, n; scanf(\"%d %d\",&m,&n);\n    // Unique paths DP\n    return 0;\n}"
+    },
+    "stdinTemplate": "3 7"
+  },
+  "Edit Distance minimum edits": {
+    "testCases": [
+      {
+        "input": "horse\nros",
+        "output": "3"
+      },
+      {
+        "input": "kitten\nsitting",
+        "output": "3"
+      }
+    ],
+    "solutions": {
+      "python": "s1=input().strip();s2=input().strip()\nm,n=len(s1),len(s2)\ndp=[[0]*(n+1) for _ in range(m+1)]\nfor i in range(m+1):dp[i][0]=i\nfor j in range(n+1):dp[0][j]=j\nfor i in range(1,m+1):\n    for j in range(1,n+1):\n        dp[i][j]=dp[i-1][j-1] if s1[i-1]==s2[j-1] else 1+min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1])\nprint(dp[m][n])",
+      "cpp": "#include <iostream>\n#include <string>\n#include <vector>\n#include <algorithm>\nusing namespace std;\nint main(){string s1,s2;cin>>s1>>s2;int m=s1.size(),n=s2.size();vector<vector<int>>dp(m+1,vector<int>(n+1));for(int i=0;i<=m;i++)dp[i][0]=i;for(int j=0;j<=n;j++)dp[0][j]=j;for(int i=1;i<=m;i++)for(int j=1;j<=n;j++)dp[i][j]=s1[i-1]==s2[j-1]?dp[i-1][j-1]:1+min({dp[i-1][j],dp[i][j-1],dp[i-1][j-1]});cout<<dp[m][n]<<endl;return 0;}",
+      "java": "import java.util.*;\npublic class Main{public static void main(String[]args){Scanner sc=new Scanner(System.in);String s1=sc.next(),s2=sc.next();int m=s1.length(),n=s2.length();int[][]dp=new int[m+1][n+1];for(int i=0;i<=m;i++)dp[i][0]=i;for(int j=0;j<=n;j++)dp[0][j]=j;for(int i=1;i<=m;i++)for(int j=1;j<=n;j++)dp[i][j]=s1.charAt(i-1)==s2.charAt(j-1)?dp[i-1][j-1]:1+Math.min(dp[i-1][j],Math.min(dp[i][j-1],dp[i-1][j-1]));System.out.println(dp[m][n]);}}",
+      "javascript": "const[s1,s2]=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst m=s1.length,n=s2.length;\nconst dp=Array.from({length:m+1},(_,i)=>Array.from({length:n+1},(_,j)=>i+j));\nfor(let i=1;i<=m;i++)for(let j=1;j<=n;j++)dp[i][j]=s1[i-1]===s2[j-1]?dp[i-1][j-1]:1+Math.min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1]);\nconsole.log(dp[m][n]);",
+      "c": "#include <stdio.h>\n#include <string.h>\n#include <stdlib.h>\n#define MIN3(a,b,c)((a)<(b)?((a)<(c)?(a):(c)):((b)<(c)?(b):(c)))\nint main(){char s1[1001],s2[1001];scanf(\"%s %s\",s1,s2);int m=strlen(s1),n=strlen(s2);int**dp=malloc((m+1)*sizeof(int*));for(int i=0;i<=m;i++){dp[i]=malloc((n+1)*4);dp[i][0]=i;}for(int j=0;j<=n;j++)dp[0][j]=j;for(int i=1;i<=m;i++)for(int j=1;j<=n;j++)dp[i][j]=s1[i-1]==s2[j-1]?dp[i-1][j-1]:1+MIN3(dp[i-1][j],dp[i][j-1],dp[i-1][j-1]);printf(\"%d\\n\",dp[m][n]);for(int i=0;i<=m;i++)free(dp[i]);free(dp);return 0;}"
+    },
+    "starterCode": {
+      "python": "s1 = input().strip()\ns2 = input().strip()\n# Edit distance DP",
+      "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n    string s1, s2; cin >> s1 >> s2;\n    // Edit distance DP\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String s1 = sc.next(), s2 = sc.next();\n        // Edit distance DP\n    }\n}",
+      "javascript": "const [s1,s2] = require('fs').readFileSync(0,'utf-8').trim().split('\\n');\n// Edit distance DP",
+      "c": "#include <stdio.h>\nint main() {\n    char s1[1001], s2[1001]; scanf(\"%s %s\",s1,s2);\n    // Edit distance DP\n    return 0;\n}"
+    },
+    "stdinTemplate": "horse\nros"
+  },
+  "Longest Common Subsequence length": {
+    "testCases": [
+      {
+        "input": "abcde\nace",
+        "output": "3"
+      },
+      {
+        "input": "abc\ndef",
+        "output": "0"
+      }
+    ],
+    "solutions": {
+      "python": "s1=input().strip();s2=input().strip()\nm,n=len(s1),len(s2)\ndp=[[0]*(n+1) for _ in range(m+1)]\nfor i in range(1,m+1):\n    for j in range(1,n+1):\n        dp[i][j]=dp[i-1][j-1]+1 if s1[i-1]==s2[j-1] else max(dp[i-1][j],dp[i][j-1])\nprint(dp[m][n])",
+      "cpp": "#include <iostream>\n#include <string>\n#include <vector>\n#include <algorithm>\nusing namespace std;\nint main(){string s1,s2;cin>>s1>>s2;int m=s1.size(),n=s2.size();vector<vector<int>>dp(m+1,vector<int>(n+1,0));for(int i=1;i<=m;i++)for(int j=1;j<=n;j++)dp[i][j]=s1[i-1]==s2[j-1]?dp[i-1][j-1]+1:max(dp[i-1][j],dp[i][j-1]);cout<<dp[m][n]<<endl;return 0;}",
+      "java": "import java.util.*;\npublic class Main{public static void main(String[]args){Scanner sc=new Scanner(System.in);String s1=sc.next(),s2=sc.next();int m=s1.length(),n=s2.length();int[][]dp=new int[m+1][n+1];for(int i=1;i<=m;i++)for(int j=1;j<=n;j++)dp[i][j]=s1.charAt(i-1)==s2.charAt(j-1)?dp[i-1][j-1]+1:Math.max(dp[i-1][j],dp[i][j-1]);System.out.println(dp[m][n]);}}",
+      "javascript": "const[s1,s2]=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst m=s1.length,n=s2.length;\nconst dp=Array.from({length:m+1},()=>new Array(n+1).fill(0));\nfor(let i=1;i<=m;i++)for(let j=1;j<=n;j++)dp[i][j]=s1[i-1]===s2[j-1]?dp[i-1][j-1]+1:Math.max(dp[i-1][j],dp[i][j-1]);\nconsole.log(dp[m][n]);",
+      "c": "#include <stdio.h>\n#include <string.h>\n#include <stdlib.h>\nint main(){char s1[1001],s2[1001];scanf(\"%s %s\",s1,s2);int m=strlen(s1),n=strlen(s2);int**dp=malloc((m+1)*sizeof(int*));for(int i=0;i<=m;i++)dp[i]=calloc(n+1,4);for(int i=1;i<=m;i++)for(int j=1;j<=n;j++)dp[i][j]=s1[i-1]==s2[j-1]?dp[i-1][j-1]+1:(dp[i-1][j]>dp[i][j-1]?dp[i-1][j]:dp[i][j-1]);printf(\"%d\\n\",dp[m][n]);for(int i=0;i<=m;i++)free(dp[i]);free(dp);return 0;}"
+    },
+    "starterCode": {
+      "python": "s1 = input().strip()\ns2 = input().strip()\n# LCS DP",
+      "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n    string s1, s2; cin >> s1 >> s2;\n    // LCS DP\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String s1 = sc.next(), s2 = sc.next();\n        // LCS DP\n    }\n}",
+      "javascript": "const [s1,s2] = require('fs').readFileSync(0,'utf-8').trim().split('\\n');\n// LCS DP",
+      "c": "#include <stdio.h>\nint main() {\n    char s1[1001], s2[1001]; scanf(\"%s %s\",s1,s2);\n    // LCS DP\n    return 0;\n}"
+    },
+    "stdinTemplate": "abcde\nace"
+  },
+  "Decode ways digit counts": {
+    "testCases": [
+      {
+        "input": "12",
+        "output": "2"
+      },
+      {
+        "input": "226",
+        "output": "3"
+      },
+      {
+        "input": "0",
+        "output": "0"
+      }
+    ],
+    "solutions": {
+      "python": "s=input().strip()\nif s[0]=='0':print(0)\nelse:\n    n=len(s);dp=[0]*(n+1);dp[0]=1;dp[1]=1\n    for i in range(2,n+1):\n        if s[i-1]!='0':dp[i]+=dp[i-1]\n        two=int(s[i-2:i])\n        if 10<=two<=26:dp[i]+=dp[i-2]\n    print(dp[n])",
+      "cpp": "#include <iostream>\n#include <string>\n#include <vector>\nusing namespace std;\nint main(){string s;cin>>s;int n=s.size();if(s[0]=='0'){cout<<0<<endl;return 0;}vector<int>dp(n+1,0);dp[0]=1;dp[1]=1;for(int i=2;i<=n;i++){if(s[i-1]!='0')dp[i]+=dp[i-1];int two=(s[i-2]-'0')*10+(s[i-1]-'0');if(two>=10&&two<=26)dp[i]+=dp[i-2];}cout<<dp[n]<<endl;return 0;}",
+      "java": "import java.util.Scanner;\npublic class Main{public static void main(String[]args){String s=new Scanner(System.in).next();int n=s.length();if(s.charAt(0)=='0'){System.out.println(0);return;}int[]dp=new int[n+1];dp[0]=1;dp[1]=1;for(int i=2;i<=n;i++){if(s.charAt(i-1)!='0')dp[i]+=dp[i-1];int two=Integer.parseInt(s.substring(i-2,i));if(two>=10&&two<=26)dp[i]+=dp[i-2];}System.out.println(dp[n]);}}",
+      "javascript": "const s=require('fs').readFileSync(0,'utf-8').trim();\nconst n=s.length;\nif(s[0]==='0'){console.log(0);process.exit();}\nconst dp=new Array(n+1).fill(0);dp[0]=1;dp[1]=1;\nfor(let i=2;i<=n;i++){if(s[i-1]!=='0')dp[i]+=dp[i-1];const t=+s.slice(i-2,i);if(t>=10&&t<=26)dp[i]+=dp[i-2];}\nconsole.log(dp[n]);",
+      "c": "#include <stdio.h>\n#include <string.h>\n#include <stdlib.h>\nint main(){char s[101];scanf(\"%s\",s);int n=strlen(s);if(s[0]=='0'){printf(\"0\\n\");return 0;}int*dp=calloc(n+1,4);dp[0]=1;dp[1]=1;for(int i=2;i<=n;i++){if(s[i-1]!='0')dp[i]+=dp[i-1];int t=(s[i-2]-'0')*10+(s[i-1]-'0');if(t>=10&&t<=26)dp[i]+=dp[i-2];}printf(\"%d\\n\",dp[n]);free(dp);return 0;}"
+    },
+    "starterCode": {
+      "python": "s = input().strip()\n# Count decode ways",
+      "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n    string s; cin >> s;\n    // Decode ways DP\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        String s = new Scanner(System.in).next();\n        // Decode ways DP\n    }\n}",
+      "javascript": "const s = require('fs').readFileSync(0,'utf-8').trim();\n// Decode ways DP",
+      "c": "#include <stdio.h>\nint main() {\n    char s[101]; scanf(\"%s\",s);\n    // Decode ways DP\n    return 0;\n}"
+    },
+    "stdinTemplate": "226"
+  },
+  "Jump Game sequence jumps": {
+    "testCases": [
+      {
+        "input": "5\n2 3 1 1 4",
+        "output": "YES"
+      },
+      {
+        "input": "5\n3 2 1 0 4",
+        "output": "NO"
+      }
+    ],
+    "solutions": {
+      "python": "n=int(input())\na=list(map(int,input().split()))\nreach=0\nfor i,x in enumerate(a):\n    if i>reach:break\n    reach=max(reach,i+x)\nprint('YES' if reach>=n-1 else 'NO')",
+      "cpp": "#include <iostream>\n#include <algorithm>\nusing namespace std;\nint main(){int n;cin>>n;int reach=0;for(int i=0;i<n;i++){int x;cin>>x;if(i>reach){cout<<\"NO\"<<endl;return 0;}reach=max(reach,i+x);}cout<<\"YES\"<<endl;return 0;}",
+      "java": "import java.util.Scanner;\npublic class Main{public static void main(String[]args){Scanner sc=new Scanner(System.in);int n=sc.nextInt();int reach=0;for(int i=0;i<n;i++){int x=sc.nextInt();if(i>reach){System.out.println(\"NO\");return;}reach=Math.max(reach,i+x);}System.out.println(\"YES\");}}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number),n=a.length;\nlet reach=0;\nfor(let i=0;i<n;i++){if(i>reach){console.log('NO');process.exit();}reach=Math.max(reach,i+a[i]);}\nconsole.log('YES');",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){int n;scanf(\"%d\",&n);int*a=malloc(n*4);for(int i=0;i<n;i++)scanf(\"%d\",&a[i]);int reach=0;for(int i=0;i<n;i++){if(i>reach){printf(\"NO\\n\");free(a);return 0;}if(i+a[i]>reach)reach=i+a[i];}printf(\"YES\\n\");free(a);return 0;}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\nnums = list(map(int, input().split()))\n# Can reach last index?",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int n; cin >> n;\n    // Jump game greedy\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // Jump game\n    }\n}",
+      "javascript": "const lines = require('fs').readFileSync(0,'utf-8').trim().split('\\n');\n// Jump game",
+      "c": "#include <stdio.h>\nint main() {\n    // Jump game\n    return 0;\n}"
+    },
+    "stdinTemplate": "5\n2 3 1 1 4"
+  },
+  "Coin Change II total ways": {
+    "testCases": [
+      {
+        "input": "3 5\n1 2 5",
+        "output": "4"
+      },
+      {
+        "input": "2 3\n2 4",
+        "output": "0"
+      }
+    ],
+    "solutions": {
+      "python": "n,t=map(int,input().split())\nc=list(map(int,input().split()))\ndp=[0]*(t+1);dp[0]=1\nfor x in c:\n    for i in range(x,t+1):dp[i]+=dp[i-x]\nprint(dp[t])",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){int n,t;cin>>n>>t;vector<int>c(n);for(auto&x:c)cin>>x;vector<long long>dp(t+1,0);dp[0]=1;for(int x:c)for(int i=x;i<=t;i++)dp[i]+=dp[i-x];cout<<dp[t]<<endl;return 0;}",
+      "java": "import java.util.*;\npublic class Main{public static void main(String[]args){Scanner sc=new Scanner(System.in);int n=sc.nextInt(),t=sc.nextInt();int[]c=new int[n];for(int i=0;i<n;i++)c[i]=sc.nextInt();long[]dp=new long[t+1];dp[0]=1;for(int x:c)for(int i=x;i<=t;i++)dp[i]+=dp[i-x];System.out.println(dp[t]);}}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst[n,t]=lines[0].split(' ').map(Number);\nconst coins=lines[1].split(' ').map(Number);\nconst dp=new Array(t+1).fill(0);dp[0]=1;\nfor(const c of coins)for(let i=c;i<=t;i++)dp[i]+=dp[i-c];\nconsole.log(dp[t]);",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){int n,t;scanf(\"%d %d\",&n,&t);int*c=malloc(n*4);for(int i=0;i<n;i++)scanf(\"%d\",&c[i]);long long*dp=calloc(t+1,8);dp[0]=1;for(int j=0;j<n;j++)for(int i=c[j];i<=t;i++)dp[i]+=dp[i-c[j]];printf(\"%lld\\n\",dp[t]);free(c);free(dp);return 0;}"
+    },
+    "starterCode": {
+      "python": "n, target = map(int, input().split())\ncoins = list(map(int, input().split()))\n# Count ways (unbounded knapsack)",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int n, target; cin >> n >> target;\n    // Coin change II\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // Coin change II\n    }\n}",
+      "javascript": "const lines = require('fs').readFileSync(0,'utf-8').trim().split('\\n');\n// Coin change II",
+      "c": "#include <stdio.h>\nint main() {\n    // Coin change II\n    return 0;\n}"
+    },
+    "stdinTemplate": "3 5\n1 2 5"
+  },
+  "Target Sum count matches": {
+    "testCases": [
+      {
+        "input": "5 3\n1 1 1 1 1",
+        "output": "5"
+      },
+      {
+        "input": "3 0\n0 0 0",
+        "output": "8"
+      }
+    ],
+    "solutions": {
+      "python": "n,t=map(int,input().split())\na=list(map(int,input().split()))\nfrom collections import defaultdict\ndp=defaultdict(int);dp[0]=1\nfor x in a:\n    ndp=defaultdict(int)\n    for s,cnt in dp.items():\n        ndp[s+x]+=cnt;ndp[s-x]+=cnt\n    dp=ndp\nprint(dp[t])",
+      "cpp": "#include <iostream>\n#include <unordered_map>\nusing namespace std;\nint main(){int n,t;cin>>n>>t;unordered_map<int,int>dp;dp[0]=1;for(int i=0;i<n;i++){int x;cin>>x;unordered_map<int,int>ndp;for(auto[s,cnt]:dp){ndp[s+x]+=cnt;ndp[s-x]+=cnt;}dp=ndp;}cout<<dp[t]<<endl;return 0;}",
+      "java": "import java.util.*;\npublic class Main{public static void main(String[]args){Scanner sc=new Scanner(System.in);int n=sc.nextInt(),t=sc.nextInt();Map<Integer,Integer>dp=new HashMap<>();dp.put(0,1);for(int i=0;i<n;i++){int x=sc.nextInt();Map<Integer,Integer>ndp=new HashMap<>();for(Map.Entry<Integer,Integer>e:dp.entrySet()){ndp.merge(e.getKey()+x,e.getValue(),Integer::sum);ndp.merge(e.getKey()-x,e.getValue(),Integer::sum);}dp=ndp;}System.out.println(dp.getOrDefault(t,0));}}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst[n,t]=lines[0].split(' ').map(Number);\nconst a=lines[1].split(' ').map(Number);\nlet dp=new Map([[0,1]]);\nfor(const x of a){const ndp=new Map();for(const[s,cnt]of dp){ndp.set(s+x,(ndp.get(s+x)||0)+cnt);ndp.set(s-x,(ndp.get(s-x)||0)+cnt);}dp=ndp;}\nconsole.log(dp.get(t)||0);",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n// Simple recursion with memo not feasible in C here; use brute force\nint n,t,*a,ans=0;\nvoid dfs(int i,int s){if(i==n){if(s==t)ans++;return;}dfs(i+1,s+a[i]);dfs(i+1,s-a[i]);}\nint main(){scanf(\"%d %d\",&n,&t);a=malloc(n*4);for(int i=0;i<n;i++)scanf(\"%d\",&a[i]);dfs(0,0);printf(\"%d\\n\",ans);free(a);return 0;}"
+    },
+    "starterCode": {
+      "python": "n, target = map(int, input().split())\nnums = list(map(int, input().split()))\n# Count +/- assignments summing to target",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int n, target; cin >> n >> target;\n    // Target sum DP\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // Target sum DP\n    }\n}",
+      "javascript": "const lines = require('fs').readFileSync(0,'utf-8').trim().split('\\n');\n// Target sum",
+      "c": "#include <stdio.h>\nint main() {\n    // Target sum\n    return 0;\n}"
+    },
+    "stdinTemplate": "5 3\n1 1 1 1 1"
+  },
+  "N-Queens chessboard placements": {
+    "testCases": [
+      {
+        "input": "4",
+        "output": "2"
+      },
+      {
+        "input": "1",
+        "output": "1"
+      },
+      {
+        "input": "8",
+        "output": "92"
+      }
+    ],
+    "solutions": {
+      "python": "n=int(input())\ncount=0\ndef solve(row,cols,d1,d2):\n    global count\n    if row==n:count+=1;return\n    for col in range(n):\n        if col not in cols and row-col not in d1 and row+col not in d2:\n            solve(row+1,cols|{col},d1|{row-col},d2|{row+col})\nsolve(0,set(),set(),set())\nprint(count)",
+      "cpp": "#include <iostream>\nusing namespace std;\nint n,cnt=0;\nbool col[16],d1[32],d2[32];\nvoid solve(int r){if(r==n){cnt++;return;}for(int c=0;c<n;c++)if(!col[c]&&!d1[r-c+15]&&!d2[r+c]){col[c]=d1[r-c+15]=d2[r+c]=true;solve(r+1);col[c]=d1[r-c+15]=d2[r+c]=false;}}\nint main(){cin>>n;solve(0);cout<<cnt<<endl;return 0;}",
+      "java": "import java.util.Scanner;\npublic class Main{static int n,cnt;static boolean[]col,d1,d2;static void solve(int r){if(r==n){cnt++;return;}for(int c=0;c<n;c++)if(!col[c]&&!d1[r-c+n]&&!d2[r+c]){col[c]=d1[r-c+n]=d2[r+c]=true;solve(r+1);col[c]=d1[r-c+n]=d2[r+c]=false;}}public static void main(String[]args){n=new Scanner(System.in).nextInt();col=new boolean[n];d1=new boolean[2*n];d2=new boolean[2*n];solve(0);System.out.println(cnt);}}",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\nconst col=new Set(),d1=new Set(),d2=new Set();let cnt=0;\nfunction solve(r){if(r===n){cnt++;return;}for(let c=0;c<n;c++){if(!col.has(c)&&!d1.has(r-c)&&!d2.has(r+c)){col.add(c);d1.add(r-c);d2.add(r+c);solve(r+1);col.delete(c);d1.delete(r-c);d2.delete(r+c);}}}\nsolve(0);console.log(cnt);",
+      "c": "#include <stdio.h>\nint n,cnt;\nchar col[16],d1[32],d2[32];\nvoid solve(int r){if(r==n){cnt++;return;}for(int c=0;c<n;c++)if(!col[c]&&!d1[r-c+15]&&!d2[r+c]){col[c]=d1[r-c+15]=d2[r+c]=1;solve(r+1);col[c]=d1[r-c+15]=d2[r+c]=0;}}\nint main(){scanf(\"%d\",&n);solve(0);printf(\"%d\\n\",cnt);return 0;}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\n# Count N-Queens solutions",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int n; cin >> n;\n    // N-Queens backtracking\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        int n = new Scanner(System.in).nextInt();\n        // N-Queens\n    }\n}",
+      "javascript": "const n = parseInt(require('fs').readFileSync(0,'utf-8').trim());\n// N-Queens",
+      "c": "#include <stdio.h>\nint main() {\n    int n; scanf(\"%d\",&n);\n    // N-Queens\n    return 0;\n}"
+    },
+    "stdinTemplate": "4"
+  },
+  "N-Queens II solution count": {
+    "testCases": [
+      {
+        "input": "4",
+        "output": "2"
+      },
+      {
+        "input": "8",
+        "output": "92"
+      }
+    ],
+    "solutions": {
+      "python": "n=int(input())\ncount=[0]\ndef solve(r,cols,d1,d2):\n    if r==n:count[0]+=1;return\n    for c in range(n):\n        if c not in cols and r-c not in d1 and r+c not in d2:\n            solve(r+1,cols|{c},d1|{r-c},d2|{r+c})\nsolve(0,set(),set(),set())\nprint(count[0])",
+      "cpp": "#include <iostream>\nusing namespace std;\nint n,cnt;\nbool col[16],d1[32],d2[32];\nvoid solve(int r){if(r==n){cnt++;return;}for(int c=0;c<n;c++)if(!col[c]&&!d1[r-c+15]&&!d2[r+c]){col[c]=d1[r-c+15]=d2[r+c]=1;solve(r+1);col[c]=d1[r-c+15]=d2[r+c]=0;}}\nint main(){cin>>n;solve(0);cout<<cnt<<endl;}",
+      "java": "import java.util.Scanner;\npublic class Main{static int n,cnt;static boolean[]col,d1,d2;static void s(int r){if(r==n){cnt++;return;}for(int c=0;c<n;c++)if(!col[c]&&!d1[r-c+n]&&!d2[r+c]){col[c]=d1[r-c+n]=d2[r+c]=true;s(r+1);col[c]=d1[r-c+n]=d2[r+c]=false;}}public static void main(String[]a){n=new Scanner(System.in).nextInt();col=new boolean[n];d1=new boolean[2*n];d2=new boolean[2*n];s(0);System.out.println(cnt);}}",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\nconst col=new Set(),d1=new Set(),d2=new Set();let cnt=0;\nfunction s(r){if(r===n){cnt++;return;}for(let c=0;c<n;c++){if(!col.has(c)&&!d1.has(r-c)&&!d2.has(r+c)){col.add(c);d1.add(r-c);d2.add(r+c);s(r+1);col.delete(c);d1.delete(r-c);d2.delete(r+c);}}}\ns(0);console.log(cnt);",
+      "c": "#include <stdio.h>\nint n,cnt;char col[16],d1[32],d2[32];\nvoid s(int r){if(r==n){cnt++;return;}for(int c=0;c<n;c++)if(!col[c]&&!d1[r-c+15]&&!d2[r+c]){col[c]=d1[r-c+15]=d2[r+c]=1;s(r+1);col[c]=d1[r-c+15]=d2[r+c]=0;}}\nint main(){scanf(\"%d\",&n);s(0);printf(\"%d\\n\",cnt);return 0;}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\n# Count N-Queens II solutions",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int n; cin >> n;\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        int n = new Scanner(System.in).nextInt();\n    }\n}",
+      "javascript": "const n = parseInt(require('fs').readFileSync(0,'utf-8').trim());",
+      "c": "#include <stdio.h>\nint main() {\n    int n; scanf(\"%d\",&n);\n    return 0;\n}"
+    },
+    "stdinTemplate": "4"
+  }
+}

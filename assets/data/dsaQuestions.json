@@ -1,0 +1,653 @@
+[
+  {
+    "id": "dsa_pat1",
+    "title": "Right Triangle Star Pattern",
+    "difficulty": "Easy",
+    "category": "Patterns (Nested Loops)",
+    "description": "Print a right-angled triangle of stars with N rows.\nRow 1 has 1 star, row 2 has 2 stars, ..., row N has N stars.\n\nInput format:\nLine 1: N (number of rows)\n\nExample — N=4:\n*\n* *\n* * *\n* * * *",
+    "constraints": "1 <= N <= 20",
+    "hints": [
+      "Use two nested loops: outer for rows, inner for columns up to row index.",
+      "Print a newline after each row."
+    ],
+    "testCases": [
+      {
+        "input": "4",
+        "output": "*\n* *\n* * *\n* * * *",
+        "explanation": "Row i prints i stars separated by spaces."
+      },
+      {
+        "input": "1",
+        "output": "*"
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\nfor i in range(1, n+1):\n    print(' '.join(['*'] * i))",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    for(int i=1;i<=n;i++){\n        for(int j=1;j<=i;j++) cout<<'*'<<(j<i?' ':' ');\n        cout<<'\\n';\n    }\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        for(int i=1;i<=n;i++){\n            StringBuilder sb=new StringBuilder();\n            for(int j=1;j<=i;j++) sb.append(j<i?\"* \":\"*\");\n            System.out.println(sb);\n        }\n    }\n}",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\nfor(let i=1;i<=n;i++) console.log(Array(i).fill('*').join(' '));",
+      "c": "#include <stdio.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    for(int i=1;i<=n;i++){\n        for(int j=1;j<=i;j++) printf(j<i?\"* \":\"*\");\n        printf(\"\\n\");\n    }\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\n# Nested loop to print right triangle\n",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    // Print right triangle\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        // Print right triangle\n    }\n}",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\n// Print right triangle\n",
+      "c": "#include <stdio.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    // Print right triangle\n    return 0;\n}"
+    },
+    "explanation": "Use two nested loops. The outer loop runs from 1 to N. The inner loop runs from 1 to the current row number and prints a star each time.",
+    "timeComplexity": "O(N²)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "4"
+  },
+  {
+    "id": "dsa_pat2",
+    "title": "Inverted Triangle Star Pattern",
+    "difficulty": "Easy",
+    "category": "Patterns (Nested Loops)",
+    "description": "Print an inverted right-angled triangle of stars with N rows.\nRow 1 has N stars, row 2 has N-1 stars, ..., row N has 1 star.\n\nInput: N\nExample — N=4:\n* * * *\n* * *\n* *\n*",
+    "constraints": "1 <= N <= 20",
+    "hints": [
+      "Outer loop runs from N down to 1.",
+      "Inner loop prints that many stars."
+    ],
+    "testCases": [
+      {
+        "input": "4",
+        "output": "* * * *\n* * *\n* *\n*"
+      },
+      {
+        "input": "2",
+        "output": "* *\n*"
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\nfor i in range(n, 0, -1):\n    print(' '.join(['*'] * i))",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    for(int i=n;i>=1;i--){\n        for(int j=1;j<=i;j++) printf(j<i?\"* \":\"*\");\n        cout<<'\\n';\n    }\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main{\n    public static void main(String[] args){\n        int n=new Scanner(System.in).nextInt();\n        for(int i=n;i>=1;i--){\n            StringBuilder sb=new StringBuilder();\n            for(int j=1;j<=i;j++) sb.append(j<i?\"* \":\"*\");\n            System.out.println(sb);\n        }\n    }\n}",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\nfor(let i=n;i>=1;i--) console.log(Array(i).fill('*').join(' '));",
+      "c": "#include <stdio.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    for(int i=n;i>=1;i--){\n        for(int j=1;j<=i;j++) printf(j<i?\"* \":\"*\");\n        printf(\"\\n\");\n    }\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\n# Inverted triangle\n",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main(){ int n; cin>>n; return 0; }",
+      "java": "import java.util.Scanner;\npublic class Main{ public static void main(String[] a){ int n=new Scanner(System.in).nextInt(); } }",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\n",
+      "c": "#include <stdio.h>\nint main(){ int n; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "Start outer loop from N downwards. In each row, print i stars where i decreases by 1 each iteration.",
+    "timeComplexity": "O(N²)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "4"
+  },
+  {
+    "id": "dsa_pat3",
+    "title": "Pyramid Star Pattern",
+    "difficulty": "Easy",
+    "category": "Patterns (Nested Loops)",
+    "description": "Print a centered pyramid of stars with N rows.\nRow i has (2*i - 1) stars, centered with leading spaces.\n\nInput: N\nExample — N=4:\n   *\n  * * *\n * * * * *\n* * * * * * *",
+    "constraints": "1 <= N <= 20",
+    "hints": [
+      "Row i needs (N-i) spaces before the stars.",
+      "Row i has (2*i-1) stars."
+    ],
+    "testCases": [
+      {
+        "input": "4",
+        "output": "   *\n  * * *\n * * * * *\n* * * * * * *"
+      },
+      {
+        "input": "1",
+        "output": "*"
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\nfor i in range(1, n+1):\n    spaces = ' ' * (n - i)\n    stars = ' '.join(['*'] * (2*i - 1))\n    print(spaces + stars)",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    for(int i=1;i<=n;i++){\n        for(int s=0;s<n-i;s++) cout<<' ';\n        for(int j=1;j<=2*i-1;j++) cout<<'*'<<(j<2*i-1?' ':' ');\n        cout<<'\\n';\n    }\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main{\n    public static void main(String[] args){\n        int n=new Scanner(System.in).nextInt();\n        for(int i=1;i<=n;i++){\n            StringBuilder sb=new StringBuilder();\n            for(int s=0;s<n-i;s++) sb.append(' ');\n            for(int j=1;j<=2*i-1;j++) sb.append(j<2*i-1?\"* \":\"*\");\n            System.out.println(sb);\n        }\n    }\n}",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\nfor(let i=1;i<=n;i++){\n    const sp=' '.repeat(n-i);\n    const st=Array(2*i-1).fill('*').join(' ');\n    console.log(sp+st);\n}",
+      "c": "#include <stdio.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    for(int i=1;i<=n;i++){\n        for(int s=0;s<n-i;s++) printf(\" \");\n        for(int j=1;j<=2*i-1;j++) printf(j<2*i-1?\"* \":\"*\");\n        printf(\"\\n\");\n    }\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\n# Print pyramid\n",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main(){ int n; cin>>n; return 0; }",
+      "java": "import java.util.Scanner;\npublic class Main{ public static void main(String[] a){ int n=new Scanner(System.in).nextInt(); } }",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\n",
+      "c": "#include <stdio.h>\nint main(){ int n; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "For row i: print (N-i) spaces, then (2i-1) stars separated by spaces.",
+    "timeComplexity": "O(N²)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "4"
+  },
+  {
+    "id": "dsa_pat4",
+    "title": "Diamond Star Pattern",
+    "difficulty": "Medium",
+    "category": "Patterns (Nested Loops)",
+    "description": "Print a diamond pattern with 2*N-1 rows. The widest row is at the center (row N).\n\nInput: N\nExample — N=4:\n   *\n  * * *\n * * * * *\n* * * * * * *\n * * * * *\n  * * *\n   *",
+    "constraints": "1 <= N <= 20",
+    "hints": [
+      "Top half is a pyramid (rows 1..N).",
+      "Bottom half is an inverted pyramid (rows N-1..1)."
+    ],
+    "testCases": [
+      {
+        "input": "3",
+        "output": "  *\n * * *\n* * * * *\n * * *\n  *"
+      },
+      {
+        "input": "1",
+        "output": "*"
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\nfor i in range(1, n+1):\n    print(' '*(n-i) + ' '.join(['*']*(2*i-1)))\nfor i in range(n-1, 0, -1):\n    print(' '*(n-i) + ' '.join(['*']*(2*i-1)))",
+      "cpp": "#include <iostream>\nusing namespace std;\nvoid row(int n, int i){\n    for(int s=0;s<n-i;s++) cout<<' ';\n    for(int j=1;j<=2*i-1;j++) cout<<'*'<<(j<2*i-1?' ':' ');\n    cout<<'\\n';\n}\nint main(){\n    int n; cin>>n;\n    for(int i=1;i<=n;i++) row(n,i);\n    for(int i=n-1;i>=1;i--) row(n,i);\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main{\n    static void row(int n,int i){\n        StringBuilder sb=new StringBuilder();\n        for(int s=0;s<n-i;s++) sb.append(' ');\n        for(int j=1;j<=2*i-1;j++) sb.append(j<2*i-1?\"* \":\"*\");\n        System.out.println(sb);\n    }\n    public static void main(String[] args){\n        int n=new Scanner(System.in).nextInt();\n        for(int i=1;i<=n;i++) row(n,i);\n        for(int i=n-1;i>=1;i--) row(n,i);\n    }\n}",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\nconst row=i=>' '.repeat(n-i)+Array(2*i-1).fill('*').join(' ');\nfor(let i=1;i<=n;i++) console.log(row(i));\nfor(let i=n-1;i>=1;i--) console.log(row(i));",
+      "c": "#include <stdio.h>\nvoid row(int n,int i){\n    for(int s=0;s<n-i;s++) printf(\" \");\n    for(int j=1;j<=2*i-1;j++) printf(j<2*i-1?\"* \":\"*\");\n    printf(\"\\n\");\n}\nint main(){\n    int n; scanf(\"%d\",&n);\n    for(int i=1;i<=n;i++) row(n,i);\n    for(int i=n-1;i>=1;i--) row(n,i);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\n# Top half, then bottom half\n",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main(){ int n; cin>>n; return 0; }",
+      "java": "import java.util.Scanner;\npublic class Main{ public static void main(String[] a){ int n=new Scanner(System.in).nextInt(); } }",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\n",
+      "c": "#include <stdio.h>\nint main(){ int n; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "Print top pyramid (rows 1 to N), then inverted pyramid (rows N-1 down to 1).",
+    "timeComplexity": "O(N²)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "4"
+  },
+  {
+    "id": "dsa_pat5",
+    "title": "Floyd's Triangle",
+    "difficulty": "Easy",
+    "category": "Patterns (Nested Loops)",
+    "description": "Floyd's Triangle fills rows with consecutive natural numbers.\nRow 1: 1\nRow 2: 2 3\nRow 3: 4 5 6\n...\n\nInput: N (number of rows)\nExample — N=4:\n1\n2 3\n4 5 6\n7 8 9 10",
+    "constraints": "1 <= N <= 20",
+    "hints": [
+      "Maintain a counter starting at 1.",
+      "Inner loop runs i times in row i."
+    ],
+    "testCases": [
+      {
+        "input": "4",
+        "output": "1\n2 3\n4 5 6\n7 8 9 10"
+      },
+      {
+        "input": "2",
+        "output": "1\n2 3"
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\ncnt = 1\nfor i in range(1, n+1):\n    row = []\n    for j in range(i):\n        row.append(str(cnt))\n        cnt += 1\n    print(' '.join(row))",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    int cnt=1;\n    for(int i=1;i<=n;i++){\n        for(int j=1;j<=i;j++) cout<<cnt++<<(j<i?' ':' ');\n        cout<<'\\n';\n    }\n    return 0;\n}",
+      "java": "import java.util.Scanner;\npublic class Main{\n    public static void main(String[] args){\n        int n=new Scanner(System.in).nextInt();\n        int cnt=1;\n        for(int i=1;i<=n;i++){\n            StringBuilder sb=new StringBuilder();\n            for(int j=1;j<=i;j++) sb.append(cnt++).append(j<i?\" \":\"\");\n            System.out.println(sb);\n        }\n    }\n}",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\nlet cnt=1;\nfor(let i=1;i<=n;i++){\n    let row=[];\n    for(let j=0;j<i;j++) row.push(cnt++);\n    console.log(row.join(' '));\n}",
+      "c": "#include <stdio.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    int cnt=1;\n    for(int i=1;i<=n;i++){\n        for(int j=1;j<=i;j++) printf(j<i?\"%d \" :\"%d\",cnt++);\n        printf(\"\\n\");\n    }\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\ncnt = 1\n# Print Floyd's triangle\n",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main(){ int n; cin>>n; int cnt=1; return 0; }",
+      "java": "import java.util.Scanner;\npublic class Main{ public static void main(String[] a){ int n=new Scanner(System.in).nextInt(); int cnt=1; } }",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\nlet cnt=1;\n",
+      "c": "#include <stdio.h>\nint main(){ int n; int cnt=1; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "Keep a global counter. Each cell in row i gets the next value of the counter.",
+    "timeComplexity": "O(N²)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "4"
+  },
+  {
+    "id": "dsa_pat6",
+    "title": "Pascal's Triangle",
+    "difficulty": "Medium",
+    "category": "Patterns (Nested Loops)",
+    "description": "Print Pascal's Triangle with N rows. Each entry is the sum of the two entries above it.\nRow 0: 1\nRow 1: 1 1\nRow 2: 1 2 1\n...\n\nInput: N (number of rows, 1-indexed)\nExample — N=5:\n1\n1 1\n1 2 1\n1 3 3 1\n1 4 6 4 1",
+    "constraints": "1 <= N <= 15",
+    "hints": [
+      "Each row starts and ends with 1.",
+      "C(row, col) = C(row, col-1) * (row - col + 1) / col"
+    ],
+    "testCases": [
+      {
+        "input": "5",
+        "output": "1\n1 1\n1 2 1\n1 3 3 1\n1 4 6 4 1"
+      },
+      {
+        "input": "1",
+        "output": "1"
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\nrow = [1]\nfor i in range(n):\n    print(' '.join(map(str, row)))\n    row = [1] + [row[j]+row[j+1] for j in range(len(row)-1)] + [1]",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    vector<long long> row={1};\n    for(int i=0;i<n;i++){\n        for(int j=0;j<(int)row.size();j++) cout<<row[j]<<(j+1<(int)row.size()?' ':'\\n');\n        vector<long long> next={1};\n        for(int j=0;j+1<(int)row.size();j++) next.push_back(row[j]+row[j+1]);\n        next.push_back(1);\n        row=next;\n    }\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        int n=new Scanner(System.in).nextInt();\n        List<Long> row=new ArrayList<>(Arrays.asList(1L));\n        for(int i=0;i<n;i++){\n            StringBuilder sb=new StringBuilder();\n            for(int j=0;j<row.size();j++) sb.append(row.get(j)).append(j+1<row.size()?' ':' ');\n            System.out.println(sb.toString().trim());\n            List<Long> next=new ArrayList<>();\n            next.add(1L);\n            for(int j=0;j+1<row.size();j++) next.add(row.get(j)+row.get(j+1));\n            next.add(1L);\n            row=next;\n        }\n    }\n}",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\nlet row=[1];\nfor(let i=0;i<n;i++){\n    console.log(row.join(' '));\n    const next=[1];\n    for(let j=0;j+1<row.length;j++) next.push(row[j]+row[j+1]);\n    next.push(1);\n    row=next;\n}",
+      "c": "#include <stdio.h>\n#include <string.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    long long row[20]={1}; int sz=1;\n    for(int i=0;i<n;i++){\n        for(int j=0;j<sz;j++) printf(j<sz-1?\"%lld \":\"%lld\\n\",row[j]);\n        long long next[20]; int nsz=sz+1;\n        next[0]=next[sz]=1;\n        for(int j=1;j<sz;j++) next[j]=row[j-1]+row[j];\n        for(int j=0;j<nsz;j++) row[j]=next[j];\n        sz=nsz;\n    }\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\n# Generate Pascal's Triangle row by row\n",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){ int n; cin>>n; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] a){ int n=new Scanner(System.in).nextInt(); } }",
+      "javascript": "const n=parseInt(require('fs').readFileSync(0,'utf-8').trim());\n",
+      "c": "#include <stdio.h>\nint main(){ int n; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "Build each row from the previous: next[j] = row[j-1] + row[j]. Starts and ends with 1.",
+    "timeComplexity": "O(N²)",
+    "spaceComplexity": "O(N)",
+    "stdinTemplate": "5"
+  },
+  {
+    "id": "dsa_arr1",
+    "title": "Find Largest Element",
+    "difficulty": "Easy",
+    "category": "Arrays",
+    "description": "Given an array of N integers, find and print the largest element.\n\nInput format:\nLine 1: N\nLine 2: N space-separated integers",
+    "constraints": "1 <= N <= 10^5\n-10^9 <= arr[i] <= 10^9",
+    "hints": [
+      "Initialize max with the first element.",
+      "Iterate and update max when a larger element is found."
+    ],
+    "testCases": [
+      {
+        "input": "5\n3 1 4 1 5",
+        "output": "5",
+        "explanation": "5 is the largest element."
+      },
+      {
+        "input": "3\n-10 -20 -5",
+        "output": "-5",
+        "explanation": "Largest among negatives."
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\nprint(max(arr))",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    vector<int> a(n);\n    for(int i=0;i<n;i++) cin>>a[i];\n    cout<<*max_element(a.begin(),a.end())<<endl;\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        int mx=Integer.MIN_VALUE;\n        for(int i=0;i<n;i++){\n            int x=sc.nextInt();\n            if(x>mx) mx=x;\n        }\n        System.out.println(mx);\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst arr=lines[1].split(' ').map(Number);\nconsole.log(Math.max(...arr));",
+      "c": "#include <stdio.h>\n#include <limits.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    int mx=INT_MIN,x;\n    for(int i=0;i<n;i++){scanf(\"%d\",&x);if(x>mx)mx=x;}\n    printf(\"%d\\n\",mx);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\n# Find and print the largest element\n",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){ int n; cin>>n; vector<int> a(n); for(int i=0;i<n;i++) cin>>a[i]; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int n=sc.nextInt(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst arr=lines[1].split(' ').map(Number);\n",
+      "c": "#include <stdio.h>\nint main(){ int n; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "Traverse the array once keeping track of the maximum value seen so far. Time O(N), Space O(1).",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "5\n3 1 4 1 5"
+  },
+  {
+    "id": "dsa_arr2",
+    "title": "Second Largest Element",
+    "difficulty": "Easy",
+    "category": "Arrays",
+    "description": "Find the second largest distinct element in an array.\nIf it doesn't exist, print -1.\n\nInput:\nLine 1: N\nLine 2: N integers",
+    "constraints": "2 <= N <= 10^5\n-10^9 <= arr[i] <= 10^9",
+    "hints": [
+      "Track both largest and second largest.",
+      "Ensure second largest is strictly less than largest.",
+      "Handle duplicates carefully."
+    ],
+    "testCases": [
+      {
+        "input": "5\n12 35 1 10 34",
+        "output": "34"
+      },
+      {
+        "input": "3\n10 10 10",
+        "output": "-1",
+        "explanation": "All elements same — no second distinct largest."
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\nuniq = sorted(set(arr), reverse=True)\nprint(uniq[1] if len(uniq) >= 2 else -1)",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <set>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    set<int,greater<int>> s;\n    for(int i=0;i<n;i++){int x;cin>>x;s.insert(x);}\n    if(s.size()<2){cout<<-1<<endl;return 0;}\n    auto it=s.begin(); ++it;\n    cout<<*it<<endl;\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        TreeSet<Integer> ts=new TreeSet<>(Collections.reverseOrder());\n        for(int i=0;i<n;i++) ts.add(sc.nextInt());\n        if(ts.size()<2){System.out.println(-1);return;}\n        Iterator<Integer> it=ts.iterator(); it.next();\n        System.out.println(it.next());\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst arr=[...new Set(lines[1].split(' ').map(Number))].sort((a,b)=>b-a);\nconsole.log(arr.length>=2?arr[1]:-1);",
+      "c": "#include <stdio.h>\n#include <limits.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    int mx=INT_MIN,sec=INT_MIN,x;\n    for(int i=0;i<n;i++){\n        scanf(\"%d\",&x);\n        if(x>mx){sec=mx;mx=x;}\n        else if(x>sec && x!=mx) sec=x;\n    }\n    printf(\"%d\\n\",sec==INT_MIN?-1:sec);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\n# Find second largest distinct element\n",
+      "cpp": "#include <iostream>\n#include <set>\nusing namespace std;\nint main(){ int n; cin>>n; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int n=sc.nextInt(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst arr=lines[1].split(' ').map(Number);\n",
+      "c": "#include <stdio.h>\n#include <limits.h>\nint main(){ int n; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "Use a set or two-variable approach. Track largest (mx) and second largest (sec). Update carefully when a new element is found.",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "5\n12 35 1 10 34"
+  },
+  {
+    "id": "dsa_arr3",
+    "title": "Move All Zeros to End",
+    "difficulty": "Easy",
+    "category": "Arrays",
+    "description": "Given an array, move all zeros to the end while maintaining the relative order of non-zero elements. Print the modified array.\n\nInput:\nLine 1: N\nLine 2: N integers",
+    "constraints": "1 <= N <= 10^5",
+    "hints": [
+      "Two-pointer technique: left pointer for placing non-zeros.",
+      "After placing all non-zeros, fill the rest with zeros."
+    ],
+    "testCases": [
+      {
+        "input": "7\n0 1 0 3 12 0 5",
+        "output": "1 3 12 5 0 0 0"
+      },
+      {
+        "input": "4\n0 0 0 1",
+        "output": "1 0 0 0"
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\npos = 0\nfor x in arr:\n    if x != 0:\n        arr[pos] = x\n        pos += 1\nwhile pos < n:\n    arr[pos] = 0\n    pos += 1\nprint(*arr)",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    vector<int> a(n);\n    for(int i=0;i<n;i++) cin>>a[i];\n    int pos=0;\n    for(int x:a) if(x!=0) a[pos++]=x;\n    while(pos<n) a[pos++]=0;\n    for(int i=0;i<n;i++) cout<<a[i]<<(i<n-1?' ':'\\n');\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        int[] a=new int[n];\n        for(int i=0;i<n;i++) a[i]=sc.nextInt();\n        int pos=0;\n        for(int x:a) if(x!=0) a[pos++]=x;\n        while(pos<n) a[pos++]=0;\n        StringBuilder sb=new StringBuilder();\n        for(int i=0;i<n;i++) sb.append(a[i]).append(i<n-1?' ':' ');\n        System.out.println(sb.toString().trim());\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number);\nconst nonZ=a.filter(x=>x!==0);\nconst zeros=a.filter(x=>x===0);\nconsole.log([...nonZ,...zeros].join(' '));",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    int *a=malloc(n*sizeof(int));\n    for(int i=0;i<n;i++) scanf(\"%d\",&a[i]);\n    int pos=0;\n    for(int i=0;i<n;i++) if(a[i]!=0) a[pos++]=a[i];\n    while(pos<n) a[pos++]=0;\n    for(int i=0;i<n;i++) printf(i<n-1?\"%d \" :\"%d\\n\",a[i]);\n    free(a);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\n# Move zeros to end in-place\n",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){ int n; cin>>n; vector<int> a(n); for(int i=0;i<n;i++) cin>>a[i]; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int n=sc.nextInt(); int[] a=new int[n]; for(int i=0;i<n;i++) a[i]=sc.nextInt(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number);\n",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){ int n; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "Use a write pointer 'pos'. Scan array; for each non-zero element, write it to a[pos++]. Then fill remaining positions with 0.",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "7\n0 1 0 3 12 0 5"
+  },
+  {
+    "id": "dsa_arr4",
+    "title": "Check if Array is Sorted",
+    "difficulty": "Easy",
+    "category": "Arrays",
+    "description": "Check whether the given array of N integers is sorted in non-decreasing order. Print YES or NO.\n\nInput:\nLine 1: N\nLine 2: N integers",
+    "constraints": "1 <= N <= 10^5",
+    "hints": [
+      "Compare each adjacent pair.",
+      "If any pair is out of order, print NO."
+    ],
+    "testCases": [
+      {
+        "input": "5\n1 2 3 4 5",
+        "output": "YES"
+      },
+      {
+        "input": "4\n1 3 2 4",
+        "output": "NO"
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\nprint('YES' if all(arr[i]<=arr[i+1] for i in range(n-1)) else 'NO')",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    vector<int> a(n);\n    for(int i=0;i<n;i++) cin>>a[i];\n    for(int i=0;i<n-1;i++) if(a[i]>a[i+1]){cout<<\"NO\\n\";return 0;}\n    cout<<\"YES\\n\";\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        int[] a=new int[n];\n        for(int i=0;i<n;i++) a[i]=sc.nextInt();\n        for(int i=0;i<n-1;i++) if(a[i]>a[i+1]){System.out.println(\"NO\");return;}\n        System.out.println(\"YES\");\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number);\nlet ok=true;\nfor(let i=0;i<a.length-1;i++) if(a[i]>a[i+1]){ok=false;break;}\nconsole.log(ok?'YES':'NO');",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    int *a=malloc(n*sizeof(int));\n    for(int i=0;i<n;i++) scanf(\"%d\",&a[i]);\n    for(int i=0;i<n-1;i++) if(a[i]>a[i+1]){printf(\"NO\\n\");free(a);return 0;}\n    printf(\"YES\\n\");\n    free(a);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\n# Check adjacent pairs\n",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){ int n; cin>>n; vector<int> a(n); for(int i=0;i<n;i++) cin>>a[i]; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int n=sc.nextInt(); int[] a=new int[n]; for(int i=0;i<n;i++) a[i]=sc.nextInt(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number);\n",
+      "c": "#include <stdio.h>\nint main(){ int n; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "Compare arr[i] and arr[i+1] for every adjacent pair. If any arr[i] > arr[i+1], array is not sorted.",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "5\n1 2 3 4 5"
+  },
+  {
+    "id": "dsa_arr5",
+    "title": "Best Time to Buy and Sell Stock",
+    "difficulty": "Easy",
+    "category": "Arrays",
+    "description": "Given an array of stock prices where prices[i] is the price on day i,\nfind the maximum profit by buying on one day and selling on a later day.\nIf no profit is possible, print 0.\n\nInput:\nLine 1: N\nLine 2: N prices",
+    "constraints": "1 <= N <= 10^5\n0 <= prices[i] <= 10^4",
+    "hints": [
+      "Track the minimum price seen so far.",
+      "At each step, compute profit = price - minPrice and update maxProfit."
+    ],
+    "testCases": [
+      {
+        "input": "6\n7 1 5 3 6 4",
+        "output": "5",
+        "explanation": "Buy at 1, sell at 6 → profit 5."
+      },
+      {
+        "input": "5\n7 6 4 3 1",
+        "output": "0",
+        "explanation": "Prices only fall — no profit possible."
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\np = list(map(int, input().split()))\nmin_p, max_prof = p[0], 0\nfor price in p:\n    max_prof = max(max_prof, price - min_p)\n    min_p = min(min_p, price)\nprint(max_prof)",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    vector<int> p(n);\n    for(int i=0;i<n;i++) cin>>p[i];\n    int minP=p[0],maxProf=0;\n    for(int x:p){\n        maxProf=max(maxProf,x-minP);\n        minP=min(minP,x);\n    }\n    cout<<maxProf<<endl;\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        int[] p=new int[n];\n        for(int i=0;i<n;i++) p[i]=sc.nextInt();\n        int minP=p[0],maxProf=0;\n        for(int x:p){\n            maxProf=Math.max(maxProf,x-minP);\n            minP=Math.min(minP,x);\n        }\n        System.out.println(maxProf);\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst p=lines[1].split(' ').map(Number);\nlet minP=p[0],maxProf=0;\nfor(const x of p){\n    maxProf=Math.max(maxProf,x-minP);\n    minP=Math.min(minP,x);\n}\nconsole.log(maxProf);",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    int *p=malloc(n*sizeof(int));\n    for(int i=0;i<n;i++) scanf(\"%d\",&p[i]);\n    int minP=p[0],maxProf=0;\n    for(int i=0;i<n;i++){\n        int prof=p[i]-minP;\n        if(prof>maxProf) maxProf=prof;\n        if(p[i]<minP) minP=p[i];\n    }\n    printf(\"%d\\n\",maxProf);\n    free(p);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\np = list(map(int, input().split()))\nmin_p = p[0]\nmax_prof = 0\n# Track minimum price and compute max profit\n",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){ int n; cin>>n; vector<int> p(n); for(int i=0;i<n;i++) cin>>p[i]; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int n=sc.nextInt(); int[] p=new int[n]; for(int i=0;i<n;i++) p[i]=sc.nextInt(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst p=lines[1].split(' ').map(Number);\n",
+      "c": "#include <stdio.h>\nint main(){ int n; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "Greedy one-pass: maintain the minimum price seen so far. For each price, calculate potential profit and update the maximum.",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "6\n7 1 5 3 6 4"
+  },
+  {
+    "id": "dsa_arr6",
+    "title": "Kadane's Algorithm – Maximum Subarray Sum",
+    "difficulty": "Medium",
+    "category": "Arrays",
+    "description": "Find the contiguous subarray (containing at least one number) which has the largest sum.\n\nInput:\nLine 1: N\nLine 2: N integers (may be negative)",
+    "constraints": "1 <= N <= 10^5\n-10^4 <= arr[i] <= 10^4",
+    "hints": [
+      "At each position, decide: extend previous subarray or start fresh.",
+      "currentSum = max(arr[i], currentSum + arr[i])"
+    ],
+    "testCases": [
+      {
+        "input": "8\n-2 1 -3 4 -1 2 1 -5 4",
+        "output": "6",
+        "explanation": "[4,-1,2,1] has sum 6."
+      },
+      {
+        "input": "4\n-1 -2 -3 -4",
+        "output": "-1"
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\ncurr = arr[0]\nbest = arr[0]\nfor x in arr[1:]:\n    curr = max(x, curr + x)\n    best = max(best, curr)\nprint(best)",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    vector<int> a(n);\n    for(int i=0;i<n;i++) cin>>a[i];\n    int curr=a[0],best=a[0];\n    for(int i=1;i<n;i++){\n        curr=max(a[i],curr+a[i]);\n        best=max(best,curr);\n    }\n    cout<<best<<endl;\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        int[] a=new int[n];\n        for(int i=0;i<n;i++) a[i]=sc.nextInt();\n        int curr=a[0],best=a[0];\n        for(int i=1;i<n;i++){\n            curr=Math.max(a[i],curr+a[i]);\n            best=Math.max(best,curr);\n        }\n        System.out.println(best);\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number);\nlet curr=a[0],best=a[0];\nfor(let i=1;i<a.length;i++){\n    curr=Math.max(a[i],curr+a[i]);\n    best=Math.max(best,curr);\n}\nconsole.log(best);",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    int *a=malloc(n*sizeof(int));\n    for(int i=0;i<n;i++) scanf(\"%d\",&a[i]);\n    int curr=a[0],best=a[0];\n    for(int i=1;i<n;i++){\n        curr=a[i]>curr+a[i]?a[i]:curr+a[i];\n        best=best>curr?best:curr;\n    }\n    printf(\"%d\\n\",best);\n    free(a);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\ncurr = arr[0]\nbest = arr[0]\n# Kadane's: curr = max(arr[i], curr + arr[i])\n",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){ int n; cin>>n; vector<int> a(n); for(int i=0;i<n;i++) cin>>a[i]; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int n=sc.nextInt(); int[] a=new int[n]; for(int i=0;i<n;i++) a[i]=sc.nextInt(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number);\n",
+      "c": "#include <stdio.h>\nint main(){ int n; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "Kadane's Algorithm: currentSum = max(arr[i], currentSum + arr[i]). This decides whether to extend the previous subarray or start a new one from arr[i].",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "8\n-2 1 -3 4 -1 2 1 -5 4"
+  },
+  {
+    "id": "dsa_arr7",
+    "title": "Majority Element",
+    "difficulty": "Easy",
+    "category": "Arrays",
+    "description": "Find the majority element — the element that appears more than N/2 times.\nIt is guaranteed that a majority element always exists.\n\nInput:\nLine 1: N\nLine 2: N integers",
+    "constraints": "1 <= N <= 5*10^4\nA majority element always exists.",
+    "hints": [
+      "Boyer-Moore Voting Algorithm: maintain a candidate and count.",
+      "When count reaches 0, update candidate to current element."
+    ],
+    "testCases": [
+      {
+        "input": "7\n2 2 1 1 1 2 2",
+        "output": "2"
+      },
+      {
+        "input": "5\n3 2 3 3 1",
+        "output": "3"
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\ncand, cnt = arr[0], 1\nfor x in arr[1:]:\n    if cnt == 0: cand = x\n    cnt += 1 if x == cand else -1\nprint(cand)",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    vector<int> a(n);\n    for(int i=0;i<n;i++) cin>>a[i];\n    int cand=a[0],cnt=1;\n    for(int i=1;i<n;i++){\n        if(cnt==0) cand=a[i];\n        cnt+=a[i]==cand?1:-1;\n    }\n    cout<<cand<<endl;\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        int[] a=new int[n];\n        for(int i=0;i<n;i++) a[i]=sc.nextInt();\n        int cand=a[0],cnt=1;\n        for(int i=1;i<n;i++){\n            if(cnt==0) cand=a[i];\n            cnt+=a[i]==cand?1:-1;\n        }\n        System.out.println(cand);\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number);\nlet cand=a[0],cnt=1;\nfor(let i=1;i<a.length;i++){\n    if(cnt===0) cand=a[i];\n    cnt+=a[i]===cand?1:-1;\n}\nconsole.log(cand);",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    int *a=malloc(n*sizeof(int));\n    for(int i=0;i<n;i++) scanf(\"%d\",&a[i]);\n    int cand=a[0],cnt=1;\n    for(int i=1;i<n;i++){\n        if(cnt==0) cand=a[i];\n        cnt+=a[i]==cand?1:-1;\n    }\n    printf(\"%d\\n\",cand);\n    free(a);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\ncand, cnt = arr[0], 1\n# Boyer-Moore Voting\n",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){ int n; cin>>n; vector<int> a(n); for(int i=0;i<n;i++) cin>>a[i]; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int n=sc.nextInt(); int[] a=new int[n]; for(int i=0;i<n;i++) a[i]=sc.nextInt(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number);\n",
+      "c": "#include <stdio.h>\nint main(){ int n; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "Boyer-Moore Voting: maintain candidate & count. If count=0, reset candidate. Increment if match, decrement otherwise. The surviving candidate is the majority element.",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "7\n2 2 1 1 1 2 2"
+  },
+  {
+    "id": "dsa_arr8",
+    "title": "Missing Number",
+    "difficulty": "Easy",
+    "category": "Arrays",
+    "description": "Given an array containing N distinct numbers taken from 0, 1, 2, ..., N,\nfind the one number that is missing from the array.\n\nInput:\nLine 1: N\nLine 2: N integers",
+    "constraints": "1 <= N <= 10^4",
+    "hints": [
+      "Expected sum = N*(N+1)/2.",
+      "Missing = expected sum - actual sum of array.",
+      "Or use XOR trick."
+    ],
+    "testCases": [
+      {
+        "input": "3\n3 0 1",
+        "output": "2"
+      },
+      {
+        "input": "5\n0 1 2 3 4",
+        "output": "5"
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\nprint(n*(n+1)//2 - sum(arr))",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    long long sum=0;\n    for(int i=0;i<n;i++){int x;cin>>x;sum+=x;}\n    cout<<(long long)n*(n+1)/2-sum<<endl;\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        long sum=0;\n        for(int i=0;i<n;i++) sum+=sc.nextInt();\n        System.out.println((long)n*(n+1)/2-sum);\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst n=parseInt(lines[0]);\nconst sum=lines[1].split(' ').map(Number).reduce((a,b)=>a+b,0);\nconsole.log(n*(n+1)/2-sum);",
+      "c": "#include <stdio.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    long long sum=0,x;\n    for(int i=0;i<n;i++){scanf(\"%lld\",&x);sum+=x;}\n    printf(\"%lld\\n\",(long long)n*(n+1)/2-sum);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\n# Expected sum = n*(n+1)//2\n",
+      "cpp": "#include <iostream>\nusing namespace std;\nint main(){ int n; cin>>n; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int n=sc.nextInt(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst n=parseInt(lines[0]);\nconst arr=lines[1].split(' ').map(Number);\n",
+      "c": "#include <stdio.h>\nint main(){ int n; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "The expected sum of 0..N is N*(N+1)/2. Subtract the actual array sum to find the missing number. O(N) time, O(1) space.",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "3\n3 0 1"
+  },
+  {
+    "id": "dsa_arr9",
+    "title": "Trapping Rain Water",
+    "difficulty": "Hard",
+    "category": "Arrays",
+    "description": "Given N non-negative integers representing an elevation map where the width of each bar is 1,\ncompute how much water it can trap after raining.\n\nInput:\nLine 1: N\nLine 2: N integers (heights)",
+    "constraints": "1 <= N <= 3*10^4\n0 <= height[i] <= 10^5",
+    "hints": [
+      "Two-pointer approach: left and right pointers move inward.",
+      "Water at position i = min(maxLeft, maxRight) - height[i]",
+      "Move the pointer with smaller max towards center."
+    ],
+    "testCases": [
+      {
+        "input": "12\n0 1 0 2 1 0 1 3 2 1 2 1",
+        "output": "6"
+      },
+      {
+        "input": "6\n4 2 0 3 2 5",
+        "output": "9"
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\nh = list(map(int, input().split()))\nl, r = 0, n-1\nmaxL = maxR = water = 0\nwhile l < r:\n    if h[l] < h[r]:\n        if h[l] >= maxL: maxL = h[l]\n        else: water += maxL - h[l]\n        l += 1\n    else:\n        if h[r] >= maxR: maxR = h[r]\n        else: water += maxR - h[r]\n        r -= 1\nprint(water)",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    vector<int> h(n);\n    for(int i=0;i<n;i++) cin>>h[i];\n    int l=0,r=n-1,maxL=0,maxR=0,water=0;\n    while(l<r){\n        if(h[l]<h[r]){\n            if(h[l]>=maxL) maxL=h[l];\n            else water+=maxL-h[l];\n            l++;\n        } else {\n            if(h[r]>=maxR) maxR=h[r];\n            else water+=maxR-h[r];\n            r--;\n        }\n    }\n    cout<<water<<endl;\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        int[] h=new int[n];\n        for(int i=0;i<n;i++) h[i]=sc.nextInt();\n        int l=0,r=n-1,maxL=0,maxR=0,water=0;\n        while(l<r){\n            if(h[l]<h[r]){\n                if(h[l]>=maxL) maxL=h[l];\n                else water+=maxL-h[l];\n                l++;\n            } else {\n                if(h[r]>=maxR) maxR=h[r];\n                else water+=maxR-h[r];\n                r--;\n            }\n        }\n        System.out.println(water);\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst h=lines[1].split(' ').map(Number);\nlet l=0,r=h.length-1,maxL=0,maxR=0,water=0;\nwhile(l<r){\n    if(h[l]<h[r]){\n        if(h[l]>=maxL) maxL=h[l];\n        else water+=maxL-h[l];\n        l++;\n    } else {\n        if(h[r]>=maxR) maxR=h[r];\n        else water+=maxR-h[r];\n        r--;\n    }\n}\nconsole.log(water);",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    int *h=malloc(n*sizeof(int));\n    for(int i=0;i<n;i++) scanf(\"%d\",&h[i]);\n    int l=0,r=n-1,maxL=0,maxR=0,water=0;\n    while(l<r){\n        if(h[l]<h[r]){\n            if(h[l]>=maxL) maxL=h[l];\n            else water+=maxL-h[l];\n            l++;\n        } else {\n            if(h[r]>=maxR) maxR=h[r];\n            else water+=maxR-h[r];\n            r--;\n        }\n    }\n    printf(\"%d\\n\",water);\n    free(h);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\nh = list(map(int, input().split()))\nl, r = 0, n-1\nmaxL = maxR = water = 0\n# Two-pointer approach\n",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){ int n; cin>>n; vector<int> h(n); for(int i=0;i<n;i++) cin>>h[i]; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int n=sc.nextInt(); int[] h=new int[n]; for(int i=0;i<n;i++) h[i]=sc.nextInt(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst h=lines[1].split(' ').map(Number);\n",
+      "c": "#include <stdio.h>\nint main(){ int n; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "Two-pointer technique: move the pointer with the smaller max-height inward. Water at each bar = min(maxLeft, maxRight) - height[i]. This works because the shorter boundary limits water level.",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(1)",
+    "stdinTemplate": "12\n0 1 0 2 1 0 1 3 2 1 2 1"
+  },
+  {
+    "id": "dsa_arr10",
+    "title": "Product of Array Except Self",
+    "difficulty": "Medium",
+    "category": "Arrays",
+    "description": "Given an integer array, return an array such that answer[i] is equal to the product\nof all elements except arr[i]. Do NOT use division.\n\nInput:\nLine 1: N\nLine 2: N integers",
+    "constraints": "2 <= N <= 10^5\n-30 <= arr[i] <= 30\nProduct fits in 32-bit integer",
+    "hints": [
+      "Compute prefix products from left.",
+      "Compute suffix products from right.",
+      "answer[i] = prefix[i] * suffix[i]"
+    ],
+    "testCases": [
+      {
+        "input": "4\n1 2 3 4",
+        "output": "24 12 8 6"
+      },
+      {
+        "input": "5\n-1 1 0 -3 3",
+        "output": "0 0 9 0 0"
+      }
+    ],
+    "solutions": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\nans = [1]*n\npre = 1\nfor i in range(n): ans[i]=pre; pre*=arr[i]\nsuf = 1\nfor i in range(n-1,-1,-1): ans[i]*=suf; suf*=arr[i]\nprint(*ans)",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){\n    int n; cin>>n;\n    vector<int> a(n),ans(n,1);\n    for(int i=0;i<n;i++) cin>>a[i];\n    int pre=1;\n    for(int i=0;i<n;i++){ans[i]=pre;pre*=a[i];}\n    int suf=1;\n    for(int i=n-1;i>=0;i--){ans[i]*=suf;suf*=a[i];}\n    for(int i=0;i<n;i++) cout<<ans[i]<<(i<n-1?' ':'\\n');\n    return 0;\n}",
+      "java": "import java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        int[] a=new int[n],ans=new int[n];\n        for(int i=0;i<n;i++) a[i]=sc.nextInt();\n        Arrays.fill(ans,1);\n        int pre=1;\n        for(int i=0;i<n;i++){ans[i]=pre;pre*=a[i];}\n        int suf=1;\n        for(int i=n-1;i>=0;i--){ans[i]*=suf;suf*=a[i];}\n        StringBuilder sb=new StringBuilder();\n        for(int i=0;i<n;i++) sb.append(ans[i]).append(i<n-1?' ':' ');\n        System.out.println(sb.toString().trim());\n    }\n}",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number);\nconst n=a.length,ans=new Array(n).fill(1);\nlet pre=1;\nfor(let i=0;i<n;i++){ans[i]=pre;pre*=a[i];}\nlet suf=1;\nfor(let i=n-1;i>=0;i--){ans[i]*=suf;suf*=a[i];}\nconsole.log(ans.join(' '));",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\nint main(){\n    int n; scanf(\"%d\",&n);\n    int *a=malloc(n*sizeof(int)),*ans=calloc(n,sizeof(int));\n    for(int i=0;i<n;i++){scanf(\"%d\",&a[i]);ans[i]=1;}\n    int pre=1;\n    for(int i=0;i<n;i++){ans[i]=pre;pre*=a[i];}\n    int suf=1;\n    for(int i=n-1;i>=0;i--){ans[i]*=suf;suf*=a[i];}\n    for(int i=0;i<n;i++) printf(i<n-1?\"%d \" :\"%d\\n\",ans[i]);\n    free(a);free(ans);\n    return 0;\n}"
+    },
+    "starterCode": {
+      "python": "n = int(input())\narr = list(map(int, input().split()))\nans = [1] * n\n# Left pass: prefix products\n# Right pass: suffix products\n",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){ int n; cin>>n; vector<int> a(n); for(int i=0;i<n;i++) cin>>a[i]; return 0; }",
+      "java": "import java.util.*;\npublic class Main{ public static void main(String[] args){ Scanner sc=new Scanner(System.in); int n=sc.nextInt(); int[] a=new int[n]; for(int i=0;i<n;i++) a[i]=sc.nextInt(); } }",
+      "javascript": "const lines=require('fs').readFileSync(0,'utf-8').trim().split('\\n');\nconst a=lines[1].split(' ').map(Number);\n",
+      "c": "#include <stdio.h>\nint main(){ int n; scanf(\"%d\",&n); return 0; }"
+    },
+    "explanation": "Two-pass approach without division: first pass builds prefix products left-to-right; second pass multiplies in suffix products right-to-left. Answer[i] = prefixProduct[i] × suffixProduct[i].",
+    "timeComplexity": "O(N)",
+    "spaceComplexity": "O(1) extra (output array doesn't count)",
+    "stdinTemplate": "4\n1 2 3 4"
+  }
+]

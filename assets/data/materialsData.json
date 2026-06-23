@@ -1,0 +1,2328 @@
+[
+  {
+    "id": "time-speed-distance",
+    "title": "Time, Speed & Distance",
+    "icon": "🚀",
+    "color": "#3B82F6",
+    "colorSoft": "rgba(59,130,246,0.10)",
+    "colorLine": "rgba(59,130,246,0.25)",
+    "tag": "TSD",
+    "topics": [
+      {
+        "title": "Core Formulas",
+        "items": [
+          {
+            "label": "Speed",
+            "formula": "Speed = Distance / Time",
+            "note": "S = D/T"
+          },
+          {
+            "label": "Distance",
+            "formula": "Distance = Speed × Time",
+            "note": "D = S × T"
+          },
+          {
+            "label": "Time",
+            "formula": "Time = Distance / Speed",
+            "note": "T = D/S"
+          }
+        ]
+      },
+      {
+        "title": "Unit Conversions",
+        "items": [
+          {
+            "label": "km/h → m/s",
+            "formula": "Multiply by 5/18",
+            "note": "e.g. 72 km/h = 72×5/18 = 20 m/s"
+          },
+          {
+            "label": "m/s → km/h",
+            "formula": "Multiply by 18/5",
+            "note": "e.g. 20 m/s = 20×18/5 = 72 km/h"
+          }
+        ]
+      },
+      {
+        "title": "Average Speed",
+        "items": [
+          {
+            "label": "When equal distances",
+            "formula": "Avg Speed = 2ab / (a+b)",
+            "note": "a & b are two different speeds for same distance"
+          },
+          {
+            "label": "When equal times",
+            "formula": "Avg Speed = (a+b) / 2",
+            "note": "Simple arithmetic mean of speeds"
+          }
+        ]
+      },
+      {
+        "title": "Relative Speed",
+        "items": [
+          {
+            "label": "Same direction",
+            "formula": "Relative Speed = |S₁ - S₂|",
+            "note": "Subtract speeds when moving same way"
+          },
+          {
+            "label": "Opposite direction",
+            "formula": "Relative Speed = S₁ + S₂",
+            "note": "Add speeds when moving towards each other"
+          },
+          {
+            "label": "Train crossing a pole",
+            "formula": "Time = Length of Train / Speed",
+            "note": "Pole is a point object"
+          },
+          {
+            "label": "Train crossing platform",
+            "formula": "Time = (Train + Platform length) / Speed",
+            "note": "Both lengths counted"
+          },
+          {
+            "label": "Two trains (same dir)",
+            "formula": "Time = (L₁+L₂) / (S₁−S₂)",
+            "note": ""
+          },
+          {
+            "label": "Two trains (opp dir)",
+            "formula": "Time = (L₁+L₂) / (S₁+S₂)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "If A is x times faster than B → A's speed = x × B's speed. Time taken by A = B's time / x",
+          "A man walking at 3/4 of original speed is late by T min → Original time = 3T min",
+          "Meeting point trick: If two people start from A and B, distance = D. They meet first time after D/(S₁+S₂) hours",
+          "Ratio of speeds A:B = a:b → Ratio of times = b:a (inverse)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "profit-loss",
+    "title": "Profit & Loss",
+    "icon": "📈",
+    "color": "#22C55E",
+    "colorSoft": "rgba(34,197,94,0.10)",
+    "colorLine": "rgba(34,197,94,0.25)",
+    "tag": "P&L",
+    "topics": [
+      {
+        "title": "Core Formulas",
+        "items": [
+          {
+            "label": "Profit",
+            "formula": "Profit = SP − CP",
+            "note": "SP = Selling Price, CP = Cost Price"
+          },
+          {
+            "label": "Loss",
+            "formula": "Loss = CP − SP",
+            "note": "When CP > SP"
+          },
+          {
+            "label": "Profit %",
+            "formula": "Profit% = (Profit / CP) × 100",
+            "note": "Always calculated on CP"
+          },
+          {
+            "label": "Loss %",
+            "formula": "Loss% = (Loss / CP) × 100",
+            "note": "Always calculated on CP"
+          },
+          {
+            "label": "SP from Profit%",
+            "formula": "SP = CP × (100 + P%) / 100",
+            "note": ""
+          },
+          {
+            "label": "SP from Loss%",
+            "formula": "SP = CP × (100 − L%) / 100",
+            "note": ""
+          },
+          {
+            "label": "CP from SP (Profit)",
+            "formula": "CP = SP × 100 / (100 + P%)",
+            "note": ""
+          },
+          {
+            "label": "CP from SP (Loss)",
+            "formula": "CP = SP × 100 / (100 − L%)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Discount",
+        "items": [
+          {
+            "label": "Discount",
+            "formula": "Discount = Marked Price − SP",
+            "note": ""
+          },
+          {
+            "label": "Discount %",
+            "formula": "Discount% = (Discount / MP) × 100",
+            "note": "Always on Marked Price"
+          },
+          {
+            "label": "SP after discount",
+            "formula": "SP = MP × (100 − D%) / 100",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Successive Discounts",
+        "items": [
+          {
+            "label": "Two discounts a% & b%",
+            "formula": "Net Discount = a + b − (ab/100)",
+            "note": "Single equivalent discount"
+          }
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "Selling at same price: one at x% profit, another at x% loss → always overall LOSS = x²/100 %",
+          "Shopkeeper uses false weight w instead of W → Profit% = (W−w)/w × 100",
+          "If CP of A articles = SP of B articles → Profit% = (A−B)/B × 100",
+          "Mark up x%, discount y% → Net = x − y − xy/100 (positive = profit, negative = loss)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "percentages",
+    "title": "Percentages",
+    "icon": "💯",
+    "color": "#F59E0B",
+    "colorSoft": "rgba(245,158,11,0.10)",
+    "colorLine": "rgba(245,158,11,0.25)",
+    "tag": "%",
+    "topics": [
+      {
+        "title": "Core Formulas",
+        "items": [
+          {
+            "label": "Percentage",
+            "formula": "P% = (Part / Whole) × 100",
+            "note": ""
+          },
+          {
+            "label": "Value from %",
+            "formula": "Value = (P% / 100) × Total",
+            "note": ""
+          },
+          {
+            "label": "% increase",
+            "formula": "% Increase = (Increase / Original) × 100",
+            "note": ""
+          },
+          {
+            "label": "% decrease",
+            "formula": "% Decrease = (Decrease / Original) × 100",
+            "note": ""
+          },
+          {
+            "label": "New value after x% increase",
+            "formula": "New = Original × (1 + x/100)",
+            "note": ""
+          },
+          {
+            "label": "New value after x% decrease",
+            "formula": "New = Original × (1 − x/100)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Change & Reverse",
+        "items": [
+          {
+            "label": "Original before x% increase",
+            "formula": "Original = New × 100 / (100 + x)",
+            "note": ""
+          },
+          {
+            "label": "Original before x% decrease",
+            "formula": "Original = New × 100 / (100 − x)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Important % Fractions",
+        "type": "table",
+        "rows": [
+          [
+            "10%",
+            "1/10"
+          ],
+          [
+            "12.5%",
+            "1/8"
+          ],
+          [
+            "16.67%",
+            "1/6"
+          ],
+          [
+            "20%",
+            "1/5"
+          ],
+          [
+            "25%",
+            "1/4"
+          ],
+          [
+            "33.33%",
+            "1/3"
+          ],
+          [
+            "37.5%",
+            "3/8"
+          ],
+          [
+            "40%",
+            "2/5"
+          ],
+          [
+            "50%",
+            "1/2"
+          ],
+          [
+            "60%",
+            "3/5"
+          ],
+          [
+            "66.67%",
+            "2/3"
+          ],
+          [
+            "75%",
+            "3/4"
+          ]
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "A is x% more than B → B is x/(100+x) × 100 % less than A",
+          "A is x% less than B → B is x/(100−x) × 100 % more than A",
+          "Two successive % changes of a% & b% → Net change = a+b+ab/100",
+          "Population increase r% for n years → P(1+r/100)ⁿ"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "simple-compound-interest",
+    "title": "Simple & Compound Interest",
+    "icon": "🏦",
+    "color": "#EC4899",
+    "colorSoft": "rgba(236,72,153,0.10)",
+    "colorLine": "rgba(236,72,153,0.25)",
+    "tag": "SI/CI",
+    "topics": [
+      {
+        "title": "Simple Interest",
+        "items": [
+          {
+            "label": "SI",
+            "formula": "SI = (P × R × T) / 100",
+            "note": "P=Principal, R=Rate%, T=Time(years)"
+          },
+          {
+            "label": "Amount",
+            "formula": "A = P + SI",
+            "note": ""
+          },
+          {
+            "label": "Principal",
+            "formula": "P = (SI × 100) / (R × T)",
+            "note": ""
+          },
+          {
+            "label": "Rate",
+            "formula": "R = (SI × 100) / (P × T)",
+            "note": ""
+          },
+          {
+            "label": "Time",
+            "formula": "T = (SI × 100) / (P × R)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Compound Interest",
+        "items": [
+          {
+            "label": "Amount (annual)",
+            "formula": "A = P(1 + R/100)ⁿ",
+            "note": "n = number of years"
+          },
+          {
+            "label": "CI",
+            "formula": "CI = A − P",
+            "note": ""
+          },
+          {
+            "label": "Half-yearly compounding",
+            "formula": "A = P(1 + R/200)²ⁿ",
+            "note": "Rate halved, periods doubled"
+          },
+          {
+            "label": "Quarterly compounding",
+            "formula": "A = P(1 + R/400)⁴ⁿ",
+            "note": "Rate quartered, periods ×4"
+          }
+        ]
+      },
+      {
+        "title": "SI vs CI Comparison",
+        "items": [
+          {
+            "label": "CI − SI (2 years)",
+            "formula": "CI − SI = P(R/100)²",
+            "note": "Quick shortcut"
+          },
+          {
+            "label": "CI − SI (3 years)",
+            "formula": "CI − SI = P(R/100)²(3 + R/100)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "Rule of 72: Doubling time ≈ 72/R years (at compound interest)",
+          "If SI for 2 yr = X → SI for 1 yr = X/2. CI for 2 yr = X + X×R/200",
+          "When CI & SI differ for 2 years: R² = (CI−SI)×10000/P",
+          "Installment SI: P = Each installment × 100 / [100 + R×n(n+1)/200] for n installments"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ratio-proportion",
+    "title": "Ratio & Proportion",
+    "icon": "⚖️",
+    "color": "#7C3AED",
+    "colorSoft": "rgba(124,58,237,0.10)",
+    "colorLine": "rgba(124,58,237,0.25)",
+    "tag": "R&P",
+    "topics": [
+      {
+        "title": "Core Concepts",
+        "items": [
+          {
+            "label": "Ratio",
+            "formula": "a:b = a/b",
+            "note": "Must have same units"
+          },
+          {
+            "label": "Proportion",
+            "formula": "a:b = c:d → a×d = b×c",
+            "note": "Product of extremes = Product of means"
+          },
+          {
+            "label": "Mean proportional",
+            "formula": "b = √(a×c)",
+            "note": "Where b is mean proportional of a and c"
+          },
+          {
+            "label": "Third proportional",
+            "formula": "c = b²/a",
+            "note": "a:b = b:c"
+          }
+        ]
+      },
+      {
+        "title": "Mixtures & Alligation",
+        "items": [
+          {
+            "label": "Alligation Rule",
+            "formula": "Cheaper : Dearer = (Mean−Cheaper) : (Dearer−Mean)",
+            "note": "Diagonal cross rule"
+          },
+          {
+            "label": "Mixture removal",
+            "formula": "Final pure = P(1 − x/V)ⁿ",
+            "note": "P=initial, x=removed, V=vessel, n=times"
+          }
+        ]
+      },
+      {
+        "title": "Partnership",
+        "items": [
+          {
+            "label": "Simple partnership",
+            "formula": "Profit ∝ Capital invested",
+            "note": "Ratio of profit = ratio of capital"
+          },
+          {
+            "label": "Compound partnership",
+            "formula": "Profit ∝ Capital × Time",
+            "note": "Multiply capital by time period"
+          }
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "If a:b = m:n, then (a+b):(a−b) = (m+n):(m−n) — componendo dividendo",
+          "Three numbers in ratio a:b:c, sum=S → each part = S × a/(a+b+c) etc.",
+          "Milk & water: if x liters removed n times from V liters → milk left = V(1−x/V)ⁿ",
+          "Alligation shortcut: mix two at prices P1 & P2 to get mean price M → ratio = (P2−M):(M−P1)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "work-time",
+    "title": "Work & Time",
+    "icon": "🔧",
+    "color": "#06B6D4",
+    "colorSoft": "rgba(6,182,212,0.10)",
+    "colorLine": "rgba(6,182,212,0.25)",
+    "tag": "W&T",
+    "topics": [
+      {
+        "title": "Core Formulas",
+        "items": [
+          {
+            "label": "Work done",
+            "formula": "Work = Efficiency × Time",
+            "note": ""
+          },
+          {
+            "label": "Combined work",
+            "formula": "1/T = 1/A + 1/B",
+            "note": "A & B work together → T days"
+          },
+          {
+            "label": "A+B together",
+            "formula": "T = AB / (A+B)",
+            "note": "Days together"
+          },
+          {
+            "label": "A alone (if B leaves early)",
+            "formula": "Work left when B leaves × A's rate",
+            "note": "Handle remaining work separately"
+          }
+        ]
+      },
+      {
+        "title": "Efficiency Method",
+        "items": [
+          {
+            "label": "Efficiency of A",
+            "formula": "Efficiency = 1/A (fraction per day)",
+            "note": "A takes A days"
+          },
+          {
+            "label": "LCM method",
+            "formula": "Total Work = LCM(A, B, C, ...)",
+            "note": "Per day work = LCM/individual days"
+          }
+        ]
+      },
+      {
+        "title": "Pipes & Cisterns",
+        "items": [
+          {
+            "label": "Inlet pipe fills in A hr",
+            "formula": "1/A (per hour)",
+            "note": "Positive contribution"
+          },
+          {
+            "label": "Outlet empties in B hr",
+            "formula": "1/B (per hour)",
+            "note": "Negative contribution"
+          },
+          {
+            "label": "Net rate",
+            "formula": "Net = 1/A − 1/B",
+            "note": "Time = 1/Net"
+          },
+          {
+            "label": "Two inlets A & B",
+            "formula": "T = AB/(A+B)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "LCM trick: Take LCM of all days as total work. Each person's efficiency = LCM/their days.",
+          "M men finish in D days → Total = M×D man-days. New time = Total/(new men)",
+          "A is x times efficient as B → A takes 1/x times the time B takes",
+          "If A can do in a days, B in b days, A leaves after x days → remaining work = 1 − x/a, done by B in (1−x/a)×b days"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "number-system",
+    "title": "Number System",
+    "icon": "🔢",
+    "color": "#F97316",
+    "colorSoft": "rgba(249,115,22,0.10)",
+    "colorLine": "rgba(249,115,22,0.25)",
+    "tag": "NUM",
+    "topics": [
+      {
+        "title": "Divisibility Rules",
+        "type": "table",
+        "rows": [
+          [
+            "÷2",
+            "Last digit even (0,2,4,6,8)"
+          ],
+          [
+            "÷3",
+            "Sum of digits divisible by 3"
+          ],
+          [
+            "÷4",
+            "Last 2 digits divisible by 4"
+          ],
+          [
+            "÷5",
+            "Last digit 0 or 5"
+          ],
+          [
+            "÷6",
+            "Divisible by both 2 and 3"
+          ],
+          [
+            "÷7",
+            "Double last digit, subtract from rest; result ÷7"
+          ],
+          [
+            "÷8",
+            "Last 3 digits divisible by 8"
+          ],
+          [
+            "÷9",
+            "Sum of digits divisible by 9"
+          ],
+          [
+            "÷11",
+            "Alternating sum (odd pos − even pos) ÷11"
+          ],
+          [
+            "÷12",
+            "Divisible by both 4 and 3"
+          ],
+          [
+            "÷25",
+            "Last 2 digits divisible by 25"
+          ]
+        ]
+      },
+      {
+        "title": "HCF & LCM",
+        "items": [
+          {
+            "label": "HCF × LCM",
+            "formula": "HCF × LCM = Product of two numbers",
+            "note": "Only for two numbers"
+          },
+          {
+            "label": "Fraction HCF",
+            "formula": "HCF = HCF(numerators) / LCM(denominators)",
+            "note": ""
+          },
+          {
+            "label": "Fraction LCM",
+            "formula": "LCM = LCM(numerators) / HCF(denominators)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Remainders & Properties",
+        "items": [
+          {
+            "label": "Unit digit of powers",
+            "formula": "Cyclicity pattern: 2→4, 3→4, 4→2, 5→1, 6→1, 7→4, 8→4, 9→2",
+            "note": "Cycle length for last digit"
+          },
+          {
+            "label": "Sum of 1 to n",
+            "formula": "n(n+1)/2",
+            "note": ""
+          },
+          {
+            "label": "Sum of squares",
+            "formula": "n(n+1)(2n+1)/6",
+            "note": ""
+          },
+          {
+            "label": "Sum of cubes",
+            "formula": "[n(n+1)/2]²",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "aⁿ − bⁿ is ALWAYS divisible by (a−b)",
+          "aⁿ − bⁿ is divisible by (a+b) when n is even",
+          "aⁿ + bⁿ is divisible by (a+b) when n is odd",
+          "Remainder of any number ÷9 = sum of its digits ÷9",
+          "Power of prime p in n! = ⌊n/p⌋ + ⌊n/p²⌋ + ⌊n/p³⌋ + ..."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "averages",
+    "title": "Averages",
+    "icon": "📊",
+    "color": "#10B981",
+    "colorSoft": "rgba(16,185,129,0.10)",
+    "colorLine": "rgba(16,185,129,0.25)",
+    "tag": "AVG",
+    "topics": [
+      {
+        "title": "Core Formulas",
+        "items": [
+          {
+            "label": "Average",
+            "formula": "Average = Sum of all items / Number of items",
+            "note": ""
+          },
+          {
+            "label": "Sum",
+            "formula": "Sum = Average × Number of items",
+            "note": ""
+          },
+          {
+            "label": "Weighted Average",
+            "formula": "Avg = (w₁x₁ + w₂x₂ + ...) / (w₁ + w₂ + ...)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Arithmetic Progressions",
+        "items": [
+          {
+            "label": "Average of AP",
+            "formula": "Average = (First + Last) / 2",
+            "note": "Also = middle term"
+          },
+          {
+            "label": "Consecutive integers avg",
+            "formula": "Average = (n+1)/2 for 1 to n",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "New average when one item added: New Avg = Old Avg + (New Value − Old Avg)/(n+1)",
+          "New average when item removed: New Avg = Old Avg − (Removed Value − Old Avg)/(n−1)",
+          "If avg of n numbers is A, and one number is replaced by X → change in avg = (X − replaced)/ n",
+          "Average of first n odd numbers = n. Average of first n even numbers = n+1",
+          "Average of n consecutive numbers starting from a = a + (n−1)/2"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "algebra",
+    "title": "Algebra & Equations",
+    "icon": "🔣",
+    "color": "#8B5CF6",
+    "colorSoft": "rgba(139,92,246,0.10)",
+    "colorLine": "rgba(139,92,246,0.25)",
+    "tag": "ALG",
+    "topics": [
+      {
+        "title": "Key Identities",
+        "items": [
+          {
+            "label": "(a+b)²",
+            "formula": "a² + 2ab + b²",
+            "note": ""
+          },
+          {
+            "label": "(a−b)²",
+            "formula": "a² − 2ab + b²",
+            "note": ""
+          },
+          {
+            "label": "(a+b)(a−b)",
+            "formula": "a² − b²",
+            "note": "Difference of squares"
+          },
+          {
+            "label": "(a+b)³",
+            "formula": "a³ + 3a²b + 3ab² + b³",
+            "note": ""
+          },
+          {
+            "label": "(a−b)³",
+            "formula": "a³ − 3a²b + 3ab² − b³",
+            "note": ""
+          },
+          {
+            "label": "a³+b³",
+            "formula": "(a+b)(a²−ab+b²)",
+            "note": ""
+          },
+          {
+            "label": "a³−b³",
+            "formula": "(a−b)(a²+ab+b²)",
+            "note": ""
+          },
+          {
+            "label": "a²+b²",
+            "formula": "(a+b)² − 2ab = (a−b)² + 2ab",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Quadratic Equations",
+        "items": [
+          {
+            "label": "Roots",
+            "formula": "x = [−b ± √(b²−4ac)] / 2a",
+            "note": "Discriminant D = b²−4ac"
+          },
+          {
+            "label": "D > 0",
+            "formula": "Two real distinct roots",
+            "note": ""
+          },
+          {
+            "label": "D = 0",
+            "formula": "Two equal real roots",
+            "note": ""
+          },
+          {
+            "label": "D < 0",
+            "formula": "No real roots (complex)",
+            "note": ""
+          },
+          {
+            "label": "Sum of roots",
+            "formula": "α + β = −b/a",
+            "note": ""
+          },
+          {
+            "label": "Product of roots",
+            "formula": "αβ = c/a",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "If x + 1/x = k → x² + 1/x² = k² − 2; x³ + 1/x³ = k³ − 3k",
+          "If x − 1/x = k → x² + 1/x² = k² + 2",
+          "For any two numbers: (AM)² ≥ (GM)² → (a+b)²/4 ≥ ab",
+          "Sum of roots changes sign of coefficient of x; product is constant term / leading coefficient"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "geometry",
+    "title": "Geometry & Mensuration",
+    "icon": "📐",
+    "color": "#EF4444",
+    "colorSoft": "rgba(239,68,68,0.10)",
+    "colorLine": "rgba(239,68,68,0.25)",
+    "tag": "GEO",
+    "topics": [
+      {
+        "title": "2D Shapes",
+        "type": "table",
+        "rows": [
+          [
+            "Square (side a)",
+            "Area = a² | Perimeter = 4a | Diagonal = a√2"
+          ],
+          [
+            "Rectangle (l×b)",
+            "Area = l×b | Perimeter = 2(l+b) | Diagonal = √(l²+b²)"
+          ],
+          [
+            "Triangle",
+            "Area = ½×base×height | Perimeter = a+b+c"
+          ],
+          [
+            "Equilateral △ (side a)",
+            "Area = (√3/4)a² | Height = (√3/2)a"
+          ],
+          [
+            "Right △",
+            "Hyp² = P²+B² | Area = ½×P×B"
+          ],
+          [
+            "Circle (r)",
+            "Area = πr² | Circumference = 2πr"
+          ],
+          [
+            "Semi-circle",
+            "Area = πr²/2 | Perimeter = πr+2r"
+          ],
+          [
+            "Parallelogram",
+            "Area = base×height | Perimeter = 2(a+b)"
+          ],
+          [
+            "Trapezium",
+            "Area = ½×(a+b)×h"
+          ],
+          [
+            "Rhombus",
+            "Area = ½×d₁×d₂ | Side = √(d₁²+d₂²)/2"
+          ]
+        ]
+      },
+      {
+        "title": "3D Shapes",
+        "type": "table",
+        "rows": [
+          [
+            "Cube (a)",
+            "Volume=a³ | LSA=4a² | TSA=6a² | Diagonal=a√3"
+          ],
+          [
+            "Cuboid (l,b,h)",
+            "Volume=lbh | LSA=2h(l+b) | TSA=2(lb+bh+lh)"
+          ],
+          [
+            "Cylinder (r,h)",
+            "Volume=πr²h | CSA=2πrh | TSA=2πr(r+h)"
+          ],
+          [
+            "Cone (r,l,h)",
+            "Volume=⅓πr²h | CSA=πrl | TSA=πr(r+l) | l=√(r²+h²)"
+          ],
+          [
+            "Sphere (r)",
+            "Volume=⁴⁄₃πr³ | Surface=4πr²"
+          ],
+          [
+            "Hemisphere (r)",
+            "Volume=⅔πr³ | CSA=2πr² | TSA=3πr²"
+          ]
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "If all sides of rectangle increased by x% → Area increases by (2x + x²/100)%",
+          "Radius increased by r% → Area increases by (2r + r²/100)%",
+          "Diagonal of square = side × √2 ≈ side × 1.414",
+          "Heron's formula: Area = √[s(s−a)(s−b)(s−c)] where s = (a+b+c)/2",
+          "Sum of angles in polygon of n sides = (n−2) × 180°"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "probability",
+    "title": "Probability",
+    "icon": "🎲",
+    "color": "#14B8A6",
+    "colorSoft": "rgba(20,184,166,0.10)",
+    "colorLine": "rgba(20,184,166,0.25)",
+    "tag": "PROB",
+    "topics": [
+      {
+        "title": "Core Formulas",
+        "items": [
+          {
+            "label": "Probability",
+            "formula": "P(E) = Favorable Outcomes / Total Outcomes",
+            "note": "0 ≤ P(E) ≤ 1"
+          },
+          {
+            "label": "Complement",
+            "formula": "P(E') = 1 − P(E)",
+            "note": "Probability of NOT happening"
+          },
+          {
+            "label": "Addition Rule",
+            "formula": "P(A∪B) = P(A) + P(B) − P(A∩B)",
+            "note": ""
+          },
+          {
+            "label": "Mutually exclusive",
+            "formula": "P(A∪B) = P(A) + P(B)",
+            "note": "When A∩B = 0"
+          },
+          {
+            "label": "Independent events",
+            "formula": "P(A∩B) = P(A) × P(B)",
+            "note": ""
+          },
+          {
+            "label": "Conditional prob",
+            "formula": "P(A|B) = P(A∩B) / P(B)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Permutation & Combination",
+        "items": [
+          {
+            "label": "nPr",
+            "formula": "nPr = n! / (n−r)!",
+            "note": "Arrangements (order matters)"
+          },
+          {
+            "label": "nCr",
+            "formula": "nCr = n! / [r!(n−r)!]",
+            "note": "Selections (order doesn't matter)"
+          },
+          {
+            "label": "nCr = nC(n−r)",
+            "formula": "Symmetric property",
+            "note": ""
+          },
+          {
+            "label": "nC0 = nCn = 1",
+            "formula": "Always",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Standard Outcomes",
+        "type": "table",
+        "rows": [
+          [
+            "Coin toss",
+            "Sample space = 2 | Heads/Tails = 1 each"
+          ],
+          [
+            "Two coins",
+            "Sample space = 4 | HH,HT,TH,TT"
+          ],
+          [
+            "Die",
+            "Sample space = 6 | Each face = 1"
+          ],
+          [
+            "Two dice",
+            "Sample space = 36"
+          ],
+          [
+            "Deck of cards",
+            "52 cards | 4 suits, 13 each | Face cards = 12"
+          ]
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "At least one = 1 − P(none). Always easier to calculate complement.",
+          "Balls in bag: P(same color) when 2 drawn = nC2/NC2 for each color",
+          "nCr + nC(r−1) = (n+1)Cr — Pascal's triangle rule",
+          "Probability of exactly k successes in n trials = nCk × pᵏ × (1−p)ⁿ⁻ᵏ"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "age-problems",
+    "title": "Age Problems",
+    "icon": "👤",
+    "color": "#A855F7",
+    "colorSoft": "rgba(168,85,247,0.10)",
+    "colorLine": "rgba(168,85,247,0.25)",
+    "tag": "AGE",
+    "topics": [
+      {
+        "title": "Key Approach",
+        "items": [
+          {
+            "label": "Present age assumption",
+            "formula": "Let present age = x, solve equation",
+            "note": "Always define variable clearly"
+          },
+          {
+            "label": "n years ago",
+            "formula": "Age was = (x − n)",
+            "note": ""
+          },
+          {
+            "label": "n years later",
+            "formula": "Age will be = (x + n)",
+            "note": ""
+          },
+          {
+            "label": "Ratio of ages",
+            "formula": "If ratio is a:b → ages are ak & bk",
+            "note": "Find k from extra condition"
+          }
+        ]
+      },
+      {
+        "title": "Common Problem Types",
+        "items": [
+          {
+            "label": "Sum/difference given",
+            "formula": "Set up equations; solve simultaneously",
+            "note": ""
+          },
+          {
+            "label": "Ratio changes over time",
+            "formula": "Past ratio gives one eq, future gives another",
+            "note": ""
+          },
+          {
+            "label": "Average age of group",
+            "formula": "Total age = avg × number of people",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "If ages of A & B are in ratio p:q and after n years ratio becomes r:s → solve (pk+n)/(qk+n) = r/s",
+          "When ages differ by constant d: this difference never changes over time",
+          "If father is x times older than son now, after y years he'll be z times: solve x(son) + y = z(son+y)",
+          "For three people: Sum of ages = given. Age difference is constant over time."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "series-sequences",
+    "title": "Series & Sequences",
+    "icon": "🔁",
+    "color": "#F43F5E",
+    "colorSoft": "rgba(244,63,94,0.10)",
+    "colorLine": "rgba(244,63,94,0.25)",
+    "tag": "SEQ",
+    "topics": [
+      {
+        "title": "Arithmetic Progression (AP)",
+        "items": [
+          {
+            "label": "nth term",
+            "formula": "aₙ = a + (n−1)d",
+            "note": "a=first term, d=common difference"
+          },
+          {
+            "label": "Sum of n terms",
+            "formula": "Sₙ = n/2 × [2a + (n−1)d]",
+            "note": ""
+          },
+          {
+            "label": "Sₙ (using last term)",
+            "formula": "Sₙ = n/2 × (a + l)",
+            "note": "l = last term"
+          },
+          {
+            "label": "Common difference",
+            "formula": "d = (l−a)/(n−1)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Geometric Progression (GP)",
+        "items": [
+          {
+            "label": "nth term",
+            "formula": "aₙ = ar^(n−1)",
+            "note": "r = common ratio"
+          },
+          {
+            "label": "Sum of n terms (r≠1)",
+            "formula": "Sₙ = a(rⁿ−1)/(r−1) if r>1",
+            "note": "or a(1−rⁿ)/(1−r) if r<1"
+          },
+          {
+            "label": "Sum of infinite GP",
+            "formula": "S∞ = a/(1−r), |r|<1",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Important Series",
+        "items": [
+          {
+            "label": "1+2+3+...+n",
+            "formula": "n(n+1)/2",
+            "note": ""
+          },
+          {
+            "label": "1²+2²+...+n²",
+            "formula": "n(n+1)(2n+1)/6",
+            "note": ""
+          },
+          {
+            "label": "1³+2³+...+n³",
+            "formula": "[n(n+1)/2]²",
+            "note": ""
+          },
+          {
+            "label": "2+4+6+...+2n",
+            "formula": "n(n+1)",
+            "note": ""
+          },
+          {
+            "label": "1+3+5+...+(2n−1)",
+            "formula": "n²",
+            "note": "Sum of first n odd numbers"
+          }
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "For AP: If three terms in AP, let them be a−d, a, a+d (sum = 3a)",
+          "For GP: If three terms in GP, let them be a/r, a, ar (product = a³)",
+          "Check if series is AP: differences between consecutive terms should be equal",
+          "Check if series is GP: ratios between consecutive terms should be equal"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "logical-reasoning",
+    "title": "Logical Reasoning",
+    "icon": "🧠",
+    "color": "#0EA5E9",
+    "colorSoft": "rgba(14,165,233,0.10)",
+    "colorLine": "rgba(14,165,233,0.25)",
+    "tag": "LR",
+    "topics": [
+      {
+        "title": "Syllogisms",
+        "items": [
+          {
+            "label": "All A are B + All B are C",
+            "formula": "→ All A are C (valid)",
+            "note": ""
+          },
+          {
+            "label": "Some A are B + All B are C",
+            "formula": "→ Some A are C (valid)",
+            "note": ""
+          },
+          {
+            "label": "No A is B + All C are A",
+            "formula": "→ No C is B (valid)",
+            "note": ""
+          },
+          {
+            "label": "Possible conclusion",
+            "formula": "Use Venn diagrams to check",
+            "note": "Draw all possible scenarios"
+          }
+        ]
+      },
+      {
+        "title": "Blood Relations",
+        "type": "tricks",
+        "items": [
+          "Father's/Mother's Father = Grandfather | Sister's Son = Nephew | Brother's Son = Nephew",
+          "Son's Wife = Daughter-in-law | Daughter's Husband = Son-in-law",
+          "Always read the relation from the question end to the person mentioned",
+          "Trick: Draw a family tree with M/F labels and generation levels"
+        ]
+      },
+      {
+        "title": "Directions",
+        "items": [
+          {
+            "label": "Clockwise from North",
+            "formula": "N → E → S → W → N",
+            "note": "Right turns"
+          },
+          {
+            "label": "Anti-clockwise from North",
+            "formula": "N → W → S → E → N",
+            "note": "Left turns"
+          },
+          {
+            "label": "Shadow direction",
+            "formula": "Morning: Shadow to West | Evening: Shadow to East",
+            "note": "Sun rises East, sets West"
+          },
+          {
+            "label": "Distance formula",
+            "formula": "Use Pythagoras for displacement",
+            "note": "√(x²+y²) for L-shape path"
+          }
+        ]
+      },
+      {
+        "title": "Coding-Decoding",
+        "type": "tricks",
+        "items": [
+          "Letter coding: A=1, B=2...Z=26. Check if +n or −n pattern or mirror (A=Z, B=Y...)",
+          "Reverse alphabet: position of letter from end = 27 − position from start",
+          "Number coding: check addition, subtraction, multiplication of letter positions",
+          "Symbol coding: tabulate each word-code pair and find pattern per letter"
+        ]
+      },
+      {
+        "title": "Seating Arrangements",
+        "type": "tricks",
+        "items": [
+          "Linear arrangement: fix one person and arrange remaining (n−1)! ways",
+          "Circular: (n−1)! arrangements | Round table with same direction = (n−1)!/2",
+          "Draw a table/circle and fill clues systematically, eliminate contradictions",
+          "Start with the most constrained condition (most information given)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "data-interpretation",
+    "title": "Data Interpretation",
+    "icon": "📉",
+    "color": "#64748B",
+    "colorSoft": "rgba(100,116,139,0.10)",
+    "colorLine": "rgba(100,116,139,0.25)",
+    "tag": "DI",
+    "topics": [
+      {
+        "title": "Key Approaches",
+        "items": [
+          {
+            "label": "% change",
+            "formula": "[(New−Old)/Old] × 100",
+            "note": "Always from OLD value"
+          },
+          {
+            "label": "% share",
+            "formula": "(Part/Total) × 100",
+            "note": ""
+          },
+          {
+            "label": "Ratio comparison",
+            "formula": "Convert to decimals for quick comparison",
+            "note": ""
+          },
+          {
+            "label": "Bar chart reading",
+            "formula": "Read values carefully — scale matters!",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Common DI Tricks",
+        "type": "tricks",
+        "items": [
+          "Approximate! DI rarely needs exact calculation — use rounding to 1-2 decimal places",
+          "Percentage comparison: a/b vs c/d → cross multiply: a×d vs c×b",
+          "If both numerator and denominator increase, compare their % changes to determine ratio direction",
+          "For pie charts: angle = (value/total) × 360°",
+          "Read question carefully — 'more than' vs 'more than double' are different!"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "calendar-dates",
+    "title": "Calendar & Dates",
+    "icon": "📅",
+    "color": "#6366F1",
+    "colorSoft": "rgba(99,102,241,0.10)",
+    "colorLine": "rgba(99,102,241,0.25)",
+    "tag": "CAL",
+    "topics": [
+      {
+        "title": "Key Concept: Odd Days",
+        "items": [
+          {
+            "label": "Odd Days",
+            "formula": "Remainder when total days ÷ 7",
+            "note": "Determines the day of the week"
+          },
+          {
+            "label": "Ordinary year (365 days)",
+            "formula": "365 = 52 weeks + 1 day → 1 Odd Day",
+            "note": "Every ordinary year shifts day by +1"
+          },
+          {
+            "label": "Leap year (366 days)",
+            "formula": "366 = 52 weeks + 2 days → 2 Odd Days",
+            "note": "Every leap year shifts day by +2"
+          },
+          {
+            "label": "100 years",
+            "formula": "76 ordinary + 24 leap = 76 + 48 = 124 odd days = 5 odd days",
+            "note": "100 years = 5 odd days"
+          },
+          {
+            "label": "200 years",
+            "formula": "2 × 5 = 10 → 10 mod 7 = 3 odd days",
+            "note": ""
+          },
+          {
+            "label": "300 years",
+            "formula": "3 × 5 = 15 → 15 mod 7 = 1 odd day",
+            "note": ""
+          },
+          {
+            "label": "400 years",
+            "formula": "4 × 5 + 1 = 21 → 21 mod 7 = 0 odd days",
+            "note": "400 years is perfectly divisible"
+          }
+        ]
+      },
+      {
+        "title": "Day Code Table",
+        "type": "table",
+        "rows": [
+          [
+            "Odd Days",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          [
+            "Day",
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ]
+        ]
+      },
+      {
+        "title": "Leap Year Rules",
+        "items": [
+          {
+            "label": "Ordinary Leap Year",
+            "formula": "Divisible by 4 AND NOT by 100",
+            "note": "e.g. 2024 ✓, 2100 ✗"
+          },
+          {
+            "label": "Century Leap Year",
+            "formula": "Divisible by 400",
+            "note": "e.g. 1600 ✓, 2000 ✓, 1900 ✗"
+          },
+          {
+            "label": "Quick Check",
+            "formula": "If year % 400 = 0 → Leap | Else if year % 100 = 0 → NOT Leap | Else if year % 4 = 0 → Leap",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Month Odd Days (Non-Leap Year)",
+        "type": "table",
+        "rows": [
+          [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ],
+          [
+            "3",
+            "0",
+            "3",
+            "2",
+            "3",
+            "2",
+            "3",
+            "3",
+            "2",
+            "3",
+            "2",
+            "3"
+          ]
+        ]
+      },
+      {
+        "title": "Month Codes (Zeller/NQT Method)",
+        "type": "table",
+        "rows": [
+          [
+            "Month",
+            "Code"
+          ],
+          [
+            "January",
+            "1 (or 6 in leap year)"
+          ],
+          [
+            "February",
+            "4 (or 2 in leap year)"
+          ],
+          [
+            "March",
+            "4"
+          ],
+          [
+            "April",
+            "0"
+          ],
+          [
+            "May",
+            "2"
+          ],
+          [
+            "June",
+            "5"
+          ],
+          [
+            "July",
+            "0"
+          ],
+          [
+            "August",
+            "3"
+          ],
+          [
+            "September",
+            "6"
+          ],
+          [
+            "October",
+            "1"
+          ],
+          [
+            "November",
+            "4"
+          ],
+          [
+            "December",
+            "6"
+          ]
+        ]
+      },
+      {
+        "title": "Finding Day for Any Date (Step-by-Step)",
+        "items": [
+          {
+            "label": "Step 1",
+            "formula": "Take last 2 digits of year → call it 'a'",
+            "note": "e.g. for 2023 → a = 23"
+          },
+          {
+            "label": "Step 2",
+            "formula": "Calculate b = a/4 (ignore remainder)",
+            "note": "e.g. 23/4 = 5"
+          },
+          {
+            "label": "Step 3",
+            "formula": "Take date number → call it 'c'",
+            "note": "e.g. 15th → c = 15"
+          },
+          {
+            "label": "Step 4",
+            "formula": "Look up month code from table → call it 'd'",
+            "note": "e.g. March = 4 → d = 4"
+          },
+          {
+            "label": "Step 5",
+            "formula": "Century code: 1800→2, 1900→0, 2000→6, 2100→4",
+            "note": "e.g. 2000s → 6"
+          },
+          {
+            "label": "Step 6",
+            "formula": "Total = a + b + c + d + century_code",
+            "note": ""
+          },
+          {
+            "label": "Step 7",
+            "formula": "Day = Total mod 7 → use day code table (0=Sun, 1=Mon...)",
+            "note": "If leap year & month is Jan/Feb, subtract 1"
+          }
+        ]
+      },
+      {
+        "title": "Quick Day-Finding Formula",
+        "items": [
+          {
+            "label": "Formula",
+            "formula": "Day = (d + m + y + y/4 + c) mod 7",
+            "note": "d=date, m=month code, y=last 2 digits of year, c=century code"
+          },
+          {
+            "label": "Same date, next year",
+            "formula": "If non-leap year: day advances by 1 | If leap year: day advances by 2",
+            "note": ""
+          },
+          {
+            "label": "Day after n days",
+            "formula": "New Day = (Current Day Number + n) mod 7",
+            "note": "Sun=0, Mon=1, Tue=2, Wed=3, Thu=4, Fri=5, Sat=6"
+          }
+        ]
+      },
+      {
+        "title": "Practical Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "SAME DAY TRICK: If today is Monday (1st), then 8th, 15th, 22nd, 29th are ALL Mondays (add 7 each time)",
+          "DAY COUNTING: If 7th is Monday → 14th Mon → 21st Mon → 28th Mon → 27th = Sunday (28-1), 29th = Tuesday (28+1)",
+          "EXAMPLE: If March 23 is asked and today is Monday March 2 → Gap = 21 days = 3 weeks → same day = Monday",
+          "EXAMPLE: If Jan 1 is Wednesday → Jan 25 = Jan 1 + 24 days = 24 mod 7 = 3 → Wednesday + 3 = Saturday",
+          "LEAP YEAR CALENDAR TRICK: Feb has 29 days in leap year. After Feb 28, leap year inserts extra day",
+          "CENTURY RULE: Jan 1, 1901 = Tuesday. Jan 1, 2001 = Monday. Jan 1, 1800 = Wednesday",
+          "If a year starts on Monday, the same year ends on Monday (non-leap). If leap, ends on Tuesday",
+          "SHORTCUT for this year: Find Jan 1 day → use odd days for each month to track forward"
+        ]
+      },
+      {
+        "title": "Common Exam Questions Explained",
+        "type": "tricks",
+        "items": [
+          "Q: What day is 23rd March if today (6th June) is Saturday? → Find day of 23rd March: Count backwards or use formula",
+          "Q: If 15 Aug 1947 was Friday, what day was 26 Jan 1950? → Count odd days between dates",
+          "Q: What is the last day of a century? → Every century (100, 200, 300) ends on Friday. 400-century ends on Sunday",
+          "Q: Which year has same calendar as 2024? → After leap year, repeat after 28 years (or find year with 0 odd days gap)",
+          "Q: If today is Thursday, what day will it be 100 days later? → 100 mod 7 = 2 → Thursday + 2 = Saturday",
+          "Q: On what day does February end in 2025? → 2025 is not a leap year → Feb has 28 days. Jan 1 2025 = Wednesday → Jan has 31 days = 31 mod 7 = 3 odd days → Feb 1 = Saturday → Feb 28 = Saturday + 27 days = 27 mod 7 = 6 → Saturday + 6 = Friday"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "clocks",
+    "title": "Clocks",
+    "icon": "🕐",
+    "color": "#D97706",
+    "colorSoft": "rgba(217,119,6,0.10)",
+    "colorLine": "rgba(217,119,6,0.25)",
+    "tag": "CLK",
+    "topics": [
+      {
+        "title": "Core Concepts",
+        "items": [
+          {
+            "label": "Speed of Hour hand",
+            "formula": "0.5° per minute (360° in 12 hours = 720 minutes)",
+            "note": "Hour hand moves 30° per hour"
+          },
+          {
+            "label": "Speed of Minute hand",
+            "formula": "6° per minute (360° in 60 minutes)",
+            "note": "Minute hand moves 360° per hour"
+          },
+          {
+            "label": "Relative speed",
+            "formula": "Minute hand gains 5.5° per minute over hour hand",
+            "note": "= 6° − 0.5° = 5.5° per minute"
+          },
+          {
+            "label": "Minute hand gain per hour",
+            "formula": "Minute hand gains 55 minutes over hour hand per hour",
+            "note": "In 60 min, minute hand gains 55 min spaces"
+          }
+        ]
+      },
+      {
+        "title": "Angle Between Hands",
+        "items": [
+          {
+            "label": "Angle Formula",
+            "formula": "Angle = |30H − 5.5M|",
+            "note": "H = hours, M = minutes. If >180°, subtract from 360°"
+          },
+          {
+            "label": "Example: 3:20",
+            "formula": "|30×3 − 5.5×20| = |90 − 110| = 20°",
+            "note": ""
+          },
+          {
+            "label": "Example: 9:45",
+            "formula": "|30×9 − 5.5×45| = |270 − 247.5| = 22.5°",
+            "note": ""
+          },
+          {
+            "label": "Hands coincide",
+            "formula": "Every 65.45 min (= 720/11 minutes)",
+            "note": "Hands meet 22 times in 24 hours"
+          },
+          {
+            "label": "Hands at right angle",
+            "formula": "Every 32.72 min (= 360/11 minutes)",
+            "note": "Occurs 44 times in 24 hours"
+          },
+          {
+            "label": "Hands opposite (180°)",
+            "formula": "Every 65.45 min (22 times in 24 hours)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Incorrect Clock Problems",
+        "items": [
+          {
+            "label": "Clock gains time",
+            "formula": "Actual time = (Correct time × 60) / (60 + gain per hour)",
+            "note": ""
+          },
+          {
+            "label": "Clock loses time",
+            "formula": "Actual time = (Correct time × 60) / (60 − loss per hour)",
+            "note": ""
+          },
+          {
+            "label": "Time when clock shows correct again",
+            "formula": "If gain = x min/hr → After 12×60/(x) hours it shows correct time",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "At 12:00 both hands coincide. Next coincidence is at 12:65.45 (12 hr 5 min 27 sec approx)",
+          "Between any two consecutive hours, hands coincide ONCE (except 11 and 12 where they coincide once also)",
+          "In 12 hours, hands coincide 11 times (NOT 12). In 24 hours = 22 times",
+          "Hands are perpendicular (90°) in 12 hours = 22 times. In 24 hours = 44 times",
+          "Hands opposite (180°) in 12 hours = 11 times. In 24 hours = 22 times",
+          "TRICK: Time when minute and hour hand coincide after H hours: M = (60H)/11 minutes past H",
+          "If a clock is set right at 8 AM and gains 10 min/hour, by 1 PM (5 hours later) it shows: 1 PM + 50 min = 1:50 PM"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "boats-streams",
+    "title": "Boats & Streams",
+    "icon": "🚣",
+    "color": "#0891B2",
+    "colorSoft": "rgba(8,145,178,0.10)",
+    "colorLine": "rgba(8,145,178,0.25)",
+    "tag": "B&S",
+    "topics": [
+      {
+        "title": "Core Formulas",
+        "items": [
+          {
+            "label": "Downstream speed",
+            "formula": "D = u + v",
+            "note": "u = boat speed in still water, v = stream speed"
+          },
+          {
+            "label": "Upstream speed",
+            "formula": "U = u − v",
+            "note": "Boat against current"
+          },
+          {
+            "label": "Boat speed (still water)",
+            "formula": "u = (D + U) / 2",
+            "note": "Average of downstream and upstream"
+          },
+          {
+            "label": "Stream speed",
+            "formula": "v = (D − U) / 2",
+            "note": "Half the difference"
+          },
+          {
+            "label": "Time downstream",
+            "formula": "t = Distance / (u + v)",
+            "note": ""
+          },
+          {
+            "label": "Time upstream",
+            "formula": "t = Distance / (u − v)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Round Trip",
+        "items": [
+          {
+            "label": "Round trip time",
+            "formula": "T = d/(u+v) + d/(u−v)",
+            "note": "d = one-way distance"
+          },
+          {
+            "label": "Average speed for round trip",
+            "formula": "Avg = 2(u+v)(u−v) / (u+v + u−v) = (u²−v²)/u",
+            "note": ""
+          },
+          {
+            "label": "If man rows to point and back",
+            "formula": "T_total = 2du / (u²−v²)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "If a man can row at u km/h in still water and stream speed is v km/h → Downstream = u+v, Upstream = u−v",
+          "Speed of current = (Downstream − Upstream) / 2",
+          "Speed in still water = (Downstream + Upstream) / 2",
+          "If downstream time = t1, upstream time = t2 for same distance d → d/t1 = D-speed, d/t2 = U-speed → solve for u and v",
+          "Man rows x km upstream and x km downstream: Time ratio = Upstream time / Downstream time = (u+v)/(u−v)",
+          "TRICK: If speed downstream is a and upstream is b → boat speed = (a+b)/2, current = (a−b)/2"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "trains",
+    "title": "Problems on Trains",
+    "icon": "🚂",
+    "color": "#B45309",
+    "colorSoft": "rgba(180,83,9,0.10)",
+    "colorLine": "rgba(180,83,9,0.25)",
+    "tag": "TRN",
+    "topics": [
+      {
+        "title": "Core Formulas",
+        "items": [
+          {
+            "label": "Speed",
+            "formula": "Speed = Distance / Time",
+            "note": "Always use consistent units"
+          },
+          {
+            "label": "km/h to m/s",
+            "formula": "Multiply by 5/18",
+            "note": "e.g. 72 km/h = 20 m/s"
+          },
+          {
+            "label": "m/s to km/h",
+            "formula": "Multiply by 18/5",
+            "note": "e.g. 20 m/s = 72 km/h"
+          },
+          {
+            "label": "Train crosses a pole/man",
+            "formula": "Time = Length of train / Speed",
+            "note": "Pole/man = point object (0 length)"
+          },
+          {
+            "label": "Train crosses a platform/bridge",
+            "formula": "Time = (Length of train + Length of platform) / Speed",
+            "note": "Both lengths matter"
+          },
+          {
+            "label": "Train crosses a standing man",
+            "formula": "Time = Length of train / Speed",
+            "note": "Same as crossing a pole"
+          },
+          {
+            "label": "Train crosses a moving man (same dir)",
+            "formula": "Time = Length of train / (Speed of train − Speed of man)",
+            "note": "Relative speed"
+          },
+          {
+            "label": "Train crosses a moving man (opp dir)",
+            "formula": "Time = Length of train / (Speed of train + Speed of man)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Two Trains",
+        "items": [
+          {
+            "label": "Same direction",
+            "formula": "Relative Speed = |S₁ − S₂| | Time = (L₁+L₂)/(S₁−S₂)",
+            "note": "Faster chases slower"
+          },
+          {
+            "label": "Opposite directions",
+            "formula": "Relative Speed = S₁ + S₂ | Time = (L₁+L₂)/(S₁+S₂)",
+            "note": "Head-on approach"
+          },
+          {
+            "label": "Distance between trains",
+            "formula": "If both start at same time from A & B → D covered = sum × time if opp, diff × time if same",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "KEY: When a train passes a STANDING object → distance = train length only",
+          "KEY: When a train passes a MOVING object → add or subtract speed based on direction",
+          "KEY: When a train passes a PLATFORM → distance = train length + platform length",
+          "If train takes t1 sec to pass a pole and t2 sec to pass a platform of length L → Train length = L×t1/(t2−t1)",
+          "Two trains start from A & B towards each other, distance D, speeds S1 & S2 → Meet after D/(S1+S2) hours",
+          "After meeting, train 1 takes t1 hours and train 2 takes t2 hours to reach destination → S1/S2 = √(t2/t1)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "surds-indices",
+    "title": "Surds & Indices",
+    "icon": "√",
+    "color": "#7C3AED",
+    "colorSoft": "rgba(124,58,237,0.10)",
+    "colorLine": "rgba(124,58,237,0.25)",
+    "tag": "S&I",
+    "topics": [
+      {
+        "title": "Laws of Indices",
+        "items": [
+          {
+            "label": "aᵐ × aⁿ",
+            "formula": "= aᵐ⁺ⁿ",
+            "note": "Same base: add powers"
+          },
+          {
+            "label": "aᵐ / aⁿ",
+            "formula": "= aᵐ⁻ⁿ",
+            "note": "Same base: subtract powers"
+          },
+          {
+            "label": "(aᵐ)ⁿ",
+            "formula": "= aᵐⁿ",
+            "note": "Power of power: multiply"
+          },
+          {
+            "label": "(ab)ⁿ",
+            "formula": "= aⁿ × bⁿ",
+            "note": ""
+          },
+          {
+            "label": "a⁰",
+            "formula": "= 1",
+            "note": "Any non-zero base to power 0 = 1"
+          },
+          {
+            "label": "a⁻ⁿ",
+            "formula": "= 1/aⁿ",
+            "note": "Negative exponent = reciprocal"
+          },
+          {
+            "label": "a^(1/n)",
+            "formula": "= ⁿ√a",
+            "note": "Fractional exponent = nth root"
+          },
+          {
+            "label": "a^(m/n)",
+            "formula": "= (ⁿ√a)ᵐ",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Surds (Irrational Roots)",
+        "items": [
+          {
+            "label": "Surd",
+            "formula": "Expression like √2, ³√5 that cannot be simplified to rational",
+            "note": ""
+          },
+          {
+            "label": "Like surds",
+            "formula": "√2 + 3√2 = 4√2",
+            "note": "Same radicand: add/subtract coefficients"
+          },
+          {
+            "label": "Rationalizing 1/√a",
+            "formula": "= √a/a (multiply by √a/√a)",
+            "note": ""
+          },
+          {
+            "label": "Rationalizing 1/(a+√b)",
+            "formula": "= (a−√b)/(a²−b)",
+            "note": "Multiply by conjugate"
+          }
+        ]
+      },
+      {
+        "title": "Important Square Root Values",
+        "type": "table",
+        "rows": [
+          [
+            "√2",
+            "√3",
+            "√5",
+            "√6",
+            "√7",
+            "√10"
+          ],
+          [
+            "1.414",
+            "1.732",
+            "2.236",
+            "2.449",
+            "2.646",
+            "3.162"
+          ]
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "aˣ = aʸ → x = y (when a ≠ 0, 1). Use to solve exponential equations directly",
+          "Unit digit cycles of 4: 2→(2,4,8,6), 3→(3,9,7,1), 7→(7,9,3,1), 8→(8,4,2,6)",
+          "Unit digit cycles of 2: 4→(4,6), 9→(9,1). Use exponent mod cycle-length to find unit digit",
+          "If aˣ = b → x = log_a(b). Useful for comparing expressions with different bases",
+          "√(a + √(a + √(a + ...∞))) = (1 + √(1+4a)) / 2 — nested radical infinity formula"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "permutation-combination",
+    "title": "Permutation & Combination",
+    "icon": "🎯",
+    "color": "#059669",
+    "colorSoft": "rgba(5,150,105,0.10)",
+    "colorLine": "rgba(5,150,105,0.25)",
+    "tag": "P&C",
+    "topics": [
+      {
+        "title": "Core Formulas",
+        "items": [
+          {
+            "label": "Factorial n!",
+            "formula": "n × (n−1) × ... × 1",
+            "note": "0! = 1, 1! = 1"
+          },
+          {
+            "label": "nPr (Permutation)",
+            "formula": "n! / (n−r)!",
+            "note": "Arrangements — ORDER MATTERS"
+          },
+          {
+            "label": "nCr (Combination)",
+            "formula": "n! / [r!(n−r)!]",
+            "note": "Selections — ORDER DOESN'T MATTER"
+          },
+          {
+            "label": "nCr = nC(n−r)",
+            "formula": "Symmetric: ¹⁰C₃ = ¹⁰C₇",
+            "note": ""
+          },
+          {
+            "label": "nPr = nCr × r!",
+            "formula": "Permutation = Combination × r!",
+            "note": ""
+          },
+          {
+            "label": "nC0 = nCn = 1",
+            "formula": "Always 1",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Special Arrangements",
+        "items": [
+          {
+            "label": "Circular permutation",
+            "formula": "(n−1)!",
+            "note": "n objects in a circle"
+          },
+          {
+            "label": "Necklace / Bracelet",
+            "formula": "(n−1)! / 2",
+            "note": "Flipping gives same arrangement"
+          },
+          {
+            "label": "Word with repeated letters",
+            "formula": "n! / (p! × q! × r!...)",
+            "note": "p, q, r = frequencies of repeated letters"
+          },
+          {
+            "label": "Objects always together",
+            "formula": "Treat k objects as 1 → (n−k+1)! × k!",
+            "note": ""
+          },
+          {
+            "label": "Objects never together",
+            "formula": "Total arrangements − always together",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "nCr = choose r from n (order doesn't matter). nPr = arrange r from n (order matters)",
+          "VOWELS TOGETHER trick: treat all vowels as one block → (n−v+1)! × v! arrangements",
+          "AT LEAST ONE: 2ⁿ − 1 ways to select from n distinct items (every possible non-empty subset)",
+          "TOTAL SUBSETS of n items = 2ⁿ (including empty set)",
+          "MISSISSIPPI has 11 letters (I=4, S=4, P=2, M=1) → arrangements = 11!/(4!×4!×2!×1!) = 34650",
+          "Dividing n items into groups p, q, r (distinct groups): n!/(p!×q!×r!)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "word-problems",
+    "title": "Word Problems & Equations",
+    "icon": "📝",
+    "color": "#DC2626",
+    "colorSoft": "rgba(220,38,38,0.10)",
+    "colorLine": "rgba(220,38,38,0.25)",
+    "tag": "WP",
+    "topics": [
+      {
+        "title": "Number Problems",
+        "items": [
+          {
+            "label": "Two-digit number",
+            "formula": "Number = 10a + b",
+            "note": "a=tens digit, b=units digit"
+          },
+          {
+            "label": "Reversed number",
+            "formula": "= 10b + a",
+            "note": "Swap tens and units"
+          },
+          {
+            "label": "Reversed − Original",
+            "formula": "= 9(b−a)",
+            "note": "Always a multiple of 9"
+          },
+          {
+            "label": "Three-digit number",
+            "formula": "100a + 10b + c",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Mixture & Alligation",
+        "items": [
+          {
+            "label": "Alligation Cross Rule",
+            "formula": "(Qty Cheaper)/(Qty Dearer) = (Dearer−Mean)/(Mean−Cheaper)",
+            "note": ""
+          },
+          {
+            "label": "Mixing two liquids",
+            "formula": "Final conc. = (c₁V₁ + c₂V₂)/(V₁+V₂)",
+            "note": "Weighted average"
+          },
+          {
+            "label": "Replacement formula",
+            "formula": "Pure remaining = V × (1−x/V)ⁿ",
+            "note": "x removed n times from V litres"
+          }
+        ]
+      },
+      {
+        "title": "Advanced Work & Time",
+        "items": [
+          {
+            "label": "Work equivalence",
+            "formula": "M₁D₁H₁/W₁ = M₂D₂H₂/W₂",
+            "note": "M=men, D=days, H=hours, W=work"
+          },
+          {
+            "label": "Wages distribution",
+            "formula": "Wage ratio = Work done ratio = Efficiency × Time ratio",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "Two numbers with sum S and product P → roots of x² − Sx + P = 0",
+          "Sum of n consecutive integers starting from a = n×a + n(n−1)/2",
+          "FRACTION TRICK: If N/D < 1, adding same number to both N and D increases the fraction value",
+          "MIXTURE SHORTCUT: Mix at ₹A and ₹B, sell at ₹M → ratio = (B−M):(M−A)",
+          "CHAIN RULE: 10 men do work in 8 days. Men needed in 4 days = 10×8/4 = 20 men",
+          "If A is twice as efficient as B, together they finish in T days → A alone = 3T/2, B alone = 3T"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "logarithms",
+    "title": "Logarithms",
+    "icon": "📈",
+    "color": "#D97706",
+    "colorSoft": "rgba(217,119,6,0.10)",
+    "colorLine": "rgba(217,119,6,0.25)",
+    "tag": "LOG",
+    "topics": [
+      {
+        "title": "Basic Definitions & Properties",
+        "items": [
+          {
+            "label": "Definition",
+            "formula": "If aˣ = N, then logₐ(N) = x",
+            "note": "a > 0, a ≠ 1, N > 0"
+          },
+          {
+            "label": "logₐ(a)",
+            "formula": "= 1",
+            "note": "Log of base to itself"
+          },
+          {
+            "label": "logₐ(1)",
+            "formula": "= 0",
+            "note": "Log of 1 to any base is 0"
+          }
+        ]
+      },
+      {
+        "title": "Laws of Logarithms",
+        "items": [
+          {
+            "label": "Product Rule",
+            "formula": "logₐ(MN) = logₐ(M) + logₐ(N)",
+            "note": ""
+          },
+          {
+            "label": "Quotient Rule",
+            "formula": "logₐ(M/N) = logₐ(M) − logₐ(N)",
+            "note": ""
+          },
+          {
+            "label": "Power Rule",
+            "formula": "logₐ(Mⁿ) = n × logₐ(M)",
+            "note": ""
+          },
+          {
+            "label": "Base Power Rule",
+            "formula": "log_aⁿ(M) = (1/n) × logₐ(M)",
+            "note": ""
+          },
+          {
+            "label": "Change of Base",
+            "formula": "logₐ(M) = log_b(M) / log_b(a)",
+            "note": ""
+          },
+          {
+            "label": "Reciprocal",
+            "formula": "logₐ(b) = 1 / log_b(a)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "a^(logₐ(x)) = x (Fundamental identity)",
+          "x^(logₐ(y)) = y^(logₐ(x))",
+          "If log(x) + log(y) = log(x+y), then x = y / (y-1)",
+          "Common Log: log₁₀(2) ≈ 0.3010, log₁₀(3) ≈ 0.4771"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "set-theory",
+    "title": "Set Theory & Venn Diagrams",
+    "icon": "⭕",
+    "color": "#2563EB",
+    "colorSoft": "rgba(37,99,235,0.10)",
+    "colorLine": "rgba(37,99,235,0.25)",
+    "tag": "SETS",
+    "topics": [
+      {
+        "title": "Two Sets Formulas",
+        "items": [
+          {
+            "label": "n(A ∪ B)",
+            "formula": "n(A) + n(B) − n(A ∩ B)",
+            "note": "Total elements in A or B"
+          },
+          {
+            "label": "Only A",
+            "formula": "n(A) − n(A ∩ B)",
+            "note": "Elements strictly in A"
+          },
+          {
+            "label": "Exactly one set",
+            "formula": "n(A) + n(B) − 2n(A ∩ B)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Three Sets Formulas",
+        "items": [
+          {
+            "label": "n(A ∪ B ∪ C)",
+            "formula": "n(A) + n(B) + n(C) − n(A∩B) − n(B∩C) − n(C∩A) + n(A∩B∩C)",
+            "note": ""
+          },
+          {
+            "label": "Exactly two sets",
+            "formula": "n(A∩B) + n(B∩C) + n(C∩A) − 3n(A∩B∩C)",
+            "note": ""
+          },
+          {
+            "label": "Exactly one set",
+            "formula": "n(A) + n(B) + n(C) − 2(n(A∩B) + n(B∩C) + n(C∩A)) + 3n(A∩B∩C)",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Tricks & Shortcuts",
+        "type": "tricks",
+        "items": [
+          "Always fill the innermost intersection first (A∩B∩C) when solving Venn diagrams",
+          "Total population = n(A ∪ B ∪ C) + n(Neither)",
+          "De Morgan's Laws: (A ∪ B)' = A' ∩ B' and (A ∩ B)' = A' ∪ B'"
+        ]
+      }
+    ]
+  }
+]
