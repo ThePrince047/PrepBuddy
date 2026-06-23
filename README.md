@@ -74,7 +74,9 @@ Follow these steps to get the project up and running on your local machine:
 
 ### 2. Clone the Repository
 ```bash
-git clone <repository_url>
+git clone https://github.com/ThePrince047/PrepBuddy.git
+git branch -M main
+git push -u origin main
 cd PrepBuddy
 ```
 
